@@ -81,8 +81,10 @@ $latest = Join-Path $releaseDir 'latest.json'
 
 # 4. Commit, push, publish.
 git add -A
-git commit -m "Release $tag"
-if ($LASTEXITCODE -ne 0) { throw 'git commit failed.' }
+if (git status --porcelain) {
+    git commit -m "Release $tag"
+    if ($LASTEXITCODE -ne 0) { throw 'git commit failed.' }
+}
 git push origin HEAD
 if ($LASTEXITCODE -ne 0) { throw 'git push failed.' }
 
