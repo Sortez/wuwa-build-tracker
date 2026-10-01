@@ -1,4 +1,5 @@
 import { charactersById } from '../data';
+import { useApp } from '../state';
 import type { TeamMode } from '../types';
 import CharacterAvatar from './CharacterAvatar';
 
@@ -24,6 +25,14 @@ export const tierKey = (label: string) => label.toLowerCase().replace('.', '-');
 
 export function ratingTier(rating: number): string | null {
   return TIERS.find((tier) => tier.rating === rating)?.label ?? null;
+}
+
+export function ReadyBadge() {
+  return (
+    <span className="ready-badge" title="You own every character in this team">
+      Ready
+    </span>
+  );
 }
 
 export function ModeIcon({ mode }: { mode: TeamMode }) {
@@ -132,14 +141,23 @@ export function TeamRoster({
   pad = true,
   highlightId,
 }: RosterProps) {
+  const { ownedIds } = useApp();
   const emptySlots = pad ? Math.max(0, MAX_TEAM_SIZE - characterIds.length) : 0;
 
   return (
     <div className="team-roster">
       {characterIds.map((id) => {
         const member = charactersById.get(id);
-        const highlight = highlightId === id;
-        const slotClass = highlight ? 'team-slot team-slot-highlight' : 'team-slot';
+        // Only dim once the user has started marking owned characters,
+        // otherwise every team would look greyed out.
+        const missing = ownedIds.size > 0 && !ownedIds.has(id);
+        const slotClass = [
+          'team-slot',
+          highlightId === id && 'team-slot-highlight',
+          missing && 'team-slot-missing',
+        ]
+          .filter(Boolean)
+          .join(' ');
         if (!member) {
           return (
             <span
@@ -158,8 +176,8 @@ export function TeamRoster({
             key={id}
             className={slotClass}
             role="img"
-            aria-label={member.name}
-            title={member.name}
+            aria-label={missing ? `${member.name} (not owned)` : member.name}
+            title={missing ? `${member.name} (not owned)` : member.name}
           >
             <CharacterAvatar character={member} size={size} />
           </span>

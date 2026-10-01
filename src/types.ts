@@ -159,6 +159,8 @@ export interface SkillProgress {
 }
 
 export interface CharacterProgress {
+  /** Whether the user has this character in their account. */
+  owned?: boolean;
   currentLevel: number;
   targetLevel: number;
   skills: Record<string, SkillProgress>;

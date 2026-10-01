@@ -27,6 +27,9 @@ import type {
 
 interface AppContextValue {
   state: AppState;
+  /** Ids of characters the user marked as owned. */
+  ownedIds: ReadonlySet<string>;
+  setOwned: (id: string, owned: boolean) => void;
   progressFor: (character: Character) => CharacterProgress;
   updateCharacter: (id: string, patch: Partial<CharacterProgress>) => void;
   updateSkill: (
@@ -105,21 +108,28 @@ export function AppProvider({ children }: { children: ReactNode }) {
     void saveState(state);
   }, [state, ready]);
 
-  const value = useMemo<AppContextValue>(
-    () => ({
+  const value = useMemo<AppContextValue>(() => {
+    const updateCharacter = (id: string, patch: Partial<CharacterProgress>) =>
+      setState((current) => {
+        const previous = withProgress(current, id);
+        return {
+          ...current,
+          characters: {
+            ...current.characters,
+            [id]: { ...previous, ...patch },
+          },
+        };
+      });
+    return {
       state,
+      ownedIds: new Set(
+        Object.entries(state.characters)
+          .filter(([, progress]) => progress.owned)
+          .map(([id]) => id),
+      ),
+      setOwned: (id, owned) => updateCharacter(id, { owned }),
       progressFor: (character) => withProgress(state, character.id),
-      updateCharacter: (id, patch) =>
-        setState((current) => {
-          const previous = withProgress(current, id);
-          return {
-            ...current,
-            characters: {
-              ...current.characters,
-              [id]: { ...previous, ...patch },
-            },
-          };
-        }),
+      updateCharacter,
       updateSkill: (characterId, nodeId, patch) =>
         setState((current) => {
           const previous = withProgress(current, characterId);
@@ -161,9 +171,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         })),
       resetAll: () => setState(() => ({ version: 1, characters: {}, myTeams: [] })),
       replaceAll: (next) => setState(() => seedState(next)),
-    }),
-    [state],
-  );
+    };
+  }, [state]);
 
   if (!ready) {
     return (

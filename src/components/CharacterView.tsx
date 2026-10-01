@@ -4,9 +4,11 @@ import { useApp } from '../state';
 import type { Character } from '../types';
 import CharacterAvatar from './CharacterAvatar';
 import GearPanel from './GearPanel';
+import OwnedToggle from './OwnedToggle';
 import {
   ModeIcon,
   ratingTier,
+  ReadyBadge,
   TeamModeBadge,
   TeamRoster,
   tierKey,
@@ -17,7 +19,7 @@ interface Props {
 }
 
 export default function CharacterView({ character }: Props) {
-  const { state, progressFor, updateCharacter } = useApp();
+  const { state, ownedIds, progressFor, updateCharacter } = useApp();
   const progress = progressFor(character);
 
   const savedTeams = state.myTeams.filter((team) =>
@@ -45,6 +47,7 @@ export default function CharacterView({ character }: Props) {
             </p>
           </div>
         </div>
+        <OwnedToggle character={character} />
       </header>
 
       {(savedTeams.length > 0 || recommendedForChar.length > 0) && (
@@ -103,6 +106,10 @@ export default function CharacterView({ character }: Props) {
                               {wastes}
                             </span>
                           )}
+                          {ownedIds.size > 0 &&
+                            team.characterIds.every((id) => ownedIds.has(id)) && (
+                              <ReadyBadge />
+                            )}
                         </span>
                       </div>
                       <TeamRoster

@@ -8,6 +8,7 @@ import {
   MAX_TEAM_SIZE,
   MODE_META,
   ModeIcon,
+  ReadyBadge,
   TeamModeBadge,
   TeamRoster,
   TIERS,
@@ -42,9 +43,11 @@ function ModePicker({
 function RecommendedCard({
   team,
   tier,
+  ready,
 }: {
   team: RecommendedTeam;
   tier: string;
+  ready: boolean;
 }) {
   const lead = charactersById.get(team.characterIds[0]);
   return (
@@ -58,7 +61,10 @@ function RecommendedCard({
       <header className="team-card-head">
         <div className="team-card-heading">
           <h4>{team.name}</h4>
-          <span className={`tier-badge tier-${tierKey(tier)}`}>{tier}</span>
+          <span className="team-card-badges">
+            <span className={`tier-badge tier-${tierKey(tier)}`}>{tier}</span>
+            {ready && <ReadyBadge />}
+          </span>
         </div>
       </header>
       <TeamRoster characterIds={team.characterIds} />
@@ -114,11 +120,19 @@ function TeamCard({
 }
 
 export default function TeamsView() {
-  const { state, addTeam, removeTeam, setTeamMode } = useApp();
+  const { state, ownedIds, addTeam, removeTeam, setTeamMode } = useApp();
   const [name, setName] = useState('');
   const [members, setMembers] = useState<string[]>([]);
   const [mode, setMode] = useState<TeamMode>('tower');
   const [recommendedMode, setRecommendedMode] = useState<TeamMode>('tower');
+  const [onlyReady, setOnlyReady] = useState(false);
+
+  const isReady = (team: RecommendedTeam) =>
+    ownedIds.size > 0 && team.characterIds.every((id) => ownedIds.has(id));
+  const showOnlyReady = onlyReady && ownedIds.size > 0;
+  const visibleTeams = recommendedTeams.filter(
+    (team) => !showOnlyReady || isReady(team),
+  );
 
   const toggleMember = (id: string) => {
     setMembers((current) => {
@@ -155,11 +169,36 @@ export default function TeamsView() {
               Prydwen tier list &middot; {MODE_META[recommendedMode].label}
             </p>
           </div>
-          <ModePicker value={recommendedMode} onChange={setRecommendedMode} />
+          <div className="recommended-controls">
+            <label
+              className="ready-filter"
+              title={
+                ownedIds.size === 0
+                  ? 'Mark characters as owned in the roster first'
+                  : undefined
+              }
+            >
+              <input
+                type="checkbox"
+                checked={showOnlyReady}
+                disabled={ownedIds.size === 0}
+                onChange={(event) => setOnlyReady(event.target.checked)}
+              />
+              <span>Only teams I can build</span>
+            </label>
+            <ModePicker value={recommendedMode} onChange={setRecommendedMode} />
+          </div>
         </div>
 
+        {showOnlyReady &&
+          !visibleTeams.some((team) => team.ratings[recommendedMode] > 1) && (
+            <p className="muted small">
+              You don't own a full recommended team for this mode yet.
+            </p>
+          )}
+
         {TIERS.map(({ label, rating }) => {
-          const list = recommendedTeams.filter(
+          const list = visibleTeams.filter(
             (team) => team.ratings[recommendedMode] === rating,
           );
           if (list.length === 0) return null;
@@ -169,11 +208,18 @@ export default function TeamsView() {
                 <span className={`tier-badge tier-${tierKey(label)}`}>
                   {label}
                 </span>
-                <span className="muted tiny">{list.length} teams</span>
+                <span className="muted tiny">
+                  {list.length} {list.length === 1 ? 'team' : 'teams'}
+                </span>
               </h4>
               <div className="team-grid">
                 {list.map((team) => (
-                  <RecommendedCard key={team.id} team={team} tier={label} />
+                  <RecommendedCard
+                    key={team.id}
+                    team={team}
+                    tier={label}
+                    ready={isReady(team)}
+                  />
                 ))}
               </div>
             </div>
