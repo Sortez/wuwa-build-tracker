@@ -38,6 +38,8 @@ interface AppContextValue {
   removeTeam: (id: string) => void;
   setTeamMode: (id: string, mode: TeamMode) => void;
   resetAll: () => void;
+  /** Replaces all progress, e.g. when restoring a backup. */
+  replaceAll: (next: AppState) => void;
 }
 
 const AppContext = createContext<AppContextValue | null>(null);
@@ -158,6 +160,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           ),
         })),
       resetAll: () => setState(() => ({ version: 1, characters: {}, myTeams: [] })),
+      replaceAll: (next) => setState(() => seedState(next)),
     }),
     [state],
   );

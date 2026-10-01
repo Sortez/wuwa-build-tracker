@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { version } from '../package.json';
 import { characters } from './data';
 import { AppProvider, useApp } from './state';
+import BackupControls from './components/BackupControls';
 import CharacterView from './components/CharacterView';
 import Roster from './components/Roster';
 import TeamsView from './components/TeamsView';
@@ -27,7 +28,7 @@ function Shell() {
         <div>
           <h1>WuWa Build Tracker</h1>
           <p className="subtitle">
-            Track levels, skills, gear and teams.
+            Recommended weapons, Echo sets and teams for every Resonator.
           </p>
         </div>
         <div className="header-actions">
@@ -47,6 +48,7 @@ function Shell() {
               Teams
             </button>
           </nav>
+          <BackupControls />
           <button
             type="button"
             className="danger-button"

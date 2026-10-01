@@ -1,6 +1,6 @@
 # WuWa Build Tracker
 
-A build planner for **Wuthering Waves** as a Windows desktop app. Keep track of each character's level, skills, recommended weapons and Echo sets, and put together your own teams. Recommended builds and teams are based on [Prydwen](https://www.prydwen.gg/wuthering-waves/) (up to Version 3.7).
+A build planner for **Wuthering Waves** as a Windows desktop app. See the recommended weapons (including a budget 4-star option), Echo sets and teams for every character, adjust them to your own picks, and put together your own teams. Recommended builds and teams are based on [Prydwen](https://www.prydwen.gg/wuthering-waves/) (up to Version 3.7).
 
 ## Download & installation
 
@@ -15,7 +15,7 @@ The app checks for a new version on startup and offers to install it with one cl
 
 ## Your data
 
-Everything is stored locally on your PC (`%APPDATA%\com.wuwa.buildtracker\wuwa-state.json`). There's no account and no server.
+Everything is stored locally on your PC (`%APPDATA%\com.wuwa.buildtracker\wuwa-state.json`). There's no account and no server. Use **Export backup** in the top bar to save your progress to a file, and **Import backup** to restore it, for example on a new PC.
 
 ---
 

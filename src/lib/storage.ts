@@ -123,6 +123,29 @@ function normalize(parsed: Partial<AppState> | null | undefined): AppState {
   };
 }
 
+/** Serialises state for a user-facing backup file. */
+export function serializeBackup(state: AppState): string {
+  return JSON.stringify({ app: 'wuwa-build-tracker', ...state }, null, 2);
+}
+
+/**
+ * Parses a backup file. Throws when the content isn't a tracker backup, so a
+ * wrong file never wipes the current progress.
+ */
+export function parseBackup(text: string): AppState {
+  const parsed = JSON.parse(text) as Partial<AppState> & { app?: string };
+  if (
+    !parsed ||
+    typeof parsed !== 'object' ||
+    typeof parsed.characters !== 'object' ||
+    parsed.characters === null ||
+    !Array.isArray(parsed.myTeams)
+  ) {
+    throw new Error('Not a WuWa Build Tracker backup.');
+  }
+  return normalize(parsed);
+}
+
 /**
  * Synchronous read of the legacy browser storage. Used directly on the web and
  * for one-time migration into the desktop JSON file.
