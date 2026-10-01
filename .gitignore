@@ -5,6 +5,7 @@ dist
 
 release
 *.key
+*.key.password
 
 # Local agent tooling
 .opencode

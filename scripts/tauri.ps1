@@ -35,12 +35,16 @@ if (Test-Path $cargoBin) {
     $env:Path = "$cargoBin;$env:Path"
 }
 
-# The updater needs every release bundle signed. The key lives outside the
-# repo (see scripts\release.ps1) and has no password.
+# The updater needs every release bundle signed. The key and its password file
+# live outside the repo. The password can't be empty: Windows drops empty env
+# vars, and Tauri then blocks on an interactive password prompt.
 $signingKey = Join-Path $env:USERPROFILE '.tauri\wuwa-build-tracker.key'
 if (-not $env:TAURI_SIGNING_PRIVATE_KEY -and (Test-Path $signingKey)) {
     $env:TAURI_SIGNING_PRIVATE_KEY = Get-Content $signingKey -Raw
-    $env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = ''
+    $passwordFile = "$signingKey.password"
+    if (Test-Path $passwordFile) {
+        $env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = (Get-Content $passwordFile -Raw).Trim()
+    }
 }
 
 & npx.cmd tauri @args

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { version } from '../package.json';
 import { characters } from './data';
 import { AppProvider, useApp } from './state';
 import CharacterView from './components/CharacterView';
@@ -26,7 +27,7 @@ function Shell() {
         <div>
           <h1>WuWa Build Tracker</h1>
           <p className="subtitle">
-            Track levels, ascension materials, skills, gear and teams.
+            Track levels, skills, gear and teams.
           </p>
         </div>
         <div className="header-actions">
@@ -78,8 +79,9 @@ function Shell() {
       </div>
 
       <footer className="app-footer muted tiny">
-        Placeholder game data lives in <code>src/data/*.json</code>. Edit it to
-        match the live game; the app recalculates automatically.
+        WuWa Build Tracker v{version} · Unofficial fan project, not affiliated
+        with Kuro Games. Game names and images belong to their respective
+        owners.
       </footer>
     </div>
   );

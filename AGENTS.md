@@ -9,7 +9,7 @@ React + Vite + TypeScript single-page app (Wuthering Waves build planner). No ba
 - `npm run build` — runs `tsc --noEmit` first, then `vite build` into `dist/` (gitignored).
 - There is no test or lint script; don't invent one. `npm run typecheck` is the check to run after edits.
 - TypeScript is strict plus `noUnusedLocals` / `noUnusedParameters`, so unused locals/params fail typecheck and build. Leading `_` only exempts parameters, not locals.
-- Windows: if PowerShell blocks `npm.ps1`, use `npm.cmd`. `start-wuwa.cmd` prepends `C:\Program Files\nodejs` to PATH, installs deps when `node_modules` is absent, and runs the dev server.
+- Windows: if PowerShell blocks `npm.ps1`, use `npm.cmd`.
 
 ## Architecture
 
@@ -34,7 +34,7 @@ React + Vite + TypeScript single-page app (Wuthering Waves build planner). No ba
 ## Desktop app (Tauri)
 
 - `src-tauri/` wraps the built `dist/` in a native WebView2 window. Native plugins: `store` (persistence), `updater` + `process` (self-update and relaunch); permissions live in `src-tauri/capabilities/default.json`. Add plugins/IPC sparingly.
-- Self-update: `src/components/UpdateBanner.tsx` checks `https://github.com/Sortez/wuwa-build-tracker/releases/latest/download/latest.json` on desktop startup. Bundles are signed with the minisign key at `%USERPROFILE%\.tauri\wuwa-build-tracker.key` (no password, never commit it; the public key is in `tauri.conf.json`). `scripts/tauri.ps1` loads it automatically. Losing that key means installed apps can no longer verify updates.
+- Self-update: `src/components/UpdateBanner.tsx` checks `https://github.com/Sortez/wuwa-build-tracker/releases/latest/download/latest.json` on desktop startup. Bundles are signed with the minisign key at `%USERPROFILE%\.tauri\wuwa-build-tracker.key` (password in the adjacent `.key.password` file; never commit either; the public key is in `tauri.conf.json`). `scripts/tauri.ps1` loads it automatically. Losing that key means installed apps can no longer verify updates.
 - Releasing: `npm run release -- <x.y.z> ["notes"]` (`scripts/release.ps1`) bumps the version in `package.json`, `tauri.conf.json` and `Cargo.toml`, builds, writes `release/latest.json`, commits + pushes everything, and runs `gh release create v<x.y.z>`. The version must increase or the updater sees nothing new. Only the NSIS target is built.
 - Toolchain is installed: Rust (rustup) + VS Build Tools 2022 (VCTools workload, which includes the Windows SDK); WebView2 ships with Windows. `npx tauri info` may still report MSVC missing because it doesn't recognize the separate VS 2026 preview install — trust a successful build over that report.
 - `npm run desktop:dev` — starts `dev:desktop` (Vite on 5173, no browser) and opens the desktop window. This is the way to run the desktop app.
@@ -42,6 +42,6 @@ React + Vite + TypeScript single-page app (Wuthering Waves build planner). No ba
 - Both go through `scripts/tauri.ps1`, which imports the Build Tools 2022 `vcvars64` environment first. This is required: rustc mis-detects the VS 2026 preview (compiler present but SDK not linked) and otherwise fails with `LNK1104: cannot open file 'msvcrt.lib'`. Only call `npm run tauri -- <args>` directly if the MSVC env is already loaded.
 - `npm run dev` opens a browser; `npm run dev:desktop` is the same server without auto-opening and is what Tauri starts. `strictPort: true` means port 5173 must be free or dev fails.
 - `vite.config.ts` ignores `**/src-tauri/**` to avoid reload loops; keep that.
-- Window title/size and the bundle identifier (`com.wuwa.buildtracker`) live in `src-tauri/tauri.conf.json`. Icons are generated with `npx tauri icon app-icon.png` (source kept at the repo root).
+- Window title/size and the bundle identifier (`com.wuwa.buildtracker`) live in `src-tauri/tauri.conf.json`. Icons are generated with `npx tauri icon src-tauri/app-icon.png` (only Windows icons are kept; delete the android/ios folders it recreates).
 - Persistence is runtime-dependent: the web build uses `localStorage` (`wuwa-build-tracker:v1`); the desktop build writes JSON to `%APPDATA%\com.wuwa.buildtracker\wuwa-state.json` via the store plugin, migrating existing localStorage data on first run. `loadState` is async on desktop, so `state.tsx` shows a loading screen until it resolves.
 - Fonts are self-hosted for offline use: `src/fonts.css` plus `public/fonts/*.woff2` (latin/latin-ext variable subsets). Don't re-add the Google Fonts `<link>` to `index.html`.

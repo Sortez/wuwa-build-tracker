@@ -27,7 +27,7 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEQ4M0EyNzc1MzAxRTAzNjQKUldSa0F4NHdkU2M2Mkp2VFFxbEdxSUM3QUZzbHA2SEJTdktCOWJVb1ZyRWUrNjRmMjV6Qlc2WkgK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDY4NEZEN0QyRTUzRDYyQUYKUldTdllqM2wwdGRQYURBcytlZlZWYkhoeklGUFYrdWl3MXRpZFJKU2p6blF3UTFXY09wMFdlem0K",
       "endpoints": [
         "https://github.com/Sortez/wuwa-build-tracker/releases/latest/download/latest.json"
       ],
