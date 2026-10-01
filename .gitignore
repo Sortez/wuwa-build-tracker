@@ -6,6 +6,10 @@ dist
 release
 *.key
 
+# Local agent tooling
+.opencode
+.claude
+
 # Tauri
 src-tauri/target
 src-tauri/gen/schemas
