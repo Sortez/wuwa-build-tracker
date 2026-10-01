@@ -56,11 +56,12 @@ if (-not $setup) { throw "No installer for $Version found in $bundleDir." }
 $sigPath = "$($setup.FullName).sig"
 if (-not (Test-Path $sigPath)) { throw 'Installer signature (.sig) missing - is the signing key present?' }
 
-# GitHub turns spaces in asset names into dots, so upload under a fixed name.
+# Upload under a fixed, version-less name (GitHub would also turn spaces into
+# dots) so .../releases/latest/download/<name> always serves the newest build.
 $releaseDir = Join-Path $root 'release'
 New-Item -ItemType Directory -Force $releaseDir | Out-Null
 Get-ChildItem $releaseDir | Remove-Item -Force
-$assetName = "WuWa-Build-Tracker_${Version}_x64-setup.exe"
+$assetName = 'WuWa-Build-Tracker-Setup.exe'
 $asset = Join-Path $releaseDir $assetName
 Copy-Item $setup.FullName $asset
 

@@ -4,7 +4,7 @@ A build planner for **Wuthering Waves** as a Windows desktop app. Keep track of 
 
 ## Download & installation
 
-1. Go to the **[latest release](https://github.com/Sortez/wuwa-build-tracker/releases/latest)** and download `WuWa-Build-Tracker_<version>_x64-setup.exe` under **Assets**. That's the only file you need.
+1. **[Download the latest installer](https://github.com/Sortez/wuwa-build-tracker/releases/latest/download/WuWa-Build-Tracker-Setup.exe)** (`WuWa-Build-Tracker-Setup.exe`). That's the only file you need. What's new is listed on the [release page](https://github.com/Sortez/wuwa-build-tracker/releases/latest).
 2. Run the installer.
    - Windows may show "Windows protected your PC" because the app isn't commercially code-signed. Click **More info → Run anyway**.
 3. Done. Requires Windows 10 or 11.
