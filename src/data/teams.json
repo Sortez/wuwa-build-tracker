@@ -1,0 +1,447 @@
+{
+  "_note": "PLACEHOLDER recommended teams sourced from Prydwen's Wuthering Waves Team Tier List (prydwen.gg/wuthering-waves/team-tier-list). ratings.tower / ratings.wastes use Prydwen's 5-11 scale (11 = T0, 1 = not listed for that mode). characterIds are the core 3 picks; characterIds must match ids in characters.json.",
+  "teams": [
+    {
+      "id": "hsin-flare-1",
+      "name": "Hsin Flare",
+      "characterIds": [
+        "hsin",
+        "rover_electro",
+        "suisui"
+      ],
+      "ratings": {
+        "tower": 10,
+        "wastes": 9
+      }
+    },
+    {
+      "id": "hsin-unison-2",
+      "name": "Hsin Unison",
+      "characterIds": [
+        "hsin",
+        "jinhsi",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 8,
+        "wastes": 7
+      }
+    },
+    {
+      "id": "aemeath-fusion-burst-1",
+      "name": "Aemeath Fusion Burst",
+      "characterIds": [
+        "aemeath",
+        "denia",
+        "chisa"
+      ],
+      "ratings": {
+        "tower": 10,
+        "wastes": 10
+      }
+    },
+    {
+      "id": "aemeath-mono-fusion-2",
+      "name": "Aemeath Mono Fusion",
+      "characterIds": [
+        "aemeath",
+        "lupa",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 6
+      }
+    },
+    {
+      "id": "aemeath-rupture-3",
+      "name": "Aemeath Rupture",
+      "characterIds": [
+        "aemeath",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 11,
+        "wastes": 6
+      }
+    },
+    {
+      "id": "augusta-hypercarry-4",
+      "name": "Augusta Hypercarry",
+      "characterIds": [
+        "augusta",
+        "iuno",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 9
+      }
+    },
+    {
+      "id": "brant-hypercarry-5",
+      "name": "Brant Hypercarry",
+      "characterIds": [
+        "brant",
+        "lupa",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 7,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "calcharo-dual-dps-6",
+      "name": "Calcharo Dual DPS",
+      "characterIds": [
+        "calcharo",
+        "xiangli_yao",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 5,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "camellya-hypercarry-7",
+      "name": "Camellya Hypercarry",
+      "characterIds": [
+        "camellya",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 6,
+        "wastes": 6
+      }
+    },
+    {
+      "id": "carlotta-hypercarry-8",
+      "name": "Carlotta Hypercarry",
+      "characterIds": [
+        "carlotta",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 8,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "cartethyia-hypercarry-9",
+      "name": "Cartethyia Hypercarry",
+      "characterIds": [
+        "cartethyia",
+        "ciaccona",
+        "chisa"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 8
+      }
+    },
+    {
+      "id": "chixia-mono-fusion-10",
+      "name": "Chixia Mono Fusion",
+      "characterIds": [
+        "chixia",
+        "brant",
+        "lupa"
+      ],
+      "ratings": {
+        "tower": 5,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "encore-hypercarry-11",
+      "name": "Encore Hypercarry",
+      "characterIds": [
+        "encore",
+        "lupa",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 6,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "galbrena-hypercarry-12",
+      "name": "Galbrena Hypercarry",
+      "characterIds": [
+        "galbrena",
+        "lupa",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 9
+      }
+    },
+    {
+      "id": "havoc-rover-hypercarry-13",
+      "name": "Havoc Rover Hypercarry",
+      "characterIds": [
+        "rover_havoc",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 5,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "hiyuki-hypercarry-14",
+      "name": "Hiyuki Hypercarry",
+      "characterIds": [
+        "hiyuki",
+        "lucilla",
+        "suisui"
+      ],
+      "ratings": {
+        "tower": 11,
+        "wastes": 11
+      }
+    },
+    {
+      "id": "iuno-hypercarry-15",
+      "name": "Iuno Hypercarry",
+      "characterIds": [
+        "iuno",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "jingran-hypercarry-16",
+      "name": "Jingran Hypercarry",
+      "characterIds": [
+        "jingran",
+        "iuno",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 11,
+        "wastes": 9
+      }
+    },
+    {
+      "id": "jinhsi-hypercarry-17",
+      "name": "Jinhsi Hypercarry",
+      "characterIds": [
+        "jinhsi",
+        "zhezhi",
+        "verina"
+      ],
+      "ratings": {
+        "tower": 6,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "jiyan-dual-dps-18",
+      "name": "Jiyan Dual DPS",
+      "characterIds": [
+        "jiyan",
+        "ciaccona",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 6,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "jiyan-mono-aero-19",
+      "name": "Jiyan Mono Aero",
+      "characterIds": [
+        "jiyan",
+        "iuno",
+        "ciaccona"
+      ],
+      "ratings": {
+        "tower": 7,
+        "wastes": 6
+      }
+    },
+    {
+      "id": "lingyang-hypercarry-20",
+      "name": "Lingyang Hypercarry",
+      "characterIds": [
+        "lingyang",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 6,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "lucy-hypercarry-21",
+      "name": "Lucy Hypercarry",
+      "characterIds": [
+        "lucy",
+        "rebecca",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 7
+      }
+    },
+    {
+      "id": "luuk-hypercarry-22",
+      "name": "Luuk Hypercarry",
+      "characterIds": [
+        "luuk_herssen",
+        "denia",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 10,
+        "wastes": 9
+      }
+    },
+    {
+      "id": "phoebe-hypercarry-23",
+      "name": "Phoebe Hypercarry",
+      "characterIds": [
+        "phoebe",
+        "lynae",
+        "rover_spectro"
+      ],
+      "ratings": {
+        "tower": 7,
+        "wastes": 1
+      }
+    },
+    {
+      "id": "phoebe-hypercarry-24",
+      "name": "Phoebe Hypercarry",
+      "characterIds": [
+        "phoebe",
+        "lynae",
+        "ciaccona"
+      ],
+      "ratings": {
+        "tower": 1,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "phrolova-dual-dps-25",
+      "name": "Phrolova Dual DPS",
+      "characterIds": [
+        "phrolova",
+        "galbrena",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 7,
+        "wastes": 8
+      }
+    },
+    {
+      "id": "phrolova-echo-26",
+      "name": "Phrolova Echo",
+      "characterIds": [
+        "phrolova",
+        "lucilla",
+        "qiuyuan"
+      ],
+      "ratings": {
+        "tower": 9,
+        "wastes": 11
+      }
+    },
+    {
+      "id": "qingxiao-hypercarry-27",
+      "name": "Qingxiao Hypercarry",
+      "characterIds": [
+        "qingxiao",
+        "denia",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 11,
+        "wastes": 10
+      }
+    },
+    {
+      "id": "sigrika-hypercarry-28",
+      "name": "Sigrika Hypercarry",
+      "characterIds": [
+        "sigrika",
+        "qiuyuan",
+        "ciaccona"
+      ],
+      "ratings": {
+        "tower": 10,
+        "wastes": 11
+      }
+    },
+    {
+      "id": "tri-dps-fusion-29",
+      "name": "Tri-DPS Fusion",
+      "characterIds": [
+        "galbrena",
+        "brant",
+        "lupa"
+      ],
+      "ratings": {
+        "tower": 8,
+        "wastes": 6
+      }
+    },
+    {
+      "id": "xiangli-yao-hypercarry-30",
+      "name": "Xiangli Yao Hypercarry",
+      "characterIds": [
+        "xiangli_yao",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 6,
+        "wastes": 5
+      }
+    },
+    {
+      "id": "xuanling-hypercarry-31",
+      "name": "Xuanling Hypercarry",
+      "characterIds": [
+        "yangyang_xuanling",
+        "chisa",
+        "suisui"
+      ],
+      "ratings": {
+        "tower": 11,
+        "wastes": 9
+      }
+    },
+    {
+      "id": "zani-hypercarry-32",
+      "name": "Zani Hypercarry",
+      "characterIds": [
+        "zani",
+        "phoebe",
+        "rover_spectro"
+      ],
+      "ratings": {
+        "tower": 7,
+        "wastes": 7
+      }
+    }
+  ]
+}

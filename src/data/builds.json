@@ -1,0 +1,746 @@
+{
+  "_note": "Per-character recommended weapon + Echo set picks auto-sourced from Prydwen build guides (prydwen.gg/wuthering-waves/characters/<slug>), Sep 2026 / Patch 3.6. weaponIds/echoSetIds are ordered by priority; mainEcho/substats come from Prydwen's calculation. fourStarWeaponId is Prydwen's best viable 4-star option for the character (Battle Pass exclusives included; event-exclusive weapons such as Somnoire Anchor are skipped as unobtainable, falling back to the next best 4-star). Where Prydwen has no distinct 4-star left, the weapon type's standard craftable / Energy Regen 4-star is used instead (Brant, Rover: Aero, Taoqi). Used to auto-fill empty gear slots. Hsin added Oct 2026 / Patch 3.7 (Prydwen lists only her signature Echo set).",
+  "builds": {
+    "hsin": {
+      "weaponIds": [
+        "blooming_jadehaven",
+        "lethean_elegy"
+      ],
+      "fourStarWeaponId": "augment",
+      "echoSetIds": [
+        "heart_of_sworn_vigil"
+      ],
+      "mainEcho": "Reminiscence: Suhsin the Inevitable",
+      "substats": "Energy Regen (until satisfied, 110-115%), CRIT Rate (65%+), CRIT DMG (230-270%+), ATK%, Resonance Skill DMG Bonus"
+    },
+    "denia": {
+      "weaponIds": [
+        "forged_dwarf_star",
+        "stringmaster"
+      ],
+      "fourStarWeaponId": "augment",
+      "echoSetIds": [
+        "chromatic_foam",
+        "reel_of_spliced_memories"
+      ],
+      "mainEcho": "Reminiscence: Denia",
+      "substats": "Energy Regen (18.3%), ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Resonance Liberation DMG Bonus (8.6%)"
+    },
+    "aemeath": {
+      "weaponIds": [
+        "everbright_polestar",
+        "emerald_of_genesis"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "trailblazing_star",
+        "chromatic_foam"
+      ],
+      "mainEcho": "Sigillum",
+      "substats": "Energy Regen (27.5%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (17.2%), Resonance Liberation DMG Bonus (8.6%)"
+    },
+    "mornye": {
+      "weaponIds": [
+        "starfield_calibrator",
+        "discord"
+      ],
+      "fourStarWeaponId": "broadblade_41",
+      "echoSetIds": [
+        "halo_of_starry_radiance",
+        "rejuvenating_glow"
+      ]
+    },
+    "galbrena": {
+      "weaponIds": [
+        "lux_and_umbra",
+        "phasic_homogenizer"
+      ],
+      "fourStarWeaponId": "solar_flame",
+      "echoSetIds": [
+        "flamewings_shadow",
+        "molten_rift"
+      ],
+      "mainEcho": "Corrosaurus",
+      "substats": "Energy Regen (18.3%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "lupa": {
+      "weaponIds": [
+        "wildfire_mark",
+        "ages_of_harvest"
+      ],
+      "fourStarWeaponId": "waning_redshift",
+      "echoSetIds": [
+        "flaming_clawprint",
+        "halo_of_starry_radiance"
+      ],
+      "mainEcho": "Lioness of Glory",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Liberation DMG Bonus (8.6%)"
+    },
+    "brant": {
+      "weaponIds": [
+        "unflickering_valor",
+        "laser_shearer"
+      ],
+      "fourStarWeaponId": "overture",
+      "echoSetIds": [
+        "molten_rift",
+        "tidebreaking_courage"
+      ],
+      "mainEcho": "Dragon of Dirge",
+      "substats": "Energy Regen (27.5%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (8.6%), Basic Attack DMG Bonus (17.2%)"
+    },
+    "changli": {
+      "weaponIds": [
+        "blazing_brilliance",
+        "emerald_of_genesis"
+      ],
+      "fourStarWeaponId": "commando_of_conviction",
+      "echoSetIds": [
+        "molten_rift",
+        "flaming_clawprint"
+      ],
+      "mainEcho": "Nightmare: Inferno Rider",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Skill DMG Bonus (8.6%)"
+    },
+    "encore": {
+      "weaponIds": [
+        "stringmaster",
+        "rime_draped_sprouts"
+      ],
+      "fourStarWeaponId": "radiant_dawn",
+      "echoSetIds": [
+        "molten_rift",
+        "flaming_clawprint"
+      ],
+      "mainEcho": "Nightmare: Inferno Rider",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    },
+    "mortefi": {
+      "weaponIds": [
+        "static_mist",
+        "the_last_dance"
+      ],
+      "fourStarWeaponId": "relativistic_jet",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "empyrean_anthem"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%), Energy Regen (9.6%)"
+    },
+    "chixia": {
+      "weaponIds": [
+        "the_last_dance",
+        "static_mist"
+      ],
+      "fourStarWeaponId": "thunderbolt",
+      "echoSetIds": [
+        "molten_rift"
+      ],
+      "mainEcho": "Nightmare: Inferno Rider",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    },
+    "jingran": {
+      "weaponIds": [
+        "thousandfold_deliverance",
+        "thunderflare_dominion"
+      ],
+      "fourStarWeaponId": "aureate_zenith",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "rejuvenating_glow"
+      ],
+      "mainEcho": "Myriad Snare: Rustfire Chassis",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), HP(17.2%), ATK (8.6%), Heavy Attack DMG Bonus (17.2%)"
+    },
+    "hiyuki": {
+      "weaponIds": [
+        "frostburn",
+        "blazing_brilliance"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "wishes_of_quiet_snowfall"
+      ],
+      "mainEcho": "Reminiscence: Threnodian - Voidborne Construct",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Liberation DMG Bonus (8.6%)"
+    },
+    "carlotta": {
+      "weaponIds": [
+        "the_last_dance",
+        "phasic_homogenizer"
+      ],
+      "fourStarWeaponId": "undying_flame",
+      "echoSetIds": [
+        "frosty_resolve",
+        "empyrean_anthem"
+      ],
+      "mainEcho": "Sentry Construct",
+      "substats": "Energy Regen (9.2%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Resonance Skill DMG Bonus (8.6%)"
+    },
+    "zhezhi": {
+      "weaponIds": [
+        "rime_draped_sprouts",
+        "whispers_of_sirens"
+      ],
+      "fourStarWeaponId": "augment",
+      "echoSetIds": [
+        "empyrean_anthem",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "Energy Regen (18.3%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Basic Attack DMG Bonus (8.6%)"
+    },
+    "lingyang": {
+      "weaponIds": [
+        "moongazer_s_sigil",
+        "blazing_justice"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "lingering_tunes",
+        "frosty_resolve"
+      ],
+      "mainEcho": "Mech Abomination",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%), Energy Regen (9.6%)"
+    },
+    "youhu": {
+      "weaponIds": [
+        "marcato",
+        "gauntlets_21d"
+      ],
+      "fourStarWeaponId": "celestial_spiral",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "moonlit_clouds"
+      ]
+    },
+    "sanhua": {
+      "weaponIds": [
+        "blazing_brilliance",
+        "red_spring"
+      ],
+      "fourStarWeaponId": "commando_of_conviction",
+      "echoSetIds": [
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    },
+    "baizhi": {
+      "weaponIds": [
+        "stellar_symphony",
+        "variation"
+      ],
+      "fourStarWeaponId": "call_of_the_abyss",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "moonlit_clouds"
+      ]
+    },
+    "lucilla": {
+      "weaponIds": [
+        "freeze_frame",
+        "whispers_of_sirens"
+      ],
+      "fourStarWeaponId": "radiant_dawn",
+      "echoSetIds": [
+        "wishes_of_quiet_snowfall",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Glommoth",
+      "substats": "Energy Regen (9.2%), ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Basic Attack DMG Bonus (17.2%)"
+    },
+    "suisui": {
+      "weaponIds": [
+        "firstlight_s_herald",
+        "stellar_symphony"
+      ],
+      "fourStarWeaponId": "variation",
+      "echoSetIds": [
+        "rejuvenating_glow"
+      ]
+    },
+    "sigrika": {
+      "weaponIds": [
+        "solsworn_ciphers",
+        "blazing_justice"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "sound_of_true_name",
+        "gusts_of_welkin"
+      ],
+      "mainEcho": "Nameless Explorer",
+      "substats": "Energy Regen (9.2%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%)"
+    },
+    "qiuyuan": {
+      "weaponIds": [
+        "emerald_sentence",
+        "red_spring"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "law_of_harmony",
+        "sierra_gale"
+      ],
+      "mainEcho": "Reminiscence: Fenrico",
+      "substats": "Energy Regen (9.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (17.2%)"
+    },
+    "iuno": {
+      "weaponIds": [
+        "moongazer_s_sigil",
+        "verity_s_handle"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "crown_of_valor",
+        "sierra_gale"
+      ],
+      "mainEcho": "Lady of the Sea",
+      "substats": "Energy Regen (9.2%), ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Resonance Liberation DMG Bonus (17.2%)"
+    },
+    "cartethyia": {
+      "weaponIds": [
+        "defier_s_thorn",
+        "red_spring"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "windward_pilgrimage",
+        "gusts_of_welkin"
+      ],
+      "mainEcho": "Reminiscence: Fleurdelys",
+      "substats": "Energy Regen (9.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), HP (25.8%), Basic Attack DMG Bonus (17.2%)"
+    },
+    "ciaccona": {
+      "weaponIds": [
+        "woodland_aria",
+        "phasic_homogenizer"
+      ],
+      "fourStarWeaponId": "romance_in_farewell",
+      "echoSetIds": [
+        "gusts_of_welkin",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Nightmare: Kelpie",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Liberation DMG Bonus (9.2%)"
+    },
+    "jiyan": {
+      "weaponIds": [
+        "verdant_summit",
+        "thunderflare_dominion"
+      ],
+      "fourStarWeaponId": "aureate_zenith",
+      "echoSetIds": [
+        "windward_pilgrimage",
+        "sierra_gale"
+      ],
+      "mainEcho": "Nightmare: Kelpie",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "jianxin": {
+      "weaponIds": [
+        "verity_s_handle",
+        "moongazer_s_sigil"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "moonlit_clouds"
+      ]
+    },
+    "aalto": {
+      "weaponIds": [
+        "the_last_dance",
+        "woodland_aria"
+      ],
+      "fourStarWeaponId": "relativistic_jet",
+      "echoSetIds": [
+        "sierra_gale",
+        "windward_pilgrimage"
+      ],
+      "mainEcho": "Nightmare: Feilian Beringal",
+      "substats": "ATK (27%), CRIT Rate (42%), CRIT DMG (84%), Energy Regen (28%)"
+    },
+    "yangyang": {
+      "weaponIds": [
+        "blazing_brilliance",
+        "emerald_of_genesis"
+      ],
+      "fourStarWeaponId": "lumingloss",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "sierra_gale"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "ATK (18%), CRIT Rate (42%), CRIT DMG (84%), Energy Regen (38.4%)"
+    },
+    "qingxiao": {
+      "weaponIds": [
+        "glint_of_clouds",
+        "red_spring"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "halo_of_starry_radiance",
+        "reel_of_spliced_memories"
+      ],
+      "mainEcho": "Calamity Effigy",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "augusta": {
+      "weaponIds": [
+        "thunderflare_dominion",
+        "verdant_summit"
+      ],
+      "fourStarWeaponId": "aureate_zenith",
+      "echoSetIds": [
+        "crown_of_valor",
+        "void_thunder"
+      ],
+      "mainEcho": "The False Sovereign",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "xiangli_yao": {
+      "weaponIds": [
+        "moongazer_s_sigil",
+        "verity_s_handle"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "void_thunder",
+        "lingering_tunes"
+      ],
+      "mainEcho": "Nightmare: Thundering Mephis",
+      "substats": "Energy Regen (9.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Liberation DMG Bonus (17.2%)"
+    },
+    "yinlin": {
+      "weaponIds": [
+        "stringmaster",
+        "whispers_of_sirens"
+      ],
+      "fourStarWeaponId": "augment",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "empyrean_anthem"
+      ],
+      "mainEcho": "Nightmare: Tempest Mephis",
+      "substats": "Energy Regen (18.3%) ATK (25.8%), CRIT Rate (24.2%), CRIT DMG (80.7%), Resonance Skill DMG Bonus (17.2%)"
+    },
+    "calcharo": {
+      "weaponIds": [
+        "wildfire_mark",
+        "lustrous_razor"
+      ],
+      "fourStarWeaponId": "autumntrace",
+      "echoSetIds": [
+        "void_thunder",
+        "lingering_tunes"
+      ],
+      "mainEcho": "Nightmare: Thundering Mephis",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    },
+    "buling": {
+      "weaponIds": [
+        "stringmaster",
+        "lethean_elegy"
+      ],
+      "fourStarWeaponId": "waltz_in_masquerade",
+      "echoSetIds": [
+        "rejuvenating_glow"
+      ]
+    },
+    "lumi": {
+      "weaponIds": [
+        "ages_of_harvest",
+        "verdant_summit"
+      ],
+      "fourStarWeaponId": "autumntrace",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "void_thunder"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "ATK (18%), CRIT Rate (42%), CRIT DMG (84%), Energy Regen (38.4%)"
+    },
+    "yuanwu": {
+      "weaponIds": [
+        "verity_s_handle",
+        "amity_accord"
+      ],
+      "fourStarWeaponId": "stonard",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Nightmare: Tempest Mephis",
+      "substats": "(34.17%), CRIT Rate (42%), CRIT DMG (84%), Energy Regen (28%)"
+    },
+    "rebecca": {
+      "weaponIds": [
+        "skull_thrasher",
+        "spectrum_blaster"
+      ],
+      "fourStarWeaponId": "solar_flame",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "void_thunder"
+      ],
+      "mainEcho": "Bell-Borne Geochelone",
+      "substats": "Energy Regen (9.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Basic Attack DMG Bonus (17.2%)"
+    },
+    "rover_electro": {
+      "weaponIds": [
+        "blazing_brilliance",
+        "red_spring"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "rejuvenating_glow"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Skill DMG Bonus (8.6%)"
+    },
+    "luuk_herssen": {
+      "weaponIds": [
+        "daybreaker_s_spine",
+        "pulsation_bracer"
+      ],
+      "fourStarWeaponId": "celestial_spiral",
+      "echoSetIds": [
+        "rite_of_gilded_revelation",
+        "halo_of_starry_radiance"
+      ],
+      "mainEcho": "Twin Nova: Nebulous Cannon",
+      "substats": "Energy Regen (27.5%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (17.2%), Basic Attack DMG Bonus (8.6%)"
+    },
+    "lynae": {
+      "weaponIds": [
+        "spectrum_blaster",
+        "static_mist"
+      ],
+      "fourStarWeaponId": "solar_flame",
+      "echoSetIds": [
+        "pact_of_neonlight_leap",
+        "halo_of_starry_radiance"
+      ],
+      "mainEcho": "Hyvatia",
+      "substats": "Energy Regen (27.5%) ATK (17.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), Basic Attack DMG Bonus (8.6%)"
+    },
+    "zani": {
+      "weaponIds": [
+        "blazing_justice",
+        "tragicomedy"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "eternal_radiance",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Capitaneus",
+      "substats": "Energy Regen (18.3%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "phoebe": {
+      "weaponIds": [
+        "luminous_hymn",
+        "lethean_elegy"
+      ],
+      "fourStarWeaponId": "augment",
+      "echoSetIds": [
+        "eternal_radiance",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Nightmare: Mourning Aix",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "shorekeeper": {
+      "weaponIds": [
+        "stellar_symphony",
+        "variation"
+      ],
+      "fourStarWeaponId": "rectifier_25",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "halo_of_starry_radiance"
+      ]
+    },
+    "jinhsi": {
+      "weaponIds": [
+        "ages_of_harvest",
+        "kumokiri"
+      ],
+      "fourStarWeaponId": "aureate_zenith",
+      "echoSetIds": [
+        "celestial_light",
+        "empyrean_anthem"
+      ],
+      "mainEcho": "Jué",
+      "substats": "Energy Regen (9.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Skill DMG Bonus (17.2%)"
+    },
+    "verina": {
+      "weaponIds": [
+        "variation",
+        "stellar_symphony"
+      ],
+      "fourStarWeaponId": "call_of_the_abyss",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "halo_of_starry_radiance"
+      ]
+    },
+    "lucy": {
+      "weaponIds": [
+        "spectral_trigger",
+        "lux_and_umbra"
+      ],
+      "fourStarWeaponId": "solar_flame",
+      "echoSetIds": [
+        "rite_of_gilded_revelation",
+        "pact_of_neonlight_leap"
+      ],
+      "mainEcho": "Reminiscence - Nightmare: Adam Smasher",
+      "substats": "Energy Regen (27.5%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (17.2%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "rover_spectro": {
+      "weaponIds": [
+        "blazing_brilliance",
+        "emerald_of_genesis"
+      ],
+      "fourStarWeaponId": "lunar_cutter",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "rejuvenating_glow"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    },
+    "chisa": {
+      "weaponIds": [
+        "kumokiri",
+        "wildfire_mark"
+      ],
+      "fourStarWeaponId": "autumntrace",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Fallacy of No Return",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Resonance Liberation DMG Bonus (8.6%)"
+    },
+    "phrolova": {
+      "weaponIds": [
+        "lethean_elegy",
+        "stringmaster"
+      ],
+      "fourStarWeaponId": "radiant_dawn",
+      "echoSetIds": [
+        "dream_of_the_lost",
+        "havoc_eclipse"
+      ],
+      "mainEcho": "Nightmare: Hecate",
+      "substats": "Energy Regen (9.2%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Resonance Skill DMG Bonus (17.2%)"
+    },
+    "cantarella": {
+      "weaponIds": [
+        "whispers_of_sirens",
+        "rime_draped_sprouts"
+      ],
+      "fourStarWeaponId": "radiant_dawn",
+      "echoSetIds": [
+        "midnight_veil",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Lorelei",
+      "substats": "Energy Regen (27.5%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (17.2%), Basic Attack DMG Bonus (8.6%)"
+    },
+    "roccia": {
+      "weaponIds": [
+        "tragicomedy",
+        "solsworn_ciphers"
+      ],
+      "fourStarWeaponId": "aether_strike",
+      "echoSetIds": [
+        "midnight_veil",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Nightmare: Impermanence Heron",
+      "substats": "Energy Regen (18.3%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (8.6%)"
+    },
+    "camellya": {
+      "weaponIds": [
+        "red_spring",
+        "emerald_sentence"
+      ],
+      "fourStarWeaponId": "feather_edge",
+      "echoSetIds": [
+        "havoc_eclipse",
+        "lingering_tunes"
+      ],
+      "mainEcho": "Nightmare: Crownless",
+      "substats": "Energy Regen (9.2%) ATK (25.8%), CRIT Rate (40.4%), CRIT DMG (80.7%), Basic Attack DMG Bonus (17.2%)"
+    },
+    "danjin": {
+      "weaponIds": [
+        "blazing_brilliance",
+        "red_spring"
+      ],
+      "fourStarWeaponId": "commando_of_conviction",
+      "echoSetIds": [
+        "moonlit_clouds",
+        "midnight_veil"
+      ],
+      "mainEcho": "Impermanence Heron",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    },
+    "taoqi": {
+      "weaponIds": [
+        "discord",
+        "dauntless_evernight"
+      ],
+      "fourStarWeaponId": "broadblade_41",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Bell-Borne Geochelone",
+      "substats": "CRIT Rate (37.5%), CRIT DMG (75%), DEF (63.3%)"
+    },
+    "yangyang_xuanling": {
+      "weaponIds": [
+        "azure_oath",
+        "emerald_sentence"
+      ],
+      "fourStarWeaponId": "lumingloss",
+      "echoSetIds": [
+        "moonlit_clouds"
+      ],
+      "mainEcho": "Thousand-Puppet Pavilion",
+      "substats": "Energy Regen (9.2%), CRIT Rate (40.4%), CRIT DMG (80.7%), ATK (25.8%), Heavy Attack DMG Bonus (17.2%)"
+    },
+    "rover_havoc": {
+      "weaponIds": [
+        "red_spring",
+        "blazing_brilliance"
+      ],
+      "fourStarWeaponId": "commando_of_conviction",
+      "echoSetIds": [
+        "havoc_eclipse"
+      ],
+      "mainEcho": "Dreamless",
+      "substats": "ATK (50%), CRIT Rate (37.5%), CRIT DMG (75%)"
+    },
+    "rover_aero": {
+      "weaponIds": [
+        "bloodpact_s_pledge"
+      ],
+      "fourStarWeaponId": "overture",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "windward_pilgrimage"
+      ],
+      "mainEcho": "Fallacy of No Return",
+      "substats": "ATK (45%), CRIT Rate (42%), CRIT DMG (84%)"
+    }
+  }
+}

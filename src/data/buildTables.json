@@ -1,0 +1,120 @@
+{
+  "_note": "PLACEHOLDER NUMBERS - replace every value below with real Wuthering Waves data. The calculator reads these tables directly, so editing them here is enough. 'roles' (boss, specialty, common_t1...) are resolved per-character via materialMap in characters.json.",
+  "resonancePotions": [
+    { "id": "exp_basic", "exp": 1000 },
+    { "id": "exp_medium", "exp": 5000 },
+    { "id": "exp_advanced", "exp": 20000 },
+    { "id": "exp_elite", "exp": 50000 }
+  ],
+  "leveling": {
+    "creditsPerExp": 0.2
+  },
+  "cumulativeExp": {
+    "1": 0,
+    "20": 20000,
+    "40": 100000,
+    "50": 180000,
+    "60": 320000,
+    "70": 560000,
+    "80": 950000,
+    "90": 1500000
+  },
+  "ascension": [
+    {
+      "phase": 1,
+      "fromCap": 20,
+      "toCap": 40,
+      "credits": 5000,
+      "materials": [
+        { "role": "common_t1", "amount": 3 },
+        { "role": "boss", "amount": 3 },
+        { "role": "specialty", "amount": 2 }
+      ]
+    },
+    {
+      "phase": 2,
+      "fromCap": 40,
+      "toCap": 50,
+      "credits": 10000,
+      "materials": [
+        { "role": "common_t1", "amount": 3 },
+        { "role": "common_t2", "amount": 3 },
+        { "role": "boss", "amount": 6 },
+        { "role": "specialty", "amount": 4 }
+      ]
+    },
+    {
+      "phase": 3,
+      "fromCap": 50,
+      "toCap": 60,
+      "credits": 20000,
+      "materials": [
+        { "role": "common_t2", "amount": 3 },
+        { "role": "common_t3", "amount": 3 },
+        { "role": "boss", "amount": 9 },
+        { "role": "specialty", "amount": 8 }
+      ]
+    },
+    {
+      "phase": 4,
+      "fromCap": 60,
+      "toCap": 70,
+      "credits": 40000,
+      "materials": [
+        { "role": "common_t3", "amount": 3 },
+        { "role": "common_t4", "amount": 3 },
+        { "role": "boss", "amount": 12 },
+        { "role": "specialty", "amount": 12 }
+      ]
+    },
+    {
+      "phase": 5,
+      "fromCap": 70,
+      "toCap": 80,
+      "credits": 60000,
+      "materials": [
+        { "role": "common_t4", "amount": 6 },
+        { "role": "boss", "amount": 16 },
+        { "role": "specialty", "amount": 16 }
+      ]
+    },
+    {
+      "phase": 6,
+      "fromCap": 80,
+      "toCap": 90,
+      "credits": 80000,
+      "materials": [
+        { "role": "common_t4", "amount": 9 },
+        { "role": "boss", "amount": 20 },
+        { "role": "specialty", "amount": 20 }
+      ]
+    }
+  ],
+  "weaponAscension": [
+    { "phase": 1, "fromCap": 20, "toCap": 40, "credits": 5000, "materials": [{ "role": "weapon_t1", "amount": 3 }] },
+    { "phase": 2, "fromCap": 40, "toCap": 50, "credits": 10000, "materials": [{ "role": "weapon_t1", "amount": 3 }, { "role": "weapon_t2", "amount": 3 }] },
+    { "phase": 3, "fromCap": 50, "toCap": 60, "credits": 20000, "materials": [{ "role": "weapon_t2", "amount": 3 }, { "role": "weapon_t3", "amount": 3 }] },
+    { "phase": 4, "fromCap": 60, "toCap": 70, "credits": 40000, "materials": [{ "role": "weapon_t3", "amount": 3 }, { "role": "weapon_t4", "amount": 3 }] },
+    { "phase": 5, "fromCap": 70, "toCap": 80, "credits": 60000, "materials": [{ "role": "weapon_t4", "amount": 6 }] },
+    { "phase": 6, "fromCap": 80, "toCap": 90, "credits": 80000, "materials": [{ "role": "weapon_t4", "amount": 9 }] }
+  ],
+  "skillTables": {
+    "active": [
+      { "level": 2, "credits": 500, "materials": [{ "role": "skill_t1", "amount": 2 }] },
+      { "level": 3, "credits": 1000, "materials": [{ "role": "skill_t1", "amount": 3 }] },
+      { "level": 4, "credits": 2000, "materials": [{ "role": "skill_t2", "amount": 2 }] },
+      { "level": 5, "credits": 4000, "materials": [{ "role": "skill_t2", "amount": 3 }] },
+      { "level": 6, "credits": 8000, "materials": [{ "role": "skill_t3", "amount": 3 }] },
+      { "level": 7, "credits": 12000, "materials": [{ "role": "skill_t3", "amount": 4 }] },
+      { "level": 8, "credits": 20000, "materials": [{ "role": "skill_t4", "amount": 4 }, { "role": "weekly", "amount": 1 }] },
+      { "level": 9, "credits": 40000, "materials": [{ "role": "skill_t4", "amount": 6 }, { "role": "weekly", "amount": 1 }] },
+      { "level": 10, "credits": 80000, "materials": [{ "role": "skill_t4", "amount": 8 }, { "role": "weekly", "amount": 2 }] }
+    ],
+    "passive": [
+      { "level": 1, "credits": 5000, "materials": [{ "role": "weekly", "amount": 3 }, { "role": "boss", "amount": 3 }] }
+    ],
+    "stat": [
+      { "level": 1, "credits": 3000, "materials": [{ "role": "common_t3", "amount": 3 }, { "role": "boss", "amount": 3 }] }
+    ]
+  }
+}

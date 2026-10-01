@@ -1,0 +1,743 @@
+{
+  "_note": "All weapons as of Version 3.7, grouped by type. Rarity is auto-derived; verify if needed. Referenced by id from character progress recommendations.",
+  "weapons": [
+    {
+      "id": "ages_of_harvest",
+      "name": "Ages of Harvest",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "kumokiri",
+      "name": "Kumokiri",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "lustrous_razor",
+      "name": "Lustrous Razor",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "radiance_cleaver",
+      "name": "Radiance Cleaver",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "starfield_calibrator",
+      "name": "Starfield Calibrator",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "thousandfold_deliverance",
+      "name": "Thousandfold Deliverance",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "thunderflare_dominion",
+      "name": "Thunderflare Dominion",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "verdant_summit",
+      "name": "Verdant Summit",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "wildfire_mark",
+      "name": "Wildfire Mark",
+      "rarity": 5,
+      "type": "Broadblade"
+    },
+    {
+      "id": "aureate_zenith",
+      "name": "Aureate Zenith",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "autumntrace",
+      "name": "Autumntrace",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "broadblade_41",
+      "name": "Broadblade#41",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "dauntless_evernight",
+      "name": "Dauntless Evernight",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "helios_cleaver",
+      "name": "Helios Cleaver",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "meditations_on_mercy",
+      "name": "Meditations on Mercy",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "waning_redshift",
+      "name": "Waning Redshift",
+      "rarity": 4,
+      "type": "Broadblade"
+    },
+    {
+      "id": "beguiling_melody",
+      "name": "Beguiling Melody",
+      "rarity": 3,
+      "type": "Broadblade"
+    },
+    {
+      "id": "broadblade_of_night",
+      "name": "Broadblade of Night",
+      "rarity": 3,
+      "type": "Broadblade"
+    },
+    {
+      "id": "broadblade_of_voyager",
+      "name": "Broadblade of Voyager",
+      "rarity": 3,
+      "type": "Broadblade"
+    },
+    {
+      "id": "guardian_broadblade",
+      "name": "Guardian Broadblade",
+      "rarity": 3,
+      "type": "Broadblade"
+    },
+    {
+      "id": "originite_type_i",
+      "name": "Originite: Type I",
+      "rarity": 3,
+      "type": "Broadblade"
+    },
+    {
+      "id": "tyro_broadblade",
+      "name": "Tyro Broadblade",
+      "rarity": 2,
+      "type": "Broadblade"
+    },
+    {
+      "id": "training_broadblade",
+      "name": "Training Broadblade",
+      "rarity": 1,
+      "type": "Broadblade"
+    },
+    {
+      "id": "azure_oath",
+      "name": "Azure Oath",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "blazing_brilliance",
+      "name": "Blazing Brilliance",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "bloodpact_s_pledge",
+      "name": "Bloodpact's Pledge",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "defier_s_thorn",
+      "name": "Defier's Thorn",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "emerald_of_genesis",
+      "name": "Emerald of Genesis",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "emerald_sentence",
+      "name": "Emerald Sentence",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "everbright_polestar",
+      "name": "Everbright Polestar",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "frostburn",
+      "name": "Frostburn",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "glint_of_clouds",
+      "name": "Glint of Clouds",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "laser_shearer",
+      "name": "Laser Shearer",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "red_spring",
+      "name": "Red Spring",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "unflickering_valor",
+      "name": "Unflickering Valor",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "commando_of_conviction",
+      "name": "Commando of Conviction",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "endless_collapse",
+      "name": "Endless Collapse",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "fables_of_wisdom",
+      "name": "Fables of Wisdom",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "feather_edge",
+      "name": "Feather Edge",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "lumingloss",
+      "name": "Lumingloss",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "lunar_cutter",
+      "name": "Lunar Cutter",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "overture",
+      "name": "Overture",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "somnoire_anchor",
+      "name": "Somnoire Anchor",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "sword_18",
+      "name": "Sword#18",
+      "rarity": 4,
+      "type": "Sword"
+    },
+    {
+      "id": "guardian_sword",
+      "name": "Guardian Sword",
+      "rarity": 3,
+      "type": "Sword"
+    },
+    {
+      "id": "originite_type_ii",
+      "name": "Originite: Type II",
+      "rarity": 3,
+      "type": "Sword"
+    },
+    {
+      "id": "sword_of_night",
+      "name": "Sword of Night",
+      "rarity": 3,
+      "type": "Sword"
+    },
+    {
+      "id": "sword_of_voyager",
+      "name": "Sword of Voyager",
+      "rarity": 3,
+      "type": "Sword"
+    },
+    {
+      "id": "tyro_sword",
+      "name": "Tyro Sword",
+      "rarity": 2,
+      "type": "Sword"
+    },
+    {
+      "id": "training_sword",
+      "name": "Training Sword",
+      "rarity": 1,
+      "type": "Sword"
+    },
+    {
+      "id": "lux_and_umbra",
+      "name": "Lux & Umbra",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "phasic_homogenizer",
+      "name": "Phasic Homogenizer",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "skull_thrasher",
+      "name": "Skull Thrasher",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "spectral_trigger",
+      "name": "Spectral Trigger",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "spectrum_blaster",
+      "name": "Spectrum Blaster",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "static_mist",
+      "name": "Static Mist",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "the_last_dance",
+      "name": "The Last Dance",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "woodland_aria",
+      "name": "Woodland Aria",
+      "rarity": 5,
+      "type": "Pistols"
+    },
+    {
+      "id": "cadenza",
+      "name": "Cadenza",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "novaburst",
+      "name": "Novaburst",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "pistols_26",
+      "name": "Pistols#26",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "relativistic_jet",
+      "name": "Relativistic Jet",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "romance_in_farewell",
+      "name": "Romance in Farewell",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "solar_flame",
+      "name": "Solar Flame",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "thunderbolt",
+      "name": "Thunderbolt",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "undying_flame",
+      "name": "Undying Flame",
+      "rarity": 4,
+      "type": "Pistols"
+    },
+    {
+      "id": "guardian_pistols",
+      "name": "Guardian Pistols",
+      "rarity": 3,
+      "type": "Pistols"
+    },
+    {
+      "id": "originite_type_iii",
+      "name": "Originite: Type III",
+      "rarity": 3,
+      "type": "Pistols"
+    },
+    {
+      "id": "pistols_of_night",
+      "name": "Pistols of Night",
+      "rarity": 3,
+      "type": "Pistols"
+    },
+    {
+      "id": "pistols_of_voyager",
+      "name": "Pistols of Voyager",
+      "rarity": 3,
+      "type": "Pistols"
+    },
+    {
+      "id": "tyro_pistols",
+      "name": "Tyro Pistols",
+      "rarity": 2,
+      "type": "Pistols"
+    },
+    {
+      "id": "training_pistols",
+      "name": "Training Pistols",
+      "rarity": 1,
+      "type": "Pistols"
+    },
+    {
+      "id": "abyss_surges",
+      "name": "Abyss Surges",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "blazing_justice",
+      "name": "Blazing Justice",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "daybreaker_s_spine",
+      "name": "Daybreaker's Spine",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "moongazer_s_sigil",
+      "name": "Moongazer's Sigil",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "pulsation_bracer",
+      "name": "Pulsation Bracer",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "solsworn_ciphers",
+      "name": "Solsworn Ciphers",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "tragicomedy",
+      "name": "Tragicomedy",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "verity_s_handle",
+      "name": "Verity's Handle",
+      "rarity": 5,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "aether_strike",
+      "name": "Aether Strike",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "amity_accord",
+      "name": "Amity Accord",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "celestial_spiral",
+      "name": "Celestial Spiral",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "gauntlets_21d",
+      "name": "Gauntlets#21D",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "hollow_mirage",
+      "name": "Hollow Mirage",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "legend_of_drunken_hero",
+      "name": "Legend of Drunken Hero",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "marcato",
+      "name": "Marcato",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "stonard",
+      "name": "Stonard",
+      "rarity": 4,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "gauntlets_of_night",
+      "name": "Gauntlets of Night",
+      "rarity": 3,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "gauntlets_of_voyager",
+      "name": "Gauntlets of Voyager",
+      "rarity": 3,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "guardian_gauntlets",
+      "name": "Guardian Gauntlets",
+      "rarity": 3,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "originite_type_iv",
+      "name": "Originite: Type IV",
+      "rarity": 3,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "tyro_gauntlets",
+      "name": "Tyro Gauntlets",
+      "rarity": 2,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "training_gauntlets",
+      "name": "Training Gauntlets",
+      "rarity": 1,
+      "type": "Gauntlets"
+    },
+    {
+      "id": "blooming_jadehaven",
+      "name": "Blooming Jadehaven",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "boson_astrolabe",
+      "name": "Boson Astrolabe",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "cosmic_ripples",
+      "name": "Cosmic Ripples",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "firstlight_s_herald",
+      "name": "Firstlight's Herald",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "forged_dwarf_star",
+      "name": "Forged Dwarf Star",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "freeze_frame",
+      "name": "Freeze Frame",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "lethean_elegy",
+      "name": "Lethean Elegy",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "luminous_hymn",
+      "name": "Luminous Hymn",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "rime_draped_sprouts",
+      "name": "Rime-Draped Sprouts",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "stellar_symphony",
+      "name": "Stellar Symphony",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "stringmaster",
+      "name": "Stringmaster",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "whispers_of_sirens",
+      "name": "Whispers of Sirens",
+      "rarity": 5,
+      "type": "Rectifier"
+    },
+    {
+      "id": "augment",
+      "name": "Augment",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "call_of_the_abyss",
+      "name": "Call of the Abyss",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "comet_flare",
+      "name": "Comet Flare",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "fusion_accretion",
+      "name": "Fusion Accretion",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "jinzhou_keeper",
+      "name": "Jinzhou Keeper",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "ocean_s_gift",
+      "name": "Ocean's Gift",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "radiant_dawn",
+      "name": "Radiant Dawn",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "rectifier_25",
+      "name": "Rectifier#25",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "variation",
+      "name": "Variation",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "waltz_in_masquerade",
+      "name": "Waltz in Masquerade",
+      "rarity": 4,
+      "type": "Rectifier"
+    },
+    {
+      "id": "guardian_rectifier",
+      "name": "Guardian Rectifier",
+      "rarity": 3,
+      "type": "Rectifier"
+    },
+    {
+      "id": "originite_type_v",
+      "name": "Originite: Type V",
+      "rarity": 3,
+      "type": "Rectifier"
+    },
+    {
+      "id": "rectifier_of_night",
+      "name": "Rectifier of Night",
+      "rarity": 3,
+      "type": "Rectifier"
+    },
+    {
+      "id": "rectifier_of_voyager",
+      "name": "Rectifier of Voyager",
+      "rarity": 3,
+      "type": "Rectifier"
+    },
+    {
+      "id": "tyro_rectifier",
+      "name": "Tyro Rectifier",
+      "rarity": 2,
+      "type": "Rectifier"
+    },
+    {
+      "id": "training_rectifier",
+      "name": "Training Rectifier",
+      "rarity": 1,
+      "type": "Rectifier"
+    }
+  ]
+}

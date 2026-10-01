@@ -1,0 +1,28 @@
+{
+  "_note": "PLACEHOLDER ITEMS - replace names/ids with the real in-game resources. Items are referenced by id from buildTables.json and characters.json.",
+  "items": [
+    { "id": "shell_credits", "name": "Shell Credits", "category": "Currency", "rarity": 3 },
+    { "id": "exp_basic", "name": "Basic Resonance Potion", "category": "EXP", "rarity": 2, "exp": 1000 },
+    { "id": "exp_medium", "name": "Medium Resonance Potion", "category": "EXP", "rarity": 3, "exp": 5000 },
+    { "id": "exp_advanced", "name": "Advanced Resonance Potion", "category": "EXP", "rarity": 4, "exp": 20000 },
+    { "id": "exp_elite", "name": "Elite Resonance Potion", "category": "EXP", "rarity": 5, "exp": 50000 },
+
+    { "id": "common_t1", "name": "Common Drop (T1)", "category": "Ascension", "rarity": 2 },
+    { "id": "common_t2", "name": "Common Drop (T2)", "category": "Ascension", "rarity": 3 },
+    { "id": "common_t3", "name": "Common Drop (T3)", "category": "Ascension", "rarity": 4 },
+    { "id": "common_t4", "name": "Common Drop (T4)", "category": "Ascension", "rarity": 5 },
+    { "id": "boss_sample", "name": "Overlord Boss Material", "category": "Ascension", "rarity": 4 },
+    { "id": "specialty_sample", "name": "Local Specialty", "category": "Ascension", "rarity": 4 },
+
+    { "id": "skill_t1", "name": "Waveworn Residue 226", "category": "Skill", "rarity": 2 },
+    { "id": "skill_t2", "name": "Waveworn Residue 235", "category": "Skill", "rarity": 3 },
+    { "id": "skill_t3", "name": "Waveworn Residue 239", "category": "Skill", "rarity": 4 },
+    { "id": "skill_t4", "name": "Waveworn Residue 228", "category": "Skill", "rarity": 5 },
+    { "id": "weekly_sample", "name": "Weekly Boss Material", "category": "Skill", "rarity": 5 },
+
+    { "id": "weapon_t1", "name": "Metallic Drip (T1)", "category": "Weapon", "rarity": 2 },
+    { "id": "weapon_t2", "name": "Metallic Drip (T2)", "category": "Weapon", "rarity": 3 },
+    { "id": "weapon_t3", "name": "Metallic Drip (T3)", "category": "Weapon", "rarity": 4 },
+    { "id": "weapon_t4", "name": "Metallic Drip (T4)", "category": "Weapon", "rarity": 5 }
+  ]
+}
