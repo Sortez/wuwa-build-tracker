@@ -33,7 +33,9 @@ React + Vite + TypeScript single-page app (Wuthering Waves build planner). No ba
 
 ## Desktop app (Tauri)
 
-- `src-tauri/` wraps the built `dist/` in a native WebView2 window. The only native integration is the `store` plugin (Rust `tauri-plugin-store`, JS `@tauri-apps/plugin-store`, permission `store:default` in `src-tauri/capabilities/default.json`); add plugins/IPC sparingly.
+- `src-tauri/` wraps the built `dist/` in a native WebView2 window. Native plugins: `store` (persistence), `updater` + `process` (self-update and relaunch); permissions live in `src-tauri/capabilities/default.json`. Add plugins/IPC sparingly.
+- Self-update: `src/components/UpdateBanner.tsx` checks `https://github.com/Sortez/wuwa-build-tracker/releases/latest/download/latest.json` on desktop startup. Bundles are signed with the minisign key at `%USERPROFILE%\.tauri\wuwa-build-tracker.key` (no password, never commit it; the public key is in `tauri.conf.json`). `scripts/tauri.ps1` loads it automatically. Losing that key means installed apps can no longer verify updates.
+- Releasing: `npm run release -- <x.y.z> ["notes"]` (`scripts/release.ps1`) bumps the version in `package.json`, `tauri.conf.json` and `Cargo.toml`, builds, writes `release/latest.json`, commits + pushes everything, and runs `gh release create v<x.y.z>`. The version must increase or the updater sees nothing new. Only the NSIS target is built.
 - Toolchain is installed: Rust (rustup) + VS Build Tools 2022 (VCTools workload, which includes the Windows SDK); WebView2 ships with Windows. `npx tauri info` may still report MSVC missing because it doesn't recognize the separate VS 2026 preview install — trust a successful build over that report.
 - `npm run desktop:dev` — starts `dev:desktop` (Vite on 5173, no browser) and opens the desktop window. This is the way to run the desktop app.
 - `npm run desktop:build` — runs `npm run build`, then bundles installers under `src-tauri/target/release/bundle/`.

@@ -30,6 +30,10 @@ if ($remote -notmatch 'github\.com[:/](?<slug>[^/]+/[^/.]+?)(\.git)?$') {
 $slug = $matches.slug
 $tag = "v$Version"
 
+$gh = (Get-Command gh -ErrorAction SilentlyContinue).Source
+if (-not $gh) { $gh = Join-Path $env:ProgramFiles 'GitHub CLI\gh.exe' }
+if (-not (Test-Path $gh)) { throw 'GitHub CLI (gh) not found - install it with: winget install GitHub.cli' }
+
 # 1. Bump versions (all three must match or the updater compares the wrong one).
 function Set-JsonVersion($path) {
     $text = Get-Content $path -Raw
@@ -82,7 +86,7 @@ if ($LASTEXITCODE -ne 0) { throw 'git commit failed.' }
 git push origin HEAD
 if ($LASTEXITCODE -ne 0) { throw 'git push failed.' }
 
-gh release create $tag $asset $latest --repo $slug --title $tag --notes $Notes
+& $gh release create $tag $asset $latest --repo $slug --title $tag --notes $Notes
 if ($LASTEXITCODE -ne 0) { throw 'gh release create failed.' }
 
 Write-Host "Published $tag - installed apps will offer the update on next start."
