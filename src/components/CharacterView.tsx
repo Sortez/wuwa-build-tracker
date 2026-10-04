@@ -1,4 +1,4 @@
-import { recommendedTeams } from '../data';
+import { builds, recommendedTeams } from '../data';
 import { rarityClass, stars } from '../lib/format';
 import { useApp } from '../state';
 import type { Character } from '../types';
@@ -136,6 +136,7 @@ export default function CharacterView({ character }: Props) {
 
       <EchoBuildPanel
         echoBuild={progress.echoBuild}
+        recommendedSubstats={builds[character.id]?.substats}
         onChange={(echoBuild) => updateCharacter(character.id, { echoBuild })}
       />
     </main>

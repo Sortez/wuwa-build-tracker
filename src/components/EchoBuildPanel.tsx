@@ -4,20 +4,47 @@ import {
   emptyEchoBuild,
   formatSubstatValue,
   MAIN_STATS,
+  mainStatLabel,
   MAX_ECHO_COST,
+  parseRecommendedSubstats,
   SUBSTATS,
   substatsById,
+  substatTotals,
   totalEchoCost,
 } from '../lib/echoStats';
 import type { EchoCost, EchoSubstat, TrackedEcho } from '../types';
 
 interface Props {
   echoBuild: TrackedEcho[];
+  /** The build guide's recommended substat string, if any. */
+  recommendedSubstats?: string;
   onChange: (echoBuild: TrackedEcho[]) => void;
 }
 
-export default function EchoBuildPanel({ echoBuild, onChange }: Props) {
+export default function EchoBuildPanel({
+  echoBuild,
+  recommendedSubstats,
+  onChange,
+}: Props) {
   const total = totalEchoCost(echoBuild);
+  const totals = substatTotals(echoBuild);
+  const targets = new Map<string, number>();
+  for (const entry of parseRecommendedSubstats(recommendedSubstats)) {
+    if (entry.statId && entry.target !== undefined) {
+      targets.set(entry.statId, entry.target);
+    }
+  }
+  const metCount = [...targets].filter(
+    ([id, target]) => (totals.get(id) ?? 0) >= target,
+  ).length;
+  const allMet = targets.size > 0 && metCount === targets.size;
+  // Recommended stats first (in guide order), then any other rolled stats.
+  const summaryIds = [
+    ...targets.keys(),
+    ...SUBSTATS.map((def) => def.id).filter(
+      (id) => !targets.has(id) && totals.has(id),
+    ),
+  ];
 
   const updateEcho = (index: number, patch: Partial<TrackedEcho>) =>
     onChange(
@@ -49,6 +76,16 @@ export default function EchoBuildPanel({ echoBuild, onChange }: Props) {
       <div className="panel-head gear-head">
         <h3 className="panel-title">My echo build</h3>
         <div className="echo-build-actions">
+          {targets.size > 0 && (
+            <span
+              className={`echo-goal-badge${allMet ? ' met' : ''}`}
+              title="Recommended substat totals reached by your echoes"
+            >
+              {allMet
+                ? '✓ Recommended stats met'
+                : `Recommended ${metCount} / ${targets.size}`}
+            </span>
+          )}
           <span
             className={`echo-cost-total${total > MAX_ECHO_COST ? ' over' : ''}`}
             title={
@@ -123,7 +160,7 @@ export default function EchoBuildPanel({ echoBuild, onChange }: Props) {
                   {echo.cost &&
                     MAIN_STATS[echo.cost].map((stat) => (
                       <option key={stat} value={stat}>
-                        {stat}
+                        {mainStatLabel(echo.cost!, stat)}
                       </option>
                     ))}
                 </select>
@@ -182,6 +219,35 @@ export default function EchoBuildPanel({ echoBuild, onChange }: Props) {
           );
         })}
       </div>
+
+      {summaryIds.length > 0 && (
+        <div className="gear-block">
+          <h4 className="section-subtitle">Substat totals</h4>
+          <ul className="substat-list">
+            {summaryIds.map((id) => {
+              const def = substatsById.get(id)!;
+              const current = totals.get(id) ?? 0;
+              const target = targets.get(id);
+              const met = target !== undefined && current >= target;
+              return (
+                <li
+                  key={id}
+                  className={`substat-chip${met ? ' met' : ''}${
+                    target === undefined ? ' extra' : ''
+                  }`}
+                >
+                  {met && <span className="substat-rank">✓</span>}
+                  {def.label}
+                  <span className="substat-progress">
+                    {formatSubstatValue(def, current)}
+                    {target !== undefined && ` / ${target}%`}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

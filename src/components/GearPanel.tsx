@@ -1,4 +1,5 @@
 import { builds, echoSets, echoSetsById, weapons, weaponsById } from '../data';
+import { parseRecommendedSubstats, substatTotals } from '../lib/echoStats';
 import { rarityClass, stars } from '../lib/format';
 import type { Character, CharacterProgress } from '../types';
 import EchoSetIcon from './EchoSetIcon';
@@ -69,12 +70,8 @@ export default function GearPanel({ character, progress, onChange }: Props) {
     : null;
 
   const build = builds[character.id];
-  // Substats are a priority-ordered string; some entries miss the comma
-  // between stats ("Energy Regen (18.3%) ATK (25.8%)"), so also split there.
-  const substats = (build?.substats ?? '')
-    .split(/,\s*|(?<=\))\s+(?=[A-Z])/)
-    .map((stat) => stat.trim())
-    .filter(Boolean);
+  const substats = parseRecommendedSubstats(build?.substats);
+  const totals = substatTotals(progress.echoBuild);
 
   const applyRecommended = () => {
     if (!build) return;
@@ -170,12 +167,29 @@ export default function GearPanel({ character, progress, onChange }: Props) {
           <>
             <h4 className="section-subtitle">Recommended substats</h4>
             <ol className="substat-list">
-              {substats.map((stat, index) => (
-                <li key={index} className="substat-chip">
-                  <span className="substat-rank">{index + 1}</span>
-                  {stat}
-                </li>
-              ))}
+              {substats.map((entry, index) => {
+                const current =
+                  entry.statId !== undefined ? totals.get(entry.statId) ?? 0 : null;
+                const met =
+                  current !== null && entry.target !== undefined && current >= entry.target;
+                return (
+                  <li
+                    key={index}
+                    className={`substat-chip${met ? ' met' : ''}`}
+                    title={
+                      current !== null
+                        ? `Your echo substats: ${current}% of ${entry.target}%`
+                        : undefined
+                    }
+                  >
+                    <span className="substat-rank">{met ? '✓' : index + 1}</span>
+                    {entry.text}
+                    {current !== null && (
+                      <span className="substat-progress">{current}%</span>
+                    )}
+                  </li>
+                );
+              })}
             </ol>
           </>
         )}
