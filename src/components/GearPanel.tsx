@@ -69,6 +69,12 @@ export default function GearPanel({ character, progress, onChange }: Props) {
     : null;
 
   const build = builds[character.id];
+  // Substats are a priority-ordered string; some entries miss the comma
+  // between stats ("Energy Regen (18.3%) ATK (25.8%)"), so also split there.
+  const substats = (build?.substats ?? '')
+    .split(/,\s*|(?<=\))\s+(?=[A-Z])/)
+    .map((stat) => stat.trim())
+    .filter(Boolean);
 
   const applyRecommended = () => {
     if (!build) return;
@@ -157,12 +163,21 @@ export default function GearPanel({ character, progress, onChange }: Props) {
             <p>
               <strong>5pc:</strong> {primaryEchoSet.fivePiece}
             </p>
-            {build?.substats && (
-              <p className="muted small">
-                <strong>Substats:</strong> {build.substats}
-              </p>
-            )}
           </div>
+        )}
+
+        {substats.length > 0 && (
+          <>
+            <h4 className="section-subtitle">Recommended substats</h4>
+            <ol className="substat-list">
+              {substats.map((stat, index) => (
+                <li key={index} className="substat-chip">
+                  <span className="substat-rank">{index + 1}</span>
+                  {stat}
+                </li>
+              ))}
+            </ol>
+          </>
         )}
 
         <label className="select-field">

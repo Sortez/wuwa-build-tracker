@@ -3,6 +3,7 @@ import { rarityClass, stars } from '../lib/format';
 import { useApp } from '../state';
 import type { Character } from '../types';
 import CharacterAvatar from './CharacterAvatar';
+import EchoBuildPanel from './EchoBuildPanel';
 import GearPanel from './GearPanel';
 import OwnedToggle from './OwnedToggle';
 import {
@@ -131,6 +132,11 @@ export default function CharacterView({ character }: Props) {
         character={character}
         progress={progress}
         onChange={(patch) => updateCharacter(character.id, patch)}
+      />
+
+      <EchoBuildPanel
+        echoBuild={progress.echoBuild}
+        onChange={(echoBuild) => updateCharacter(character.id, { echoBuild })}
       />
     </main>
   );

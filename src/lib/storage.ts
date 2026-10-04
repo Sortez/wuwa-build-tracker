@@ -6,6 +6,7 @@ import type {
   SkillNode,
   SkillProgress,
 } from '../types';
+import { emptyEchoBuild, normalizeEchoBuild } from './echoStats';
 
 const STORAGE_KEY = 'wuwa-build-tracker:v1';
 const STORE_FILE = 'wuwa-state.json';
@@ -37,6 +38,7 @@ export function createDefaultProgress(character: Character): CharacterProgress {
     weaponTargetLevel: character.defaultTargetLevel ?? 90,
     recommendedEchoSetIds: [null, null],
     mainEcho: null,
+    echoBuild: emptyEchoBuild(),
     notes: '',
   };
 }
@@ -83,6 +85,7 @@ export function mergeProgress(
     recommendedWeaponIds: weaponIds,
     recommendedEchoSetIds: [echoIds[0] ?? null, echoIds[1] ?? null],
     mainEcho: stored.mainEcho ?? defaults.mainEcho,
+    echoBuild: normalizeEchoBuild(stored.echoBuild),
     notes: stored.notes ?? defaults.notes,
   };
 

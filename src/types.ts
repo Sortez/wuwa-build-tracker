@@ -151,6 +151,21 @@ export interface CharacterBuild {
   substats?: string;
 }
 
+export type EchoCost = 1 | 3 | 4;
+
+/** One substat roll on a tracked echo; `stat` is a substat id from `lib/echoStats`. */
+export interface EchoSubstat {
+  stat: string | null;
+  value: number | null;
+}
+
+/** A user-entered echo: cost, main stat and five substats. */
+export interface TrackedEcho {
+  cost: EchoCost | null;
+  mainStat: string | null;
+  substats: EchoSubstat[];
+}
+
 /** Per-skill progress state. */
 export interface SkillProgress {
   level: number;
@@ -172,6 +187,8 @@ export interface CharacterProgress {
   /** Two recommended echo set slots: [primary/BiS, alternative]. */
   recommendedEchoSetIds: (string | null)[];
   mainEcho: string | null;
+  /** The user's own five echoes. */
+  echoBuild: TrackedEcho[];
   notes: string;
   /** True once the recommended gear has been auto-filled, so it isn't re-applied. */
   autoFilled?: boolean;
