@@ -1,6 +1,6 @@
 [package]
 name = "wuwa-build-tracker"
-version = "0.3.1"
+version = "0.3.2"
 description = "Wuthering Waves build planner"
 authors = ["WuWa Build Tracker"]
 edition = "2021"
