@@ -42,11 +42,9 @@ function ModePicker({
 
 function RecommendedCard({
   team,
-  tier,
   ready,
 }: {
   team: RecommendedTeam;
-  tier: string;
   ready: boolean;
 }) {
   const lead = charactersById.get(team.characterIds[0]);
@@ -61,10 +59,7 @@ function RecommendedCard({
       <header className="team-card-head">
         <div className="team-card-heading">
           <h4>{team.name}</h4>
-          <span className="team-card-badges">
-            <span className={`tier-badge tier-${tierKey(tier)}`}>{tier}</span>
-            {ready && <ReadyBadge />}
-          </span>
+          {ready && <ReadyBadge />}
         </div>
       </header>
       <TeamRoster characterIds={team.characterIds} />
@@ -203,26 +198,29 @@ export default function TeamsView() {
           );
           if (list.length === 0) return null;
           return (
-            <div key={label} className="tier-group">
-              <h4 className="tier-group-head">
-                <span className={`tier-badge tier-${tierKey(label)}`}>
-                  {label}
-                </span>
-                <span className="muted tiny">
-                  {list.length} {list.length === 1 ? 'team' : 'teams'}
-                </span>
-              </h4>
+            <section
+              key={label}
+              className={`tier-group tier-${tierKey(label)}`}
+              aria-label={`Tier ${label}`}
+            >
+              <div className="tier-rail">
+                <div className="tier-rail-inner">
+                  <span className="tier-rail-label">{label}</span>
+                  <span className="tier-rail-count">
+                    {list.length} {list.length === 1 ? 'team' : 'teams'}
+                  </span>
+                </div>
+              </div>
               <div className="team-grid">
                 {list.map((team) => (
                   <RecommendedCard
                     key={team.id}
                     team={team}
-                    tier={label}
                     ready={isReady(team)}
                   />
                 ))}
               </div>
-            </div>
+            </section>
           );
         })}
       </section>
