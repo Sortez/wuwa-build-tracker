@@ -1,5 +1,5 @@
 {
-  "_note": "All weapons as of Version 3.7, grouped by type. Rarity is auto-derived; verify if needed. Referenced by id from character progress recommendations.",
+  "_note": "All weapons as of Version 3.7 (incl. Suoming signature Unspoken Rue), grouped by type. Rarity is auto-derived; verify if needed. Referenced by id from character progress recommendations.",
   "weapons": [
     {
       "id": "ages_of_harvest",
@@ -208,6 +208,12 @@
     {
       "id": "red_spring",
       "name": "Red Spring",
+      "rarity": 5,
+      "type": "Sword"
+    },
+    {
+      "id": "unspoken_rue",
+      "name": "Unspoken Rue",
       "rarity": 5,
       "type": "Sword"
     },

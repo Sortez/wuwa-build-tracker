@@ -1,5 +1,5 @@
 {
-  "_note": "Roster updated through Version 3.7 (Hsin; Suoming not yet released). Identity fields (name, rarity, element, weaponType, role) are best-effort from public sources - verify against the live game. Rarity/element/weapon are reliable; roles are approximate. materialMap is intentionally omitted on most characters so they inherit the shared default map in src/data/index.ts; override per character when adding real drop ids. Recommended weapons/echoes are chosen by the user in the UI and stored in localStorage, not here.",
+  "_note": "Roster updated through Version 3.7 (Hsin, Suoming). Identity fields (name, rarity, element, weaponType, role) are best-effort from public sources - verify against the live game. Rarity/element/weapon are reliable; roles are approximate. materialMap is intentionally omitted on most characters so they inherit the shared default map in src/data/index.ts; override per character when adding real drop ids. Recommended weapons/echoes are chosen by the user in the UI and stored in localStorage, not here.",
   "defaultSkills": [
     { "id": "basic_attack", "name": "Basic Attack", "kind": "active", "costTable": "active", "maxLevel": 10, "defaultLevel": 1, "defaultTarget": 10, "defaultPriority": 3 },
     { "id": "resonance_skill", "name": "Resonance Skill", "kind": "active", "costTable": "active", "maxLevel": 10, "defaultLevel": 1, "defaultTarget": 10, "defaultPriority": 4 },
@@ -57,6 +57,7 @@
     { "id": "rebecca", "name": "Rebecca", "rarity": 5, "element": "Electro", "weaponType": "Pistols", "role": "Support / Sub-DPS" },
     { "id": "rover_electro", "name": "Rover: Electro", "rarity": 5, "element": "Electro", "weaponType": "Sword", "role": "Sub-DPS / Support" },
     { "id": "hsin", "name": "Hsin", "rarity": 5, "element": "Electro", "weaponType": "Rectifier", "role": "Main DPS" },
+    { "id": "suoming", "name": "Suoming", "rarity": 5, "element": "Electro", "weaponType": "Sword", "role": "Main DPS / Unison Sub-DPS" },
 
     { "id": "luuk_herssen", "name": "Luuk Herssen", "rarity": 5, "element": "Spectro", "weaponType": "Gauntlets", "role": "Main DPS" },
     { "id": "lynae", "name": "Lynae", "rarity": 5, "element": "Spectro", "weaponType": "Pistols", "role": "Sub-DPS / Break" },

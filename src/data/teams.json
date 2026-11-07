@@ -1,32 +1,6 @@
 {
-  "_note": "PLACEHOLDER recommended teams sourced from Prydwen's Wuthering Waves Team Tier List (prydwen.gg/wuthering-waves/team-tier-list). ratings.tower / ratings.wastes use Prydwen's 5-11 scale (11 = T0, 1 = not listed for that mode). characterIds are the core 3 picks; characterIds must match ids in characters.json.",
+  "_note": "PLACEHOLDER recommended teams sourced from Prydwen's Wuthering Waves Team Tier List (prydwen.gg/wuthering-waves/team-tier-list), last updated 22 Oct 2026 (Patch 3.7, incl. Suoming). ratings.tower / ratings.wastes use Prydwen's 5-11 scale (11 = T0, 10 = T0.5, 9 = T1, 8 = T1.5, 7 = T2, 6 = T3, 5 = T4, 1 = not listed for that mode). characterIds are the core 3 picks; characterIds must match ids in characters.json.",
   "teams": [
-    {
-      "id": "hsin-flare-1",
-      "name": "Hsin Flare",
-      "characterIds": [
-        "hsin",
-        "rover_electro",
-        "suisui"
-      ],
-      "ratings": {
-        "tower": 10,
-        "wastes": 9
-      }
-    },
-    {
-      "id": "hsin-unison-2",
-      "name": "Hsin Unison",
-      "characterIds": [
-        "hsin",
-        "jinhsi",
-        "shorekeeper"
-      ],
-      "ratings": {
-        "tower": 8,
-        "wastes": 7
-      }
-    },
     {
       "id": "aemeath-fusion-burst-1",
       "name": "Aemeath Fusion Burst",
@@ -62,7 +36,7 @@
         "mornye"
       ],
       "ratings": {
-        "tower": 11,
+        "tower": 10,
         "wastes": 6
       }
     },
@@ -210,7 +184,33 @@
       }
     },
     {
-      "id": "iuno-hypercarry-15",
+      "id": "hsin-flare-15",
+      "name": "Hsin Flare",
+      "characterIds": [
+        "hsin",
+        "rover_electro",
+        "suisui"
+      ],
+      "ratings": {
+        "tower": 10,
+        "wastes": 10
+      }
+    },
+    {
+      "id": "hsin-unison-16",
+      "name": "Hsin Unison",
+      "characterIds": [
+        "hsin",
+        "suoming",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 11,
+        "wastes": 11
+      }
+    },
+    {
+      "id": "iuno-hypercarry-17",
       "name": "Iuno Hypercarry",
       "characterIds": [
         "iuno",
@@ -223,7 +223,7 @@
       }
     },
     {
-      "id": "jingran-hypercarry-16",
+      "id": "jingran-hypercarry-18",
       "name": "Jingran Hypercarry",
       "characterIds": [
         "jingran",
@@ -236,12 +236,12 @@
       }
     },
     {
-      "id": "jinhsi-hypercarry-17",
+      "id": "jinhsi-hypercarry-19",
       "name": "Jinhsi Hypercarry",
       "characterIds": [
         "jinhsi",
         "zhezhi",
-        "verina"
+        "shorekeeper"
       ],
       "ratings": {
         "tower": 6,
@@ -249,7 +249,20 @@
       }
     },
     {
-      "id": "jiyan-dual-dps-18",
+      "id": "jinhsi-unison-20",
+      "name": "Jinhsi Unison",
+      "characterIds": [
+        "jinhsi",
+        "hsin",
+        "shorekeeper"
+      ],
+      "ratings": {
+        "tower": 8,
+        "wastes": 7
+      }
+    },
+    {
+      "id": "jiyan-dual-dps-21",
       "name": "Jiyan Dual DPS",
       "characterIds": [
         "jiyan",
@@ -262,7 +275,7 @@
       }
     },
     {
-      "id": "jiyan-mono-aero-19",
+      "id": "jiyan-mono-aero-22",
       "name": "Jiyan Mono Aero",
       "characterIds": [
         "jiyan",
@@ -275,7 +288,7 @@
       }
     },
     {
-      "id": "lingyang-hypercarry-20",
+      "id": "lingyang-hypercarry-23",
       "name": "Lingyang Hypercarry",
       "characterIds": [
         "lingyang",
@@ -288,7 +301,7 @@
       }
     },
     {
-      "id": "lucy-hypercarry-21",
+      "id": "lucy-hypercarry-24",
       "name": "Lucy Hypercarry",
       "characterIds": [
         "lucy",
@@ -301,7 +314,7 @@
       }
     },
     {
-      "id": "luuk-hypercarry-22",
+      "id": "luuk-hypercarry-25",
       "name": "Luuk Hypercarry",
       "characterIds": [
         "luuk_herssen",
@@ -314,7 +327,7 @@
       }
     },
     {
-      "id": "phoebe-hypercarry-23",
+      "id": "phoebe-hypercarry-26",
       "name": "Phoebe Hypercarry",
       "characterIds": [
         "phoebe",
@@ -327,7 +340,7 @@
       }
     },
     {
-      "id": "phoebe-hypercarry-24",
+      "id": "phoebe-hypercarry-27",
       "name": "Phoebe Hypercarry",
       "characterIds": [
         "phoebe",
@@ -340,20 +353,7 @@
       }
     },
     {
-      "id": "phrolova-dual-dps-25",
-      "name": "Phrolova Dual DPS",
-      "characterIds": [
-        "phrolova",
-        "galbrena",
-        "shorekeeper"
-      ],
-      "ratings": {
-        "tower": 7,
-        "wastes": 8
-      }
-    },
-    {
-      "id": "phrolova-echo-26",
+      "id": "phrolova-echo-28",
       "name": "Phrolova Echo",
       "characterIds": [
         "phrolova",
@@ -366,7 +366,7 @@
       }
     },
     {
-      "id": "qingxiao-hypercarry-27",
+      "id": "qingxiao-hypercarry-29",
       "name": "Qingxiao Hypercarry",
       "characterIds": [
         "qingxiao",
@@ -379,7 +379,7 @@
       }
     },
     {
-      "id": "sigrika-hypercarry-28",
+      "id": "sigrika-hypercarry-30",
       "name": "Sigrika Hypercarry",
       "characterIds": [
         "sigrika",
@@ -392,7 +392,20 @@
       }
     },
     {
-      "id": "tri-dps-fusion-29",
+      "id": "suoming-hypercarry-31",
+      "name": "Suoming Hypercarry",
+      "characterIds": [
+        "suoming",
+        "lynae",
+        "mornye"
+      ],
+      "ratings": {
+        "tower": 10,
+        "wastes": 7
+      }
+    },
+    {
+      "id": "tri-dps-fusion-32",
       "name": "Tri-DPS Fusion",
       "characterIds": [
         "galbrena",
@@ -405,7 +418,7 @@
       }
     },
     {
-      "id": "xiangli-yao-hypercarry-30",
+      "id": "xiangli-yao-hypercarry-33",
       "name": "Xiangli Yao Hypercarry",
       "characterIds": [
         "xiangli_yao",
@@ -418,7 +431,7 @@
       }
     },
     {
-      "id": "xuanling-hypercarry-31",
+      "id": "xuanling-hypercarry-34",
       "name": "Xuanling Hypercarry",
       "characterIds": [
         "yangyang_xuanling",
@@ -431,7 +444,7 @@
       }
     },
     {
-      "id": "zani-hypercarry-32",
+      "id": "zani-hypercarry-35",
       "name": "Zani Hypercarry",
       "characterIds": [
         "zani",
@@ -440,7 +453,7 @@
       ],
       "ratings": {
         "tower": 7,
-        "wastes": 7
+        "wastes": 6
       }
     }
   ]
