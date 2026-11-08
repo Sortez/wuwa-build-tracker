@@ -115,8 +115,10 @@ export interface Weapon {
 export interface EchoSet {
   id: string;
   name: string;
-  twoPiece: string;
-  fivePiece: string;
+  onePiece?: string;
+  twoPiece?: string;
+  threePiece?: string;
+  fivePiece?: string;
 }
 
 export type TeamMode = 'tower' | 'wastes';

@@ -1536,6 +1536,7 @@ code {
   margin: 0;
   line-height: 1.45;
   text-wrap: pretty;
+  white-space: pre-line;
 }
 
 .icon-select {
@@ -2083,7 +2084,7 @@ body {
 .icon-select-trigger:hover { border-color: var(--border-strong); background: #292b2e; }
 .item-icon { background: var(--bg-elev); border-color: var(--border); }
 .icon-select-trigger .item-icon { border: 0; background: transparent; }
-.echo-detail { background: transparent; border: 0; border-left: 2px solid var(--border-strong); border-radius: 0; padding: 4px 14px; margin-top: 16px; color: var(--muted); line-height: 1.6; }
+.echo-detail { background: transparent; border: 0; border-left: 2px solid var(--border-strong); border-radius: 0; padding: 4px 12px; margin-top: 0; color: var(--muted); line-height: 1.6; }
 .echo-detail p { font-size: 12px; }
 .echo-detail strong { color: var(--text); }
 .substat-chip { border-color: var(--border); background: var(--panel-2); border-radius: 6px; font-size: 12px; }

@@ -5,6 +5,8 @@ export interface IconOption {
   label: string;
   meta?: ReactNode;
   icon: ReactNode;
+  /** Shown as a hover tooltip on the option in the open menu. */
+  description?: string;
 }
 
 interface Props {
@@ -109,6 +111,7 @@ export default function IconSelect({
               type="button"
               role="option"
               aria-selected={option.id === value}
+              title={option.description}
               className={
                 option.id === value ? 'icon-option selected' : 'icon-option'
               }

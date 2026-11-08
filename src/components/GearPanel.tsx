@@ -1,7 +1,7 @@
 import { builds, echoSets, echoSetsById, weapons, weaponsById } from '../data';
 import { parseRecommendedSubstats, substatTotals } from '../lib/echoStats';
 import { rarityClass, stars } from '../lib/format';
-import type { Character, CharacterProgress } from '../types';
+import type { Character, CharacterProgress, EchoSet } from '../types';
 import EchoSetIcon from './EchoSetIcon';
 import IconSelect, { type IconOption } from './IconSelect';
 import WeaponIcon from './WeaponIcon';
@@ -24,6 +24,19 @@ const sortedEchoSets = [...echoSets].sort((a, b) =>
   a.name.localeCompare(b.name),
 );
 
+/** Set bonuses in piece order, skipping the tiers a set doesn't have. */
+function echoSetBonuses(echoSet: EchoSet): { label: string; text: string }[] {
+  const tiers: [string, string | undefined][] = [
+    ['1pc', echoSet.onePiece],
+    ['2pc', echoSet.twoPiece],
+    ['3pc', echoSet.threePiece],
+    ['5pc', echoSet.fivePiece],
+  ];
+  return tiers
+    .filter((tier): tier is [string, string] => Boolean(tier[1]))
+    .map(([label, text]) => ({ label, text }));
+}
+
 export default function GearPanel({ character, progress, onChange }: Props) {
   const compatibleWeapons = sortedWeapons.filter(
     (weapon) => weapon.type === character.weaponType,
@@ -38,12 +51,16 @@ export default function GearPanel({ character, progress, onChange }: Props) {
       </span>
     ),
     icon: <WeaponIcon weapon={weapon} size="md" />,
+    description: weapon.passive,
   }));
 
   const echoSetOptions: IconOption[] = sortedEchoSets.map((echoSet) => ({
     id: echoSet.id,
     label: echoSet.name,
     icon: <EchoSetIcon echoSet={echoSet} size="md" />,
+    description: echoSetBonuses(echoSet)
+      .map((bonus) => `${bonus.label}: ${bonus.text}`)
+      .join('\n'),
   }));
 
   const setWeapon = (index: number, id: string | null) => {
@@ -63,11 +80,6 @@ export default function GearPanel({ character, progress, onChange }: Props) {
     next[index] = id;
     onChange({ recommendedEchoSetIds: [next[0] ?? null, next[1] ?? null] });
   };
-
-  const primaryEchoId = progress.recommendedEchoSetIds[0];
-  const primaryEchoSet = primaryEchoId
-    ? echoSetsById.get(primaryEchoId) ?? null
-    : null;
 
   const build = builds[character.id];
   const substats = parseRecommendedSubstats(build?.substats);
@@ -134,34 +146,35 @@ export default function GearPanel({ character, progress, onChange }: Props) {
       <div className="gear-block">
         <h4 className="section-subtitle">Recommended echo sets</h4>
         <div className="gear-slots">
-          {ECHO_SLOTS.map((index) => (
-            <div key={index} className="gear-slot">
-              <span className="field-label tiny">
-                {index === 0 ? 'Primary (BiS)' : 'Alternative'}
-              </span>
-              <IconSelect
-                options={echoSetOptions}
-                value={progress.recommendedEchoSetIds[index] ?? null}
-                onChange={(id) => setEchoSet(index, id)}
-                ariaLabel="Echo set"
-              />
-            </div>
-          ))}
+          {ECHO_SLOTS.map((index) => {
+            const echoSetId = progress.recommendedEchoSetIds[index] ?? null;
+            const echoSet = echoSetId
+              ? echoSetsById.get(echoSetId) ?? null
+              : null;
+            return (
+              <div key={index} className="gear-slot">
+                <span className="field-label tiny">
+                  {index === 0 ? 'Primary (BiS)' : 'Alternative'}
+                </span>
+                <IconSelect
+                  options={echoSetOptions}
+                  value={echoSetId}
+                  onChange={(id) => setEchoSet(index, id)}
+                  ariaLabel="Echo set"
+                />
+                {echoSet && (
+                  <div className="echo-detail">
+                    {echoSetBonuses(echoSet).map((bonus) => (
+                      <p key={bonus.label}>
+                        <strong>{bonus.label}:</strong> {bonus.text}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-
-        {primaryEchoSet && (
-          <div className="echo-detail">
-            <p>
-              <strong>{primaryEchoSet.name}</strong>
-            </p>
-            <p>
-              <strong>2pc:</strong> {primaryEchoSet.twoPiece}
-            </p>
-            <p>
-              <strong>5pc:</strong> {primaryEchoSet.fivePiece}
-            </p>
-          </div>
-        )}
 
         {substats.length > 0 && (
           <>
