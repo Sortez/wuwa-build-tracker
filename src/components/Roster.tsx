@@ -52,7 +52,7 @@ export default function Roster({ selectedId, onSelect }: Props) {
   return (
     <aside className="roster">
       <h2 className="panel-title">
-        Roster <span className="muted small">({filtered.length})</span>
+        Collection <span className="muted small">({filtered.length})</span>
         <span className="roster-owned-count muted small">
           {ownedIds.size}/{characters.length} owned
         </span>
@@ -61,11 +61,13 @@ export default function Roster({ selectedId, onSelect }: Props) {
       <div className="roster-controls">
         <input
           type="search"
+          aria-label="Search resonators"
           placeholder="Search name, role, weapon..."
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
         <select
+          aria-label="Filter by element"
           value={element}
           onChange={(event) =>
             setElement(event.target.value as 'all' | ElementName)
@@ -79,6 +81,7 @@ export default function Roster({ selectedId, onSelect }: Props) {
           ))}
         </select>
         <select
+          aria-label="Filter by ownership"
           value={ownedFilter}
           onChange={(event) => setOwnedFilter(event.target.value as OwnedFilter)}
         >
@@ -99,6 +102,7 @@ export default function Roster({ selectedId, onSelect }: Props) {
                   : 'roster-card'
               }
               onClick={() => onSelect(character.id)}
+              aria-pressed={character.id === selectedId}
             >
               <CharacterAvatar character={character} size="xl" />
               <span className="roster-info">

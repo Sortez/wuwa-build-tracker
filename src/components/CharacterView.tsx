@@ -36,15 +36,15 @@ export default function CharacterView({ character }: Props) {
         <div className="character-title">
           <CharacterAvatar character={character} size="lg" />
           <div>
+            <p className="eyebrow">Resonator dossier</p>
             <h2>
               {character.name}{' '}
               <span className={`stars ${rarityClass(character.rarity)}`}>
                 {stars(character.rarity)}
               </span>
             </h2>
-            <p className="muted">
-              {character.element} &middot; {character.weaponType} &middot;{' '}
-              {character.role}
+            <p className="character-tags">
+              <span>{character.element}</span><span>{character.weaponType}</span><span>{character.role}</span>
             </p>
           </div>
         </div>

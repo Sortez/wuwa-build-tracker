@@ -11,7 +11,7 @@ import UpdateBanner from './components/UpdateBanner';
 type Tab = 'roster' | 'teams';
 
 function Shell() {
-  const { resetAll } = useApp();
+  const { resetAll, ownedIds, state } = useApp();
   const [tab, setTab] = useState<Tab>('roster');
   const [selectedId, setSelectedId] = useState(characters[0]?.id ?? '');
 
@@ -25,47 +25,51 @@ function Shell() {
         Skip to content
       </a>
       <header className="app-header">
-        <div>
-          <h1>WuWa Build Tracker</h1>
-          <p className="subtitle">
-            Recommended weapons, Echo sets and teams for every Resonator.
-          </p>
+        <div className="brand">
+          <span className="brand-mark" aria-hidden="true">W<span>/</span></span>
+          <div>
+            <h1>WuWa<span className="brand-divider"> / </span><span className="brand-caption">Build Tracker</span></h1>
+            <p className="subtitle">WUTHERING WAVES · YOUR PERSONAL FIELD GUIDE</p>
+          </div>
         </div>
         <div className="header-actions">
-          <nav className="tabs">
-            <button
-              type="button"
-              className={tab === 'roster' ? 'tab active' : 'tab'}
-              onClick={() => setTab('roster')}
-            >
-              Characters
-            </button>
-            <button
-              type="button"
-              className={tab === 'teams' ? 'tab active' : 'tab'}
-              onClick={() => setTab('teams')}
-            >
-              Teams
-            </button>
-          </nav>
           <BackupControls />
           <button
             type="button"
             className="danger-button"
             onClick={() => {
-              if (
-                window.confirm(
-                  'Reset all tracked progress? This cannot be undone.',
-                )
-              ) {
-                resetAll();
-              }
+              if (window.confirm('Reset all tracked progress? This cannot be undone.')) resetAll();
             }}
           >
             Reset progress
           </button>
         </div>
       </header>
+
+      <div className="workspace-bar">
+          <nav className="tabs" aria-label="Workspace">
+            <button
+              type="button"
+              className={tab === 'roster' ? 'tab active' : 'tab'}
+              aria-current={tab === 'roster' ? 'page' : undefined}
+              onClick={() => setTab('roster')}
+            >
+              <span className="tab-index">01</span> Resonators
+            </button>
+            <button
+              type="button"
+              className={tab === 'teams' ? 'tab active' : 'tab'}
+              aria-current={tab === 'teams' ? 'page' : undefined}
+              onClick={() => setTab('teams')}
+            >
+              <span className="tab-index">02</span> Teams
+            </button>
+          </nav>
+          <div className="workspace-stats">
+            <span><strong>{ownedIds.size}</strong> / {characters.length} collected</span>
+            <span><strong>{state.myTeams.length}</strong> saved teams</span>
+          </div>
+      </div>
 
       <UpdateBanner />
 

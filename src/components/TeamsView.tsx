@@ -155,7 +155,11 @@ export default function TeamsView() {
   };
 
   return (
-    <div className="teams-view">
+    <main className="teams-view" id="main">
+      <header className="studio-heading">
+        <div><p className="eyebrow">Synergy starts here</p><h2>Teams</h2></div>
+        <p className="muted small">Find your next lineup. Build something stronger.</p>
+      </header>
       <section className="panel">
         <div className="panel-head recommended-head">
           <div>
@@ -302,6 +306,6 @@ export default function TeamsView() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
