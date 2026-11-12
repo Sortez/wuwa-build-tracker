@@ -1,6 +1,18 @@
 {
-  "_note": "Per-character recommended weapon + Echo set picks auto-sourced from Prydwen build guides (prydwen.gg/wuthering-waves/characters/<slug>), Sep 2026 / Patch 3.6. weaponIds/echoSetIds are ordered by priority; mainEcho/substats come from Prydwen's calculation. fourStarWeaponId is Prydwen's best viable 4-star option for the character (Battle Pass exclusives included; event-exclusive weapons such as Somnoire Anchor are skipped as unobtainable, falling back to the next best 4-star). Where Prydwen has no distinct 4-star left, the weapon type's standard craftable / Energy Regen 4-star is used instead (Brant, Rover: Aero, Taoqi). Used to auto-fill empty gear slots. Hsin added Oct 2026 / Patch 3.7 (Prydwen lists only her signature Echo set). Suoming added Nov 2026 / Patch 3.7 (Prydwen build updated 22 Oct 2026; Feather Edge is the Unison 4-star, Lumingloss is better for DPS Suoming).",
+  "_note": "Per-character recommended weapon + Echo set picks auto-sourced from Prydwen build guides (prydwen.gg/wuthering-waves/characters/<slug>), Sep 2026 / Patch 3.6. weaponIds/echoSetIds are ordered by priority; mainEcho/substats come from Prydwen's calculation. fourStarWeaponId is Prydwen's best viable 4-star option for the character (Battle Pass exclusives included; event-exclusive weapons such as Somnoire Anchor are skipped as unobtainable, falling back to the next best 4-star). Where Prydwen has no distinct 4-star left, the weapon type's standard craftable / Energy Regen 4-star is used instead (Brant, Rover: Aero, Taoqi). Used to auto-fill empty gear slots. Hsin added Oct 2026 / Patch 3.7 (Prydwen lists only her signature Echo set). Suoming added Nov 2026 / Patch 3.7 (Prydwen build updated 22 Oct 2026; Feather Edge is the Unison 4-star, Lumingloss is better for DPS Suoming). Lily added Nov 2026 / Patch 3.8 (Prydwen build 12 Nov 2026; Cadenza is her only listed alternative, so it fills the 4-star slot).",
   "builds": {
+    "lily": {
+      "weaponIds": [
+        "lullaby"
+      ],
+      "fourStarWeaponId": "cadenza",
+      "echoSetIds": [
+        "rejuvenating_glow",
+        "flower_of_tinged_yearning"
+      ],
+      "mainEcho": "Fallacy of No Return (Rejuvenating Glow) / Formrender (Flower of Tinged Yearning)",
+      "substats": "Energy Regen (until 250-260%), CRIT DMG, CRIT Rate (until 20%), HP%, Heavy Attack DMG Bonus"
+    },
     "hsin": {
       "weaponIds": [
         "blooming_jadehaven",
