@@ -10,6 +10,7 @@ release
 # Local agent tooling
 .opencode
 .claude
+AGENTS.md
 
 # Tauri
 src-tauri/target
