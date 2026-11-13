@@ -1,6 +1,17 @@
 # WuWa Build Tracker
 
-A build planner for **Wuthering Waves** as a Windows desktop app. See the recommended weapons (including a budget 4-star option), Echo sets and teams for every character, adjust them to your own picks, and put together your own teams. Recommended builds and teams are based on [Prydwen](https://www.prydwen.gg/wuthering-waves/) (up to Version 3.7).
+A build planner for **Wuthering Waves** as a Windows desktop app. Track your resonator builds, browse recommended weapons (with Lv. 90 main stats and a budget 4-star option), Echo sets, team lineups (`Z`–`E` tier list), and full character skills & Resonance Chain sequences—all locally on your PC.
+
+![WuWa Build Tracker Preview](docs/preview.png)
+
+## Features
+
+- **Resonator Build Planner** — Track character ownership, primary/alternative/4-star weapons with Lv. 90 ATK and substat values, Echo sets, main Echoes, and Echo substat rolls.
+- **Character Index** — Filter resonators by element, weapon type, or rarity and read complete **Skills** and **Resonance Chain (S1–S6)** descriptions.
+- **Weapon Index** — Search and filter 125 weapons by category (`Broadblade`, `Sword`, `Pistols`, `Gauntlets`, `Rectifier`) and rarity, with Lv. 90 base stats, passives, and recommended users.
+- **Teams & Tier List** — Browse recommended lineups rated from **Z** to **E** for *Tower of Adversity* and *Whimpering Wastes*, or compose and save your own teams.
+
+Recommended builds and teams are based on [Prydwen](https://www.prydwen.gg/wuthering-waves/) (up to Version 3.7).
 
 ## Download & installation
 
