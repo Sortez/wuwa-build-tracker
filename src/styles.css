@@ -1702,13 +1702,13 @@ button:active:not(:disabled) {
   background: var(--accent);
 }
 
-.tier-t0   { --tier: #fb7185; }
-.tier-t0-5 { --tier: #fb923c; }
-.tier-t1   { --tier: #f4c977; }
-.tier-t1-5 { --tier: #a3e635; }
-.tier-t2   { --tier: #38bdf8; }
-.tier-t3   { --tier: #818cf8; }
-.tier-t4   { --tier: #94a3b8; }
+.tier-z { --tier: #fb7185; }
+.tier-s { --tier: #fb923c; }
+.tier-a { --tier: #f4c977; }
+.tier-b { --tier: #a3e635; }
+.tier-c { --tier: #38bdf8; }
+.tier-d { --tier: #818cf8; }
+.tier-e { --tier: #94a3b8; }
 
 .tier-group {
   display: grid;
@@ -1885,7 +1885,13 @@ button:active:not(:disabled) {
   line-height: 1;
 }
 
-.tier-badge[class*='tier-t'] {
+.tier-badge.tier-z,
+.tier-badge.tier-s,
+.tier-badge.tier-a,
+.tier-badge.tier-b,
+.tier-badge.tier-c,
+.tier-badge.tier-d,
+.tier-badge.tier-e {
   color: var(--tier);
   border-color: color-mix(in srgb, var(--tier) 42%, transparent);
   background: color-mix(in srgb, var(--tier) 12%, transparent);
@@ -2183,6 +2189,486 @@ button:active:not(:disabled) {
 }
 
 /* ============================================================
+   Weapon Stats, Weapon Index, Character Index & Kits
+   ============================================================ */
+
+.weapon-option-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.weapon-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(6, 10, 24, 0.72);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.stat-pill strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.stat-pill-lv {
+  border-color: rgba(125, 211, 252, 0.32);
+  background: rgba(125, 211, 252, 0.1);
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.index-view {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 4px;
+}
+
+.index-toolbar-panel {
+  flex: none;
+}
+
+.index-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.index-search {
+  max-width: 560px;
+}
+
+.category-pill-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-pill-bar.compact {
+  gap: 5px;
+}
+
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-input);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+
+.category-pill-bar.compact .cat-pill {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.cat-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.cat-pill.active {
+  border-color: rgba(125, 211, 252, 0.55);
+  background: rgba(125, 211, 252, 0.14);
+  color: var(--accent);
+  box-shadow: 0 0 16px -6px rgba(125, 211, 252, 0.5);
+}
+
+.rarity-pill-bar .cat-pill.active {
+  border-color: rgba(244, 201, 119, 0.48);
+  background: rgba(244, 201, 119, 0.12);
+  color: var(--text);
+  box-shadow: 0 0 16px -6px rgba(244, 201, 119, 0.4);
+}
+
+.cat-pill-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  opacity: 0.78;
+}
+
+.weapons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+  padding-bottom: 6px;
+}
+
+.weapon-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--weapon-rarity-accent, var(--border));
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  backdrop-filter: blur(16px) saturate(135%);
+  box-shadow: var(--glass-highlight), var(--shadow-sm);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.weapon-card:hover {
+  border-color: color-mix(in srgb, var(--weapon-rarity-accent, var(--accent)) 45%, var(--border));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--weapon-rarity-accent, var(--accent)) 7%, rgba(16, 24, 46, 0.84)),
+    var(--panel) 48%
+  );
+}
+
+.weapon-rarity-5 {
+  --weapon-rarity-accent: #f4c977;
+}
+
+.weapon-rarity-4 {
+  --weapon-rarity-accent: #c896f5;
+}
+
+.weapon-rarity-3 {
+  --weapon-rarity-accent: #7cc4fa;
+}
+
+.weapon-rarity-2 {
+  --weapon-rarity-accent: #6ee7b7;
+}
+
+.weapon-rarity-1 {
+  --weapon-rarity-accent: #9aa5b1;
+}
+
+.weapon-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.weapon-card-title {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.weapon-card-name-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.weapon-card-name-row h3 {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.weapon-type-tag {
+  flex: none;
+  padding: 2px 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(148, 178, 255, 0.08);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.weapon-users {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.weapon-users-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.weapon-users-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.weapon-user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 4px;
+  border: 1px solid color-mix(in srgb, var(--el-color, var(--border)) 30%, var(--border));
+  border-radius: 999px;
+  background: rgba(10, 16, 34, 0.78);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.weapon-user-chip:hover {
+  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 68%, transparent);
+  background: color-mix(in srgb, var(--el-color, var(--accent)) 14%, rgba(16, 24, 48, 0.9));
+}
+
+.roster-card.roster-card-index {
+  padding-right: 10px;
+}
+
+.kit-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kit-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kit-section-tabs {
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(92px, auto));
+}
+
+.kit-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.kit-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kit-skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+  box-shadow: var(--glass-highlight);
+}
+
+.kit-skill-card-featured {
+  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 34%, var(--border));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--el-color, var(--accent)) 8%, rgba(18, 27, 52, 0.8)),
+    rgba(12, 18, 36, 0.78)
+  );
+}
+
+.kit-skill-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kit-skill-head h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.kit-type-badge {
+  flex: none;
+  padding: 2px 8px;
+  border: 1px solid rgba(125, 211, 252, 0.34);
+  border-radius: 6px;
+  background: rgba(125, 211, 252, 0.11);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.kit-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12.5px;
+  line-height: 1.58;
+  color: var(--muted);
+}
+
+.kit-desc p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.kit-spacer {
+  height: 4px;
+}
+
+.skill-subheading {
+  margin: 6px 0 1px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
+.kit-desc .skill-subheading:first-child {
+  margin-top: 0;
+}
+
+.kit-skill-tabs-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.kit-skill-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kit-skill-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 8px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-input);
+  color: var(--muted);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.kit-skill-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.kit-skill-pill.active {
+  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 60%, transparent);
+  background: color-mix(in srgb, var(--el-color, var(--accent)) 14%, rgba(18, 27, 52, 0.85));
+  color: var(--text);
+}
+
+.kit-skill-pill-type {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.kit-skill-pill-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sequence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sequence-card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 14px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+  box-shadow: var(--glass-highlight);
+}
+
+.sequence-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sequence-head h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.sequence-badge {
+  flex: none;
+  padding: 2px 8px;
+  border: 1px solid rgba(244, 201, 119, 0.38);
+  border-radius: 6px;
+  background: rgba(244, 201, 119, 0.12);
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ============================================================
    Responsive Breakpoints & Reduced Motion
    ============================================================ */
 
@@ -2227,13 +2713,30 @@ button:active:not(:disabled) {
   }
 
   .character-view,
-  .teams-view {
+  .teams-view,
+  .index-view {
     overflow: visible;
     padding-right: 0;
   }
 
   .gear-slots.weapon-slots {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .kit-skill-grid,
+  .sequence-grid,
+  .kit-skill-tabs-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .kit-skill-pills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .kit-skill-pill {
+    width: auto;
+    flex: 1 1 180px;
   }
 }
 
@@ -2249,11 +2752,13 @@ button:active:not(:disabled) {
 
   .tabs {
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
+    border-radius: var(--radius);
   }
 
   .tab {
-    flex: 1;
+    flex: 1 1 130px;
     justify-content: center;
   }
 
@@ -2282,7 +2787,8 @@ button:active:not(:disabled) {
 
   .gear-slots,
   .gear-slots.weapon-slots,
-  .echo-cards {
+  .echo-cards,
+  .weapons-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 

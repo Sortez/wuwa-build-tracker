@@ -85,6 +85,23 @@ export interface SkillNode {
   note?: string;
 }
 
+export interface CharacterSkillDetail {
+  name: string;
+  type: string;
+  description: string;
+}
+
+export interface CharacterSequence {
+  index: number;
+  name: string;
+  description: string;
+}
+
+export interface CharacterKit {
+  skills: CharacterSkillDetail[];
+  sequences: CharacterSequence[];
+}
+
 export interface Character {
   id: string;
   name: string;
@@ -97,8 +114,14 @@ export interface Character {
   /** Maps abstract cost-table roles to concrete item ids. */
   materialMap: Record<string, string>;
   skills: SkillNode[];
+  kit?: CharacterKit;
   defaultTargetLevel?: number;
   note?: string;
+}
+
+export interface WeaponSubstat {
+  label: string;
+  value: string;
 }
 
 export interface Weapon {
@@ -106,6 +129,8 @@ export interface Weapon {
   name: string;
   rarity: number;
   type: WeaponTypeName;
+  atk?: number;
+  substat?: WeaponSubstat;
   passive?: string;
   /** Optional icon URL or path. Defaults to /weapons/<id>.webp. */
   icon?: string;

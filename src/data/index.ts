@@ -1,5 +1,6 @@
 import buildTablesJson from './buildTables.json';
 import buildsJson from './builds.json';
+import characterKitsJson from './characterKits.json';
 import charactersJson from './characters.json';
 import echoSetsJson from './echoSets.json';
 import itemsJson from './items.json';
@@ -9,6 +10,7 @@ import type {
   BuildTables,
   Character,
   CharacterBuild,
+  CharacterKit,
   EchoSet,
   Item,
   RecommendedTeam,
@@ -44,6 +46,9 @@ type RawCharacter = Omit<Character, 'skills' | 'materialMap'> & {
 };
 
 const defaultSkills = charactersJson.defaultSkills as unknown as SkillNode[];
+const characterKits = (
+  characterKitsJson as unknown as { kits: Record<string, CharacterKit> }
+).kits;
 
 export const characters: Character[] = (
   charactersJson.characters as unknown as RawCharacter[]
@@ -53,6 +58,7 @@ export const characters: Character[] = (
     character.skills && character.skills.length > 0
       ? character.skills
       : defaultSkills,
+  kit: characterKits[character.id],
   materialMap: { ...DEFAULT_MATERIAL_MAP, ...character.materialMap },
 }));
 

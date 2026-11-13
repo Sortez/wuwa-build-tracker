@@ -1,5 +1,5 @@
 {
-  "_note": "PLACEHOLDER recommended teams sourced from Prydwen's Wuthering Waves Team Tier List (prydwen.gg/wuthering-waves/team-tier-list), last updated 12 Nov 2026 (Patch 3.8, incl. Lily). ratings.tower / ratings.wastes use Prydwen's 5-11 scale (11 = T0, 10 = T0.5, 9 = T1, 8 = T1.5, 7 = T2, 6 = T3, 5 = T4, 1 = not listed for that mode). characterIds are the core 3 picks; characterIds must match ids in characters.json.",
+  "_note": "PLACEHOLDER recommended teams sourced from Prydwen's Wuthering Waves Team Tier List (prydwen.gg/wuthering-waves/team-tier-list), last updated 12 Nov 2026 (Patch 3.8, incl. Lily). ratings.tower / ratings.wastes use Prydwen's 5-11 scale (11 = Z, 10 = S, 9 = A, 8 = B, 7 = C, 6 = D, 5 = E, 1 = not listed for that mode). characterIds are the core 3 picks; characterIds must match ids in characters.json.",
   "teams": [
     {
       "id": "aemeath-fusion-burst-1",

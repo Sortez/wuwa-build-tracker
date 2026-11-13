@@ -37,22 +37,41 @@ function echoSetBonuses(echoSet: EchoSet): { label: string; text: string }[] {
     .map(([label, text]) => ({ label, text }));
 }
 
+function weaponStatsLine(weapon: { atk?: number; substat?: { label: string; value: string } }): string | null {
+  const parts: string[] = [];
+  if (weapon.atk !== undefined) parts.push(`ATK ${weapon.atk}`);
+  if (weapon.substat) parts.push(`${weapon.substat.label} ${weapon.substat.value}`);
+  return parts.length > 0 ? `Lv. 90: ${parts.join(' · ')}` : null;
+}
+
 export default function GearPanel({ character, progress, onChange }: Props) {
   const compatibleWeapons = sortedWeapons.filter(
     (weapon) => weapon.type === character.weaponType,
   );
 
-  const weaponOptions: IconOption[] = compatibleWeapons.map((weapon) => ({
-    id: weapon.id,
-    label: weapon.name,
-    meta: (
-      <span className={`stars ${rarityClass(weapon.rarity)}`}>
-        {stars(weapon.rarity)}
-      </span>
-    ),
-    icon: <WeaponIcon weapon={weapon} size="md" />,
-    description: weapon.passive,
-  }));
+  const weaponOptions: IconOption[] = compatibleWeapons.map((weapon) => {
+    const statsLine = weaponStatsLine(weapon);
+    const descParts = [statsLine, weapon.passive].filter(Boolean);
+    return {
+      id: weapon.id,
+      label: weapon.name,
+      meta: (
+        <span className="weapon-option-meta">
+          <span className={`stars ${rarityClass(weapon.rarity)}`}>
+            {stars(weapon.rarity)}
+          </span>
+          {weapon.substat && (
+            <span className="muted">
+              {' '}
+              &middot; {weapon.substat.label} {weapon.substat.value}
+            </span>
+          )}
+        </span>
+      ),
+      icon: <WeaponIcon weapon={weapon} size="md" />,
+      description: descParts.join('\n\n'),
+    };
+  });
 
   const echoSetOptions: IconOption[] = sortedEchoSets.map((echoSet) => ({
     id: echoSet.id,
@@ -137,6 +156,22 @@ export default function GearPanel({ character, progress, onChange }: Props) {
                   onChange={(id) => setWeapon(index, id)}
                   ariaLabel="Weapon"
                 />
+                {weapon && (weapon.atk !== undefined || weapon.substat) && (
+                  <div className="weapon-stats">
+                    <span className="stat-pill stat-pill-lv">Lv. 90</span>
+                    {weapon.atk !== undefined && (
+                      <span className="stat-pill">
+                        ATK <strong>{weapon.atk}</strong>
+                      </span>
+                    )}
+                    {weapon.substat && (
+                      <span className="stat-pill">
+                        {weapon.substat.label}{' '}
+                        <strong>{weapon.substat.value}</strong>
+                      </span>
+                    )}
+                  </div>
+                )}
                 {weapon?.passive && (
                   <p className="muted small weapon-passive">{weapon.passive}</p>
                 )}

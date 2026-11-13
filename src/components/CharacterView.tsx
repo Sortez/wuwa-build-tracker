@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { builds, recommendedTeams, weaponsById } from '../data';
 import {
   MAX_ECHO_COST,
@@ -9,6 +10,7 @@ import { elementClass, rarityClass, stars } from '../lib/format';
 import { useApp } from '../state';
 import type { Character } from '../types';
 import CharacterAvatar from './CharacterAvatar';
+import CharacterKitSection from './CharacterKitSection';
 import EchoBuildPanel from './EchoBuildPanel';
 import GearPanel from './GearPanel';
 import OwnedToggle from './OwnedToggle';
@@ -27,6 +29,7 @@ interface Props {
 
 export default function CharacterView({ character }: Props) {
   const { state, ownedIds, progressFor, updateCharacter } = useApp();
+  const [showKit, setShowKit] = useState(false);
   const progress = progressFor(character);
 
   const savedTeams = state.myTeams.filter((team) =>
@@ -208,6 +211,36 @@ export default function CharacterView({ character }: Props) {
         recommendedSubstats={builds[character.id]?.substats}
         onChange={(echoBuild) => updateCharacter(character.id, { echoBuild })}
       />
+
+      {character.kit && (
+        <section className="panel">
+          <div className="panel-head gear-head">
+            <div>
+              <h3 className="panel-title">Skills &amp; Sequences</h3>
+              <p className="muted tiny">
+                {character.kit.skills.length} skills &middot;{' '}
+                {character.kit.sequences.length} Resonance Chain nodes
+              </p>
+            </div>
+            <button
+              type="button"
+              className="ghost-button"
+              aria-expanded={showKit}
+              onClick={() => setShowKit((current) => !current)}
+            >
+              {showKit ? 'Hide kit' : 'Read skills & sequences'}
+            </button>
+          </div>
+
+          {showKit && (
+            <CharacterKitSection
+              key={character.id}
+              kit={character.kit}
+              compact
+            />
+          )}
+        </section>
+      )}
     </main>
   );
 }

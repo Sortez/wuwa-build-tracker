@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { version } from '../package.json';
-import { characters } from './data';
+import { characters, weapons } from './data';
 import { AppProvider, useApp } from './state';
 import BackupControls from './components/BackupControls';
+import CharactersIndexView from './components/CharactersIndexView';
 import CharacterView from './components/CharacterView';
 import Roster from './components/Roster';
 import TeamsView from './components/TeamsView';
 import UpdateBanner from './components/UpdateBanner';
+import WeaponsView from './components/WeaponsView';
 
-type Tab = 'roster' | 'teams';
+type Tab = 'roster' | 'characters' | 'weapons' | 'teams';
 
 function OrbitalMark() {
   return (
@@ -55,6 +57,11 @@ function Shell() {
   const selected =
     characters.find((character) => character.id === selectedId) ??
     characters[0];
+
+  const openCharacterBuild = (id: string) => {
+    setSelectedId(id);
+    setTab('roster');
+  };
 
   return (
     <div className="app">
@@ -110,6 +117,50 @@ function Shell() {
           </button>
           <button
             type="button"
+            className={tab === 'characters' ? 'tab active' : 'tab'}
+            aria-current={tab === 'characters' ? 'page' : undefined}
+            onClick={() => setTab('characters')}
+          >
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+              <path
+                d="M3 3.2h10v9.6H3z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.35"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M5.5 6.2h5M5.5 8.8h5M5.5 11.2h3"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span>Character Index</span>
+            <span className="tab-pill">{characters.length}</span>
+          </button>
+          <button
+            type="button"
+            className={tab === 'weapons' ? 'tab active' : 'tab'}
+            aria-current={tab === 'weapons' ? 'page' : undefined}
+            onClick={() => setTab('weapons')}
+          >
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+              <path
+                d="M12.8 3.2 6.8 9.2M10.4 3.2h2.4v2.4M5 8.5l2.5 2.5M4.4 10.6 3.2 12.8l2.2-1.2"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.35"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span>Weapon Index</span>
+            <span className="tab-pill">{weapons.length}</span>
+          </button>
+          <button
+            type="button"
             className={tab === 'teams' ? 'tab active' : 'tab'}
             aria-current={tab === 'teams' ? 'page' : undefined}
             onClick={() => setTab('teams')}
@@ -156,14 +207,19 @@ function Shell() {
       <UpdateBanner />
 
       <div className="app-main">
-        {tab === 'roster' ? (
+        {tab === 'roster' && (
           <div className="roster-layout">
             <Roster selectedId={selected?.id ?? ''} onSelect={setSelectedId} />
             {selected && <CharacterView character={selected} />}
           </div>
-        ) : (
-          <TeamsView />
         )}
+        {tab === 'characters' && (
+          <CharactersIndexView onOpenBuild={openCharacterBuild} />
+        )}
+        {tab === 'weapons' && (
+          <WeaponsView onSelectCharacter={openCharacterBuild} />
+        )}
+        {tab === 'teams' && <TeamsView />}
       </div>
 
       <footer className="app-footer muted tiny">

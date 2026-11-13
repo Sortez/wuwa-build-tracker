@@ -12,13 +12,13 @@ export const MODE_META: Record<TeamMode, { label: string }> = {
 
 /** Prydwen rating (5-11) to tier label, highest first. */
 export const TIERS = [
-  { label: 'T0', rating: 11 },
-  { label: 'T0.5', rating: 10 },
-  { label: 'T1', rating: 9 },
-  { label: 'T1.5', rating: 8 },
-  { label: 'T2', rating: 7 },
-  { label: 'T3', rating: 6 },
-  { label: 'T4', rating: 5 },
+  { label: 'Z', rating: 11 },
+  { label: 'S', rating: 10 },
+  { label: 'A', rating: 9 },
+  { label: 'B', rating: 8 },
+  { label: 'C', rating: 7 },
+  { label: 'D', rating: 6 },
+  { label: 'E', rating: 5 },
 ] as const;
 
 export const tierKey = (label: string) => label.toLowerCase().replace('.', '-');
