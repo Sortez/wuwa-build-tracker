@@ -124,7 +124,10 @@ export default function GearPanel({ character, progress, onChange }: Props) {
             const weaponId = progress.recommendedWeaponIds[index] ?? null;
             const weapon = weaponId ? weaponsById.get(weaponId) ?? null : null;
             return (
-              <div key={index} className="gear-slot">
+              <div
+                key={index}
+                className={`gear-slot${index === 0 ? ' gear-slot-primary' : ''}`}
+              >
                 <span className="field-label tiny">
                   {WEAPON_LABELS[index]}
                 </span>
@@ -152,7 +155,10 @@ export default function GearPanel({ character, progress, onChange }: Props) {
               ? echoSetsById.get(echoSetId) ?? null
               : null;
             return (
-              <div key={index} className="gear-slot">
+              <div
+                key={index}
+                className={`gear-slot${index === 0 ? ' gear-slot-primary' : ''}`}
+              >
                 <span className="field-label tiny">
                   {index === 0 ? 'Primary (BiS)' : 'Alternative'}
                 </span>

@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import {
   ECHO_COSTS,
   emptyEcho,
@@ -27,6 +28,7 @@ export default function EchoBuildPanel({
   onChange,
 }: Props) {
   const total = totalEchoCost(echoBuild);
+  const costRatio = Math.min(100, (total / MAX_ECHO_COST) * 100);
   const totals = substatTotals(echoBuild);
   const targets = new Map<string, number>();
   for (const entry of parseRecommendedSubstats(recommendedSubstats)) {
@@ -86,16 +88,24 @@ export default function EchoBuildPanel({
                 : `Recommended ${metCount} / ${targets.size}`}
             </span>
           )}
-          <span
-            className={`echo-cost-total${total > MAX_ECHO_COST ? ' over' : ''}`}
+          <div
+            className={`echo-cost-meter${total > MAX_ECHO_COST ? ' over' : ''}`}
             title={
               total > MAX_ECHO_COST
                 ? `Total cost exceeds the limit of ${MAX_ECHO_COST}`
-                : undefined
+                : `Echo cost capacity: ${total} of ${MAX_ECHO_COST}`
             }
           >
-            Cost {total} / {MAX_ECHO_COST}
-          </span>
+            <span className="echo-cost-label">
+              Cost {total} / {MAX_ECHO_COST}
+            </span>
+            <span className="echo-cost-bar" aria-hidden="true">
+              <span
+                className="echo-cost-fill"
+                style={{ width: `${costRatio}%` }}
+              />
+            </span>
+          </div>
           <button
             type="button"
             className="ghost-button"
@@ -112,9 +122,35 @@ export default function EchoBuildPanel({
             echo.substats.map((sub) => sub.stat).filter(Boolean),
           );
           return (
-            <div key={echoIndex} className="gear-slot echo-card">
+            <div
+              key={echoIndex}
+              className={`gear-slot echo-card${echo.cost ? ' configured' : ''}`}
+            >
               <div className="echo-card-head">
-                <span className="field-label tiny">Echo {echoIndex + 1}</span>
+                <span className="echo-slot-label">
+                  Echo <span>0{echoIndex + 1}</span>
+                </span>
+                <div
+                  className="cost-pills"
+                  role="group"
+                  aria-label={`Echo ${echoIndex + 1} cost`}
+                >
+                  {ECHO_COSTS.map((cost) => {
+                    const active = echo.cost === cost;
+                    return (
+                      <button
+                        key={cost}
+                        type="button"
+                        className={`cost-pill${active ? ' active' : ''}`}
+                        aria-pressed={active}
+                        title={`${cost} Cost${active ? ' (click to clear)' : ''}`}
+                        onClick={() => setCost(echoIndex, active ? null : cost)}
+                      >
+                        {cost}C
+                      </button>
+                    );
+                  })}
+                </div>
                 <button
                   type="button"
                   className="echo-card-clear"
@@ -128,25 +164,6 @@ export default function EchoBuildPanel({
 
               <div className="echo-main-row select-field">
                 <select
-                  value={echo.cost ?? ''}
-                  onChange={(event) =>
-                    setCost(
-                      echoIndex,
-                      event.target.value
-                        ? (Number(event.target.value) as EchoCost)
-                        : null,
-                    )
-                  }
-                  aria-label="Echo cost"
-                >
-                  <option value="">Cost…</option>
-                  {ECHO_COSTS.map((cost) => (
-                    <option key={cost} value={cost}>
-                      {cost} Cost
-                    </option>
-                  ))}
-                </select>
-                <select
                   value={echo.mainStat ?? ''}
                   disabled={!echo.cost}
                   onChange={(event) =>
@@ -156,7 +173,9 @@ export default function EchoBuildPanel({
                   }
                   aria-label="Main stat"
                 >
-                  <option value="">Main stat…</option>
+                  <option value="">
+                    {echo.cost ? 'Main stat…' : 'Select cost first…'}
+                  </option>
                   {echo.cost &&
                     MAIN_STATS[echo.cost].map((stat) => (
                       <option key={stat} value={stat}>
@@ -229,15 +248,24 @@ export default function EchoBuildPanel({
               const current = totals.get(id) ?? 0;
               const target = targets.get(id);
               const met = target !== undefined && current >= target;
+              const pct =
+                target && target > 0
+                  ? Math.min(100, Math.round((current / target) * 100))
+                  : 0;
               return (
                 <li
                   key={id}
                   className={`substat-chip${met ? ' met' : ''}${
                     target === undefined ? ' extra' : ''
                   }`}
+                  style={
+                    target !== undefined
+                      ? ({ '--sub-pct': `${pct}%` } as CSSProperties)
+                      : undefined
+                  }
                 >
                   {met && <span className="substat-rank">✓</span>}
-                  {def.label}
+                  <span>{def.label}</span>
                   <span className="substat-progress">
                     {formatSubstatValue(def, current)}
                     {target !== undefined && ` / ${target}%`}

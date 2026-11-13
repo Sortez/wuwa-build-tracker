@@ -156,14 +156,10 @@ export default function TeamsView() {
 
   return (
     <main className="teams-view" id="main">
-      <header className="studio-heading">
-        <div><p className="eyebrow">Synergy starts here</p><h2>Teams</h2></div>
-        <p className="muted small">Find your next lineup. Build something stronger.</p>
-      </header>
       <section className="panel">
         <div className="panel-head recommended-head">
           <div>
-            <h3 className="panel-title">Recommended teams</h3>
+            <h2 className="panel-title">Recommended teams</h2>
             <p className="muted tiny">
               Prydwen tier list &middot; {MODE_META[recommendedMode].label}
             </p>
@@ -239,7 +235,7 @@ export default function TeamsView() {
           <div className="empty-teams">
             <p className="empty-teams-title">No saved teams yet</p>
             <p className="muted small">
-              Pick up to three characters and name the team below.
+              Select up to three resonators below to save a lineup.
             </p>
           </div>
         ) : (
@@ -256,7 +252,41 @@ export default function TeamsView() {
         )}
 
         <div className="team-builder">
-          <h4 className="section-subtitle">Create a team</h4>
+          <div className="team-builder-head">
+            <h4 className="section-subtitle">Team composer</h4>
+            <div className="builder-slots" aria-label="Selected team slots">
+              {Array.from({ length: MAX_TEAM_SIZE }).map((_, slotIndex) => {
+                const memberId = members[slotIndex];
+                const member = memberId ? charactersById.get(memberId) : null;
+                if (!member) {
+                  return (
+                    <span
+                      key={slotIndex}
+                      className="builder-slot-empty"
+                      title={`Empty slot ${slotIndex + 1}`}
+                    >
+                      +{slotIndex + 1}
+                    </span>
+                  );
+                }
+                return (
+                  <button
+                    key={member.id}
+                    type="button"
+                    className="builder-slot-filled"
+                    title={`Remove ${member.name}`}
+                    onClick={() => toggleMember(member.id)}
+                  >
+                    <CharacterAvatar character={member} size="sm" />
+                    <span>{member.name}</span>
+                    <span className="builder-slot-x" aria-hidden="true">
+                      ×
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
           <div className="team-builder-row">
             <label className="select-field">

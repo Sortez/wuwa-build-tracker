@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { characters } from '../data';
-import { rarityClass, stars } from '../lib/format';
+import { elementClass, rarityClass, stars } from '../lib/format';
 import { useApp } from '../state';
 import type { ElementName } from '../types';
 import CharacterAvatar from './CharacterAvatar';
@@ -20,6 +20,12 @@ const ELEMENTS: ElementName[] = [
   'Glacio',
   'Aero',
   'Electro',
+];
+
+const OWNED_OPTIONS: { value: OwnedFilter; label: string }[] = [
+  { value: 'all', label: 'All' },
+  { value: 'owned', label: 'Owned' },
+  { value: 'missing', label: 'Missing' },
 ];
 
 export default function Roster({ selectedId, onSelect }: Props) {
@@ -51,79 +57,157 @@ export default function Roster({ selectedId, onSelect }: Props) {
 
   return (
     <aside className="roster">
-      <h2 className="panel-title">
-        Collection <span className="muted small">({filtered.length})</span>
-        <span className="roster-owned-count muted small">
+      <div className="roster-head">
+        <h2 className="panel-title">
+          Resonators
+          <span className="roster-count">{filtered.length}</span>
+        </h2>
+        <span className="roster-owned-count">
           {ownedIds.size}/{characters.length} owned
         </span>
-      </h2>
+      </div>
 
       <div className="roster-controls">
-        <input
-          type="search"
-          aria-label="Search resonators"
-          placeholder="Search name, role, weapon..."
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-        <select
+        <div className="search-field">
+          <svg
+            className="search-icon"
+            viewBox="0 0 16 16"
+            width="14"
+            height="14"
+            aria-hidden="true"
+          >
+            <circle
+              cx="7"
+              cy="7"
+              r="4.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+            <path
+              d="m10.5 10.5 3 3"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+          <input
+            type="search"
+            aria-label="Search resonators"
+            placeholder="Search name, role, weapon..."
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+          {query && (
+            <button
+              type="button"
+              className="search-clear"
+              aria-label="Clear search"
+              onClick={() => setQuery('')}
+            >
+              ×
+            </button>
+          )}
+        </div>
+
+        <div
+          className="element-filter-bar"
+          role="group"
           aria-label="Filter by element"
-          value={element}
-          onChange={(event) =>
-            setElement(event.target.value as 'all' | ElementName)
-          }
         >
-          <option value="all">All elements</option>
+          <button
+            type="button"
+            className={`el-pill${element === 'all' ? ' active' : ''}`}
+            aria-pressed={element === 'all'}
+            onClick={() => setElement('all')}
+          >
+            All
+          </button>
           {ELEMENTS.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
+            <button
+              key={option}
+              type="button"
+              className={`el-pill el-pill-orb ${elementClass(option)}${
+                element === option ? ' active' : ''
+              }`}
+              aria-label={option}
+              aria-pressed={element === option}
+              title={option}
+              onClick={() =>
+                setElement((current) => (current === option ? 'all' : option))
+              }
+            >
+              <span className={`element-dot ${elementClass(option)}`} />
+            </button>
           ))}
-        </select>
-        <select
+        </div>
+
+        <div
+          className="segmented-filter"
+          role="group"
           aria-label="Filter by ownership"
-          value={ownedFilter}
-          onChange={(event) => setOwnedFilter(event.target.value as OwnedFilter)}
         >
-          <option value="all">Owned &amp; not owned</option>
-          <option value="owned">Owned only</option>
-          <option value="missing">Not owned only</option>
-        </select>
+          {OWNED_OPTIONS.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={`seg-btn${ownedFilter === option.value ? ' active' : ''}`}
+              aria-pressed={ownedFilter === option.value}
+              onClick={() => setOwnedFilter(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="roster-list">
-        {filtered.map((character) => (
-          <div key={character.id} className="roster-row">
-            <button
-              type="button"
-              className={
-                character.id === selectedId
-                  ? 'roster-card selected'
-                  : 'roster-card'
-              }
-              onClick={() => onSelect(character.id)}
-              aria-pressed={character.id === selectedId}
-            >
-              <CharacterAvatar character={character} size="xl" />
-              <span className="roster-info">
-                <span className="roster-name">
-                  <span className="roster-name-text">{character.name}</span>
-                  <span
-                    className={`stars roster-stars ${rarityClass(character.rarity)}`}
-                  >
-                    {stars(character.rarity)}
+        {filtered.map((character) => {
+          const isSelected = character.id === selectedId;
+          return (
+            <div key={character.id} className="roster-row">
+              <button
+                type="button"
+                className={`roster-card ${elementClass(character.element)}${
+                  isSelected ? ' selected' : ''
+                }`}
+                onClick={() => onSelect(character.id)}
+                aria-pressed={isSelected}
+              >
+                <CharacterAvatar character={character} size="xl" />
+                <span className="roster-info">
+                  <span className="roster-name">
+                    <span className="roster-name-text">{character.name}</span>
+                    <span
+                      className={`stars roster-stars ${rarityClass(
+                        character.rarity,
+                      )}`}
+                    >
+                      {stars(character.rarity)}
+                    </span>
+                  </span>
+                  <span className="roster-meta">
+                    <span
+                      className={`element-dot ${elementClass(
+                        character.element,
+                      )}`}
+                      aria-hidden="true"
+                    />
+                    <span>
+                      {character.element} &middot; {character.role}
+                    </span>
                   </span>
                 </span>
-                <span className="roster-meta">
-                  {character.element} &middot; {character.role}
-                </span>
-              </span>
-            </button>
-            <OwnedToggle character={character} variant="compact" />
-          </div>
-        ))}
+              </button>
+              <OwnedToggle character={character} variant="compact" />
+            </div>
+          );
+        })}
         {filtered.length === 0 && (
-          <p className="muted small">No characters match your filter.</p>
+          <p className="muted small roster-empty">
+            No resonators match your filter.
+          </p>
         )}
       </div>
     </aside>

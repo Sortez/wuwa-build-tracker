@@ -82,14 +82,34 @@ export default function BackupControls() {
   return (
     <>
       <button type="button" className="ghost-button" onClick={exportBackup}>
-        Export backup
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true">
+          <path
+            d="M8 2.5v7.5m0 0L5 7m3 3 3-3M3 12.5h10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <span>Export</span>
       </button>
       <button
         type="button"
         className="ghost-button"
         onClick={() => fileInput.current?.click()}
       >
-        Import backup
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true">
+          <path
+            d="M8 10V2.5m0 0L5 5.5m3-3 3 3M3 12.5h10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <span>Import</span>
       </button>
       <input
         ref={fileInput}
