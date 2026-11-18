@@ -1,0 +1,37 @@
+{
+  "_note": "Current Convene banners. Lineup (Lily, Qiuyuan, Sigrika + their weapons, Starpath Reverbs II selector with Camellya/Roccia/Phoebe/Brant) confirmed by the user, Nov 2026 / Version 3.8 Phase I. Banner names, dates and 4-star rate-ups from Kuro's Phase I convene notice as reported by speedyninja.co (12 Nov 2026). Dates are in server time; 'end' is the last day the banner is open. Replace this whole file each phase, and add full-body art for new characters to public/banners/<id>.webp (encore.moe RolePortrait). characterIds / weaponId / fourStar*Ids must match ids in characters.json / weapons.json.",
+  "version": "3.8",
+  "phase": "Phase I",
+  "start": "2026-11-12",
+  "end": "2026-12-03",
+  "endTime": "09:59 server time",
+  "fourStarCharacterIds": ["youhu", "aalto", "yangyang"],
+  "fourStarWeaponIds": ["cadenza", "celestial_spiral", "comet_flare"],
+  "banners": [
+    {
+      "id": "bloom-of-yesterdays-dreamsoil",
+      "name": "Bloom of Yesterday's Dreamsoil",
+      "characterIds": ["lily"],
+      "weaponId": "lullaby",
+      "isNew": true
+    },
+    {
+      "id": "wanderer-knows-no-far-and-near",
+      "name": "Wanderer Knows No Far and Near",
+      "characterIds": ["qiuyuan"],
+      "weaponId": "emerald_sentence"
+    },
+    {
+      "id": "when-the-runes-glitter",
+      "name": "When the Runes Glitter",
+      "characterIds": ["sigrika"],
+      "weaponId": "solsworn_ciphers"
+    },
+    {
+      "id": "starpath-reverbs-ii",
+      "name": "Starpath Reverbs II",
+      "characterIds": ["camellya", "roccia", "phoebe", "brant"],
+      "end": "2026-12-21"
+    }
+  ]
+}

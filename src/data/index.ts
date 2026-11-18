@@ -1,3 +1,4 @@
+import bannersJson from './banners.json';
 import buildTablesJson from './buildTables.json';
 import buildsJson from './builds.json';
 import characterKitsJson from './characterKits.json';
@@ -7,6 +8,7 @@ import itemsJson from './items.json';
 import teamsJson from './teams.json';
 import weaponsJson from './weapons.json';
 import type {
+  BannerPhase,
   BuildTables,
   Character,
   CharacterBuild,
@@ -67,6 +69,8 @@ export const weapons: Weapon[] = weaponsJson.weapons as unknown as Weapon[];
 export const echoSets: EchoSet[] = echoSetsJson.echoSets as unknown as EchoSet[];
 export const recommendedTeams: RecommendedTeam[] =
   teamsJson.teams as unknown as RecommendedTeam[];
+
+export const bannerPhase: BannerPhase = bannersJson as unknown as BannerPhase;
 
 export const builds: Record<string, CharacterBuild> = (
   buildsJson as unknown as { builds: Record<string, CharacterBuild> }

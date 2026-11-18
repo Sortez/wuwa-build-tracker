@@ -158,6 +158,28 @@ export interface Team {
 }
 
 /** A curated team from an external tier list, rated per endgame mode. */
+/** One Convene banner. Several characterIds means a selector (pick one). */
+export interface Banner {
+  id: string;
+  name: string;
+  characterIds: string[];
+  weaponId?: string;
+  isNew?: boolean;
+  /** Overrides the phase end date (YYYY-MM-DD). */
+  end?: string;
+}
+
+export interface BannerPhase {
+  version: string;
+  phase: string;
+  start: string;
+  end: string;
+  endTime: string;
+  fourStarCharacterIds: string[];
+  fourStarWeaponIds: string[];
+  banners: Banner[];
+}
+
 export interface RecommendedTeam {
   id: string;
   name: string;

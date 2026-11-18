@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { version } from '../package.json';
-import { characters, weapons } from './data';
+import { bannerPhase, characters, weapons } from './data';
 import { AppProvider, useApp } from './state';
 import BackupControls from './components/BackupControls';
+import BannersView from './components/BannersView';
 import CharactersIndexView from './components/CharactersIndexView';
 import CharacterView from './components/CharacterView';
 import Roster from './components/Roster';
@@ -10,7 +11,7 @@ import TeamsView from './components/TeamsView';
 import UpdateBanner from './components/UpdateBanner';
 import WeaponsView from './components/WeaponsView';
 
-type Tab = 'roster' | 'characters' | 'weapons' | 'teams';
+type Tab = 'roster' | 'characters' | 'weapons' | 'teams' | 'banners';
 
 function OrbitalMark() {
   return (
@@ -182,6 +183,24 @@ function Shell() {
             <span>Teams</span>
             <span className="tab-pill">{state.myTeams.length}</span>
           </button>
+          <button
+            type="button"
+            className={tab === 'banners' ? 'tab active' : 'tab'}
+            aria-current={tab === 'banners' ? 'page' : undefined}
+            onClick={() => setTab('banners')}
+          >
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+              <path
+                d="M4 2.5h8v11L8 10.8 4 13.5z"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.35"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span>Banners</span>
+            <span className="tab-pill">{bannerPhase.version}</span>
+          </button>
         </nav>
 
         <div className="header-actions">
@@ -220,6 +239,7 @@ function Shell() {
           <WeaponsView onSelectCharacter={openCharacterBuild} />
         )}
         {tab === 'teams' && <TeamsView />}
+        {tab === 'banners' && <BannersView onOpenBuild={openCharacterBuild} />}
       </div>
 
       <footer className="app-footer muted tiny">
