@@ -27,6 +27,11 @@ FORM: Convene Key Art, #1 of my ordered list (IMPECCABLE'S PICK), seed:b0bc6457c
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
+## Adaptations
+
+- Portrait rail → searchable portrait panel: 61 characters need search, an element filter and an owned filter (product truth), so the rail is a 312px panel with those controls over a 3-column grid of portrait tiles (portrait and name only; rarity and element live on the stage).
+- Below 1180px the dock folds to 2x2 under the title in the left column so the right column keeps the figure; below 1320px the top bar puts the tabs on their own row.
+
 ## Unresolved
 
 - Art (decided 2026-11-19): 48 of 61 characters have a full-body render in public/banners (encore.moe RolePortrait; all four Rover forms use the male Rover render, the user's choice). The other 13 (Augusta, Denia, Galbrena, Hiyuki, Iuno, Jingran, Lucilla, Lucy, Qingxiao, Rebecca, Suisui, Suoming, Yangyang: Xuanling) have no full-body art from any usable source yet; the user chose one designed fallback for all 13 (square portrait large in the element light field) over half-figure crops. Re-run the encore.moe download later to replace fallbacks as renders appear.

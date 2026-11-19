@@ -1,20 +1,20 @@
 ---
 name: WuWa Build Tracker
-description: A dark, element-lit console for planning Wuthering Waves builds beside the game.
+description: Convene Key Art. The selected Resonator stands full-body in an element-coloured light field; the build sits in an opaque dock beneath.
 colors:
-  void: "#050813"
-  deep-hull: "#0a1022"
-  panel: "rgba(12, 18, 36, 0.72)"
-  panel-solid: "#0b1122"
-  panel-raised: "rgba(18, 27, 52, 0.72)"
-  input-well: "rgba(8, 13, 28, 0.85)"
-  hairline: "rgba(148, 178, 255, 0.13)"
-  hairline-strong: "rgba(148, 178, 255, 0.28)"
-  starlight: "#eef3ff"
-  dusk-slate: "#8c9bbd"
-  resonance-cyan: "#7dd3fc"
-  resonance-cyan-deep: "#60a5fa"
-  abyss-ink: "#041322"
+  ground: "#0a0912"
+  ground-raised: "#14111f"
+  panel-solid: "#13101d"
+  panel: "rgba(19, 16, 29, 0.9)"
+  panel-raised: "rgba(30, 24, 44, 0.72)"
+  dock-panel: "rgba(19, 16, 29, 0.94)"
+  input-well: "#0e0c17"
+  hairline: "rgba(214, 200, 255, 0.11)"
+  hairline-strong: "rgba(214, 200, 255, 0.26)"
+  bone: "#f2eefa"
+  dusk-lilac: "#a99cc0"
+  resonance-lilac: "#c9b8ff"
+  ink: "#0a0912"
   convene-gold: "#f4c977"
   signal-green: "#4ade80"
   signal-red: "#f87171"
@@ -24,50 +24,68 @@ colors:
   element-glacio: "#67d5fa"
   element-aero: "#6ee7b7"
   element-electro: "#a78bfa"
-  rarity-5: "#f4c977"
+  element-none: "#8c9bbd"
   rarity-4: "#c896f5"
   rarity-3: "#7cc4fa"
+  rarity-2: "#6ee7b7"
+  rarity-1: "#9aa5b1"
   tier-z: "#fb7185"
   tier-s: "#fb923c"
-  tier-a: "#f4c977"
+  tier-a: "#fde047"
   tier-b: "#a3e635"
   tier-c: "#38bdf8"
   tier-d: "#818cf8"
   tier-e: "#94a3b8"
 typography:
   display:
-    fontFamily: "Outfit, DM Sans, sans-serif"
-    fontSize: "38px"
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: "-0.02em"
+    fontFamily: "'Big Shoulders Display', 'DM Sans', sans-serif"
+    fontSize: "clamp(64px, 14cqi, 150px)"
+    fontWeight: 900
+    lineHeight: 0.86
+    letterSpacing: "0.005em"
   headline:
-    fontFamily: "Outfit, DM Sans, sans-serif"
-    fontSize: "26px"
+    fontFamily: "'Big Shoulders Display', 'DM Sans', sans-serif"
+    fontSize: "56px"
+    fontWeight: 900
+    lineHeight: 0.9
+    letterSpacing: "0.01em"
+  numeral:
+    fontFamily: "'Big Shoulders Display', 'DM Sans', sans-serif"
+    fontSize: "34px"
+    fontWeight: 800
+    lineHeight: 1
+  dock-value:
+    fontFamily: "'Big Shoulders Display', 'DM Sans', sans-serif"
+    fontSize: "22px"
     fontWeight: 700
-    lineHeight: 1.15
+    lineHeight: 1.05
+    letterSpacing: "0.01em"
+  brand:
+    fontFamily: "'Big Shoulders Display', 'DM Sans', sans-serif"
+    fontSize: "24px"
+    fontWeight: 900
+    lineHeight: 1
+    letterSpacing: "0.04em"
   title:
-    fontFamily: "Outfit, DM Sans, sans-serif"
+    fontFamily: "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif"
     fontSize: "16px"
     fontWeight: 600
-    lineHeight: 1.3
     letterSpacing: "-0.01em"
   body:
-    fontFamily: "DM Sans, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif"
     fontSize: "14px"
     fontWeight: 400
     lineHeight: 1.5
     fontFeature: "tnum"
   label:
-    fontFamily: "DM Sans, -apple-system, BlinkMacSystemFont, sans-serif"
+    fontFamily: "'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif"
     fontSize: "12px"
     fontWeight: 600
-    lineHeight: 1.4
+    letterSpacing: "0.08em"
   mono:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
+    fontFamily: "'JetBrains Mono', ui-monospace, monospace"
     fontSize: "11px"
     fontWeight: 500
-    lineHeight: 1.4
 rounded:
   sm: "8px"
   md: "12px"
@@ -80,213 +98,252 @@ spacing:
   lg: "16px"
   xl: "20px"
   2xl: "24px"
+  stage: "28px"
 components:
+  tab:
+    backgroundColor: "transparent"
+    textColor: "{colors.dusk-lilac}"
+    typography: "{typography.title}"
+    rounded: "{rounded.pill}"
+    padding: "7px 12px"
+    height: "36px"
+  tab-active:
+    backgroundColor: "{colors.bone}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
   button-primary:
-    backgroundColor: "{colors.resonance-cyan}"
-    textColor: "{colors.abyss-ink}"
-    typography: "{typography.label}"
-    rounded: "{rounded.sm}"
-    padding: "9px 16px"
+    backgroundColor: "{colors.bone}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "9px 18px"
   button-ghost:
     backgroundColor: "rgba(255, 255, 255, 0.025)"
-    textColor: "{colors.dusk-slate}"
-    typography: "{typography.label}"
+    textColor: "{colors.dusk-lilac}"
     rounded: "{rounded.sm}"
     padding: "7px 12px"
   button-ghost-hover:
-    backgroundColor: "rgba(148, 178, 255, 0.09)"
-    textColor: "{colors.starlight}"
-  tab:
+    backgroundColor: "rgba(214, 200, 255, 0.09)"
+    textColor: "{colors.bone}"
+  button-danger:
     backgroundColor: "transparent"
-    textColor: "{colors.dusk-slate}"
-    rounded: "{rounded.pill}"
-    padding: "7px 14px"
-  tab-active:
-    backgroundColor: "rgba(125, 211, 252, 0.2)"
-    textColor: "{colors.starlight}"
+    textColor: "{colors.dusk-lilac}"
+    rounded: "{rounded.sm}"
+    padding: "7px 12px"
+  button-danger-hover:
+    textColor: "{colors.signal-red}"
   input:
     backgroundColor: "{colors.input-well}"
-    textColor: "{colors.starlight}"
-    typography: "{typography.body}"
+    textColor: "{colors.bone}"
     rounded: "{rounded.sm}"
     padding: "8px 10px"
   panel:
     backgroundColor: "{colors.panel-solid}"
-    textColor: "{colors.starlight}"
     rounded: "{rounded.lg}"
     padding: "20px"
-  chip-filter:
-    backgroundColor: "rgba(255, 255, 255, 0.025)"
-    textColor: "{colors.dusk-slate}"
-    rounded: "{rounded.sm}"
-    height: "34px"
-    padding: "0 10px"
-  chip-filter-active:
-    backgroundColor: "rgba(125, 211, 252, 0.14)"
-    textColor: "{colors.starlight}"
-  roster-card:
-    backgroundColor: "rgba(255, 255, 255, 0.02)"
-    textColor: "{colors.starlight}"
-    rounded: "10px"
-    padding: "7px 38px 7px 8px"
+  dock-card:
+    backgroundColor: "{colors.dock-panel}"
+    rounded: "{rounded.md}"
+    padding: "14px 16px"
+  stage-tag:
+    backgroundColor: "rgba(10, 9, 18, 0.78)"
+    textColor: "{colors.bone}"
+    rounded: "{rounded.pill}"
+    padding: "4px 12px"
+    height: "30px"
+  filter-chip-active:
+    backgroundColor: "rgba(201, 184, 255, 0.14)"
+    textColor: "{colors.bone}"
+    rounded: "{rounded.pill}"
+    padding: "5px 11px"
+  segment-active:
+    backgroundColor: "rgba(201, 184, 255, 0.16)"
+    textColor: "{colors.resonance-lilac}"
+    rounded: "6px"
+    padding: "8px 10px"
+  owned-toggle-on:
+    backgroundColor: "{colors.bone}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "7px 14px"
 ---
 
 # Design System: WuWa Build Tracker
 
 ## Overview
 
-**Creative North Star: "The Resonance Console"**
+**Creative North Star: "Convene Key Art"**
 
-The tracker is an instrument, not a poster. It is a precise, dark control panel that sits beside the running game and lights up in the color of whatever Resonator is in focus. The near-black navy hull keeps the game's art and the six element colors as the brightest things on screen; everything else is quiet slate text, hairline borders and dim surfaces.
+The selected Resonator is the screen. Their full-body render stands on the right of a stage lit by their element colour, the way a Convene banner splash presents a character, and the name runs down the left at poster scale. The build is read from a dock of four opaque panels along the stage's bottom edge (weapon, Echo set, substat goals, best team), so one glance answers who is selected, which element, and how far along the build is. Everything around the stage (top bar, portrait panel, index views, team grids) is quiet dark furniture that lets the art be the loudest thing on screen.
 
-Information is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. Glass is kept to the top bar, content panels are solid, and glow only marks what is selected or active.
+The world is dark by commitment: a near-black violet ground with bone text and one lilac interface accent. Colour beyond that carries meaning only. Element hues light the stage and mark elements; rarity, tier and success or danger colours mark exactly those states. Depth comes from light (the element field) and from panel tone, not from glass: there is no frosted blur on any reading surface and no starfield backdrop. It is a desktop app window (default 1360x900, minimum 1024x680) that sits beside the running game, offline, with self-hosted fonts and art.
 
-Character, weapon, Echo and banner art comes from the game and is the only imagery. The console frames it; it never competes with it.
+A condensed, heavy display face (Big Shoulders Display) owns names, the brand, dock values, tier letters and banner titles; a plain workhorse sans (DM Sans) carries everything that is read; a monospace (JetBrains Mono) carries counts and figures. Text never sits on art.
 
 **Key Characteristics:**
-- Dark navy hull (`void`) with one cool accent (`resonance-cyan`) and gold reserved for Convene and 5-star rarity.
-- Element color (`--el-color`) as a scoped variable that tints borders, avatars, selection and the character hero.
-- Outfit for names and headings, DM Sans for everything read, JetBrains Mono for counts and numbers.
-- Tabular numerals everywhere: stats, counts and costs line up.
-- Hairline borders over shadows; depth comes from tonal steps.
+- One stage per selected character: full-body art in an element-coloured radial light field, name at up to 150px.
+- An opaque four-panel dock at the stage foot holds the build summary.
+- Near-black violet ground (#0a0912), bone text, lilac accent; gold only for 5-star rarity and Convene.
+- Opaque panels everywhere text is read; no backdrop blur, no starfield.
+- Condensed display caps for names and figures over a quiet sans body.
+- One entrance motion, on character switch; everything else is short state feedback.
 
 ## Colors
 
-A cold night-console palette: navy neutrals, one cyan voice, and a fixed vocabulary of game-meaning colors (element, rarity, tier) that carry information, not decoration.
+A near-black violet ground with bone text and a single cool lilac accent; every other hue is a meaning carrier, not decoration.
 
 ### Primary
-- **Resonance Cyan** (`resonance-cyan`): the single interface accent. Focus rings, the active tab, active filters, the primary button (a gradient into `resonance-cyan-deep`) and the brand mark. Text on it is `abyss-ink`.
+- **Resonance Lilac** (`resonance-lilac`): the interface accent. Focus rings (2px outline, 2px offset), the input focus border with its 3px lilac halo, active segment and filter fills at 14 to 16% alpha, the primary gear slot label, rank and sequence badges, the Echo cost fill, and the fallback field colour when no element is set. It is an interface signal, never a fill for large areas.
 
 ### Secondary
-- **Convene Gold** (`convene-gold`): 5-star rarity stars, A-tier, "new resonator" and banner countdowns. It means "rare or time-limited"; never use it as a second general accent.
+- **Convene Gold** (`convene-gold`): 5-star rarity stars and the rarity-5 weapon top edge, the Banners tab countdown and the "new" banner marker. Nothing else.
 
-### Tertiary
-- **Element colors** (`element-spectro` … `element-electro`): applied through the `.el-*` classes as `--el-color`. They tint avatar borders, the selected roster card, the character hero aura, element pills and dots. Neutral fallback is `dusk-slate`.
-- **Tier colors** (`tier-z` … `tier-e`): only on tier letters and tier rails in team lists.
-- **Rarity colors** (`rarity-5/4/3`): only on star rows.
+### Element, Rarity and Tier Hues
+- **Element hues** (`element-spectro`, `element-havoc`, `element-fusion`, `element-glacio`, `element-aero`, `element-electro`, `element-none`): set per character as `--el-color`. They light the stage field, colour the element tag and dot, tint the selected roster tile and its border, fill the dock progress bar, and frame the portrait fallback.
+- **Rarity hues** (`rarity-4` to `rarity-1`, with gold for 5): star colour and the weapon card top edge.
+- **Tier hues** (`tier-z` to `tier-e`): tier letters, tier rails and tier-group borders on the Teams view. Tier A is a lemon yellow (#fde047), kept clear of Convene Gold.
 
 ### Neutral
-- **Void** (`void`): the page background, with a slight top-down navy gradient.
-- **Deep Hull** (`deep-hull`): avatar wells and solid fills behind art.
-- **Panel Solid** (`panel-solid`): the opaque fill for every content panel (sidebar, character hero, panels, weapon cards).
-- **Panel / Panel Raised** (`panel`, `panel-raised`): the translucent fill behind the frosted top bar, and selected or nested surfaces.
-- **Input Well** (`input-well`): inputs, selects and segmented controls, a step darker than the panel.
-- **Hairline / Hairline Strong** (`hairline`, `hairline-strong`): resting and hover borders.
-- **Starlight** (`starlight`): primary text.
-- **Dusk Slate** (`dusk-slate`): secondary text, labels, inactive tabs and icons.
-- **Signal Green / Signal Red** (`signal-green`, `signal-red`): "build ready" and destructive hover only.
+- **Ground** (`ground`): the app background and the bottom of every stage field gradient.
+- **Ground Raised** (`ground-raised`): stage base, avatar wells, menu option backgrounds.
+- **Panel** (`panel-solid`): the opaque surface of every panel, the roster panel and the compact Character Index header. Beside the stage the roster panel drops to 70% panel over the element wash, with a border mixed 26% toward the element.
+- **Panel Raised** (`panel-raised`): nested cards inside panels (gear slots, team cards, kit cards, chips).
+- **Dock Panel** (`dock-panel`): the dock cards on the stage and the copy panels on banner heroes and tiles, 94% opaque over light and art.
+- **Input Well** (`input-well`): inputs, selects, segmented controls, pick chips.
+- **Hairline / Hairline Strong** (`hairline`, `hairline-strong`): 1px lilac-tinted borders at rest and on hover.
+- **Bone** (`bone`): all primary text, and the fill of the active tab, primary button and Owned toggle.
+- **Dusk Lilac** (`dusk-lilac`): secondary text, labels, inactive tabs and controls.
+- **Ink** (`ink`): text on bone or lilac fills.
+- **Signal Green / Signal Red** (`signal-green`, `signal-red`): met goals and ready teams; over-cost, destructive hover and expired phases.
 
 ### Named Rules
-**The Meaning-Only Color Rule.** Element, tier and rarity colors appear only where they encode that fact. Never borrow Havoc purple or Z-tier pink to decorate an unrelated control.
+**The Meaning-Only Colour Rule.** Beyond bone, lilac and the neutrals, a hue appears only when it says something: an element, a rarity, a tier, success or danger.
 
-**The One Voice Rule.** Cyan is the only interface accent. If a screen needs a second emphasis, use weight or `starlight` text, not a new hue.
+**The Gold Is Convene Rule.** Convene Gold marks 5-star rarity and the Convene banner phase. It is never a general highlight, a tier colour or a badge colour.
+
+**The Element Owns the Stage Rule.** The selected character's element colour is the only large colour field on screen: a radial light (80% by 110% at 64%/42%; 72% at the centre, 34% at 32%, 10% at 62%, gone by 84%) behind the figure with a 40% light pool at its feet, plus a 24% element radial at the roster layout's top-left.
 
 ## Typography
 
-**Display Font:** Outfit (with DM Sans, sans-serif)
-**Body Font:** DM Sans (with -apple-system, BlinkMacSystemFont, sans-serif)
-**Label/Mono Font:** JetBrains Mono (with ui-monospace, monospace)
+**Display Font:** Big Shoulders Display (variable 700 to 900, self-hosted, falls back to DM Sans)
+**Body Font:** DM Sans (variable 400 to 700, self-hosted, system sans fallback)
+**Label/Mono Font:** JetBrains Mono (400 to 600, self-hosted)
 
-**Character:** Outfit's geometric caps give names and headings a clean game-UI edge; DM Sans stays neutral and legible at small sizes; the mono face makes counts and stat values read as data. All three are self-hosted in `public/fonts`.
+**Character:** a tall condensed poster face for names and figures, set uppercase, against a calm geometric sans for everything read at length. The contrast is the Convene splash against a plain build sheet. Body text uses tabular numerals globally.
 
 ### Hierarchy
-- **Display** (700, 38px, scaling down to 26px in the character hero via `clamp(26px, 2.8vw, 38px)`; 54px for a new-resonator banner): Resonator names in the character hero and banner titles. One per view.
-- **Headline** (700, 26px): tier letters in the tier rail.
-- **Title** (600, 16px): panel titles. Section subtitles use 600 at 13px in `dusk-slate`.
-- **Body** (400, 14px, 1.5): descriptions, skill and passive text, weapon effects.
-- **Label** (600, 12px): field labels, ghost buttons, roster names at 13px. Tabs use Outfit 600 at 13px.
-- **Mono** (500, 11px): counts in tabs ("8/61"), stat values, version numbers.
+- **Display** (900, clamp(64px, 14cqi, 150px), 0.86, uppercase): the selected character's name on the stage, sized to the stage's inline-size container; it wraps only at spaces, never inside a word. Names over 9 characters (`data-long`) drop to clamp(52px, 9.5cqi, 108px).
+- **Headline** (900, 56px, 0.9, uppercase): banner titles (80px for the new-character hero, 52px under 900px) and the Character Index header name (clamp(40px, 4vw, 56px), 0.92).
+- **Numeral** (800, 34px, 1): the dock's substat figure (28px below 1180px); tier rail letters use the same size at 900.
+- **Dock Value** (700, 22px, 1.05, uppercase, 2-line clamp): weapon and Echo set names in the dock; 16px below 1180px. Tier badges inside the dock use the display face at 16px.
+- **Brand** (900, 24px, 0.04em, uppercase): the app name in the top bar.
+- **Title** (600, 16px, -0.01em): panel titles; card headings run 14 to 15px at 600.
+- **Body** (400, 14px, 1.5): base text. Secondary text steps to 13px and 12px; kit descriptions sit at 12.5px with 1.58 line height.
+- **Label** (600, 12px, 0.08em, uppercase): the dock card labels (Weapon, Echo set, Substat goals, Best team). Form field labels use 12px 600 without case or tracking change.
+- **Mono** (500, 11px): counts in tabs and panel heads, cost pills, rank badges, values inside dock metadata.
 
 ### Named Rules
-**The Tabular Rule.** Body text sets `font-variant-numeric: tabular-nums`. Any new number display (stats, costs, counts) must keep columns aligned.
+**The Poster Face Rule.** Big Shoulders Display is for proper names, figures and tier letters, always uppercase. Sentences, labels and controls stay in DM Sans.
 
-**The Readable-Floor Rule.** Running text never goes below 12px. 11px is reserved for mono counts and star rows; 9–10px is not used for new work.
+**The Counted in Mono Rule.** Every count, cost and ratio is set in JetBrains Mono or with tabular numerals, so numbers do not jitter as they change.
 
 ## Layout
 
-The app fills the window and never scrolls the page: `body` is `overflow: hidden`, and each region scrolls on its own. The shell is a column (top bar, main, footer) inside a centered container (max 1580px, padding 16px 24px 12px, gap 14px).
+A fixed-height desktop shell: a max-width 1580px column with 16px top and 24px side padding, a top bar (brand, pill tabs, Export/Import, then Reset set 16px apart), a main area that fills the window, and a one-line footer carrying the version and the unofficial-fan-project disclaimer. Inner views scroll; the window does not.
 
-- **Roster tab:** a fixed-width sidebar (search, element filter, owned filter, scrolling roster list) beside a scrolling character workspace (hero, teams, gear, Echoes).
-- **Index tabs and Teams:** a filter row above a scrolling grid of cards; Teams groups cards into tier rows with a colored rail on the left.
-- **Banners:** a full-width hero for the featured banner, then a two-column row of banner cards with full-body art on the right.
+The Resonators tab is a two-column grid: a 312px portrait panel (search, element filter row, Owned/Missing segmented filter, then a 3-column grid of portrait tiles at a 374:440 ratio) and the character view, 18px apart. The stage is an inline-size container at least 500px tall (560px when it holds the fallback frame, above 1180px only) with 28px padding, a title area top-left (max 60% width), the Owned toggle top-right, and the dock across the bottom in four columns weighted 1 : 1 : 0.8 : 1.25 with 12px gaps.
 
-Default desktop window is 1360×900 (minimum 1024×680). Breakpoints at 1080px, 900px and 680px collapse the sidebar layout and stack grids; the 680px step serves the web build only.
+Spacing runs on a 4px base: 4, 8, 12, 16, 20, 24 and 28px, with 12 and 16 doing most of the work between cards and sections.
 
-Spacing is currently ad hoc (2–24px). New work should snap to the `spacing` scale (4, 8, 12, 16, 20, 24) and lean roomy: 16–20px inside panels, 12px between cards.
+Responsive behaviour (desktop window first; phones are not a target):
+- **1320px:** the top bar becomes a grid; brand and actions on row one, tabs on their own row.
+- **1180px:** the stage splits 0.62fr / 0.38fr; the left column stacks the Owned toggle, the title and the dock (2x2) so the right column keeps the figure or the fallback frame. The dock compacts: 10px 12px card padding, 8px gaps, 32px team portraits on one line, values at 16px.
+- **1080px:** weapon gear slots go from three columns to two.
+- **1000px:** the shell stops pinning height; the roster stacks above the character view with an auto-fill grid capped at 300px tall.
+- **900px:** banner heroes stack to one column.
+- **680px (web build only):** the top bar stacks brand, actions and tabs on three rows; the page scrolls as a whole; the roster returns to 3 columns and the other grids collapse to one.
 
 ## Elevation & Depth
 
-Depth is mostly tonal: `void` → `panel` → `panel-raised`, separated by hairline borders. Behind everything sits a subtle starfield with two blurred nebulas. Only the top bar (`backdrop-filter: blur(18px) saturate(140%)`) and floating dropdown menus are frosted; content panels use the solid `panel-solid` fill so text over them reads cleanly.
+Depth comes from light and tone, not from glass or heavy shadow. The stage is lit from within by its element field; panels are opaque tones a step above the ground with a 1px hairline, a faint 1px top-edge highlight and a small dark shadow. Floating menus get the one deep shadow. Nothing on a reading surface is blurred.
 
 ### Shadow Vocabulary
-- **Glass highlight** (`box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06)`): a 1px top sheen on panels and the top bar.
-- **Resting lift** (`box-shadow: 0 2px 8px rgba(2, 5, 16, 0.45)`): panels and the top bar.
-- **Overlay** (`box-shadow: 0 22px 48px -20px rgba(2, 6, 20, 0.85), 0 4px 14px rgba(2, 6, 20, 0.5)`): dropdowns and floating menus.
-- **Selection glow** (`box-shadow: 0 0 22px -10px var(--el-color)`): the selected roster card, active tab and element-tinted selection.
+- **Top-edge highlight** (`box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05)`): on panels and nested cards, a hairline catch of light along the top edge.
+- **Resting** (`box-shadow: 0 2px 8px rgba(4, 2, 10, 0.45)`): panels, the roster panel, weapon cards.
+- **Floating** (`box-shadow: 0 22px 48px -20px rgba(4, 2, 10, 0.85), 0 4px 14px rgba(4, 2, 10, 0.5)`): the custom select menu.
+- **Primary lift** (`box-shadow: 0 6px 14px -8px rgba(4, 2, 10, 0.9)`): the primary button only.
+- **Card hover** (`box-shadow: 0 18px 34px -22px rgba(4, 2, 10, 0.9)` with a 2px rise): team cards on hover.
 
 ### Named Rules
-**The One Glass Rule.** Only the top bar (and floating menus, which sit over moving content) is frosted. Every content panel uses the solid `panel-solid` fill.
+**The Opaque Reading Surface Rule.** Text never sits directly on art. Every surface that carries text over the stage or a banner is an opaque or near-opaque dark panel: dock cards and banner copy at 94% with a hairline border, stage tags and the Owned toggle at 78% ground. No gradient shades stand in for a panel.
 
-**The Glow-Means-Selected Rule.** A glow says "this is the active or selected item". No glow on resting cards, headings or decoration.
+**The No Glass Rule.** No backdrop-filter anywhere, floating menus included; no frosted bars, no starfield, no decorative glows. Depth is the element light field plus tone steps.
 
 ## Shapes
 
-Gently rounded, never sharp, never bubbly. Controls and inputs use 8px (`sm`), cards and avatars 10–12px (`md`), panels and the top bar 16px (`lg`). Tabs, the tab rail and counters are full pills (999px). Element dots are circles. Borders are 1px hairlines; avatars use a 1.5px border tinted by element color. Empty avatar slots use a dashed `hairline-strong` border.
+Gently rounded, never sharp and never blobby: 8px for controls and inputs, 12px for nested cards and dock cards, 16px for panels, the stage and banner art frames. Anything that toggles or labels (tabs, primary button, Owned toggle, stage tags, filter chips, substat chips, builder slots) is a full pill. Borders are 1px lilac-tinted hairlines; selection is shown by tinting the fill and border toward the element or lilac, not by thickening. Portrait tiles crop the art top-centred at 10px radius. The full-body render is masked to fade out between 62% and 86% of its height so it dissolves into the dock area instead of being cut.
 
 ## Components
 
 ### Buttons
-Soft, clear and easy to hit.
-- **Shape:** gently rounded (8px).
-- **Primary:** a cyan gradient (`resonance-cyan` to `resonance-cyan-deep`, 135°) with `abyss-ink` text, Outfit 700 at 13px, padding 9px 16px, and a dark drop shadow (`0 6px 14px -8px rgba(2, 6, 20, 0.9)`), not a cyan glow. One per region ("Plan build", "Use recommended").
-- **Ghost:** almost transparent fill, hairline border, `dusk-slate` text, 600 at 12px; on hover the text turns `starlight`, the border strengthens and the fill tints blue. Used for Export, Import, Reset and secondary actions.
-- **Danger:** looks like ghost at rest; on hover it turns `signal-red` with a 10% red tint.
-- **Icon button:** 28px square, transparent; hover shows the danger treatment (it is used for remove actions).
-- **Press:** every button scales to 0.98 on press; transitions are 140–200ms ease.
-- **Direction:** new controls should be at least 32px tall.
+- **Shape:** pill for primary (999px); 8px for ghost and danger.
+- **Primary:** bone fill with ink text, 700 weight, 13px, padding 9px 18px, with the primary lift shadow. Hover brightens 6%; disabled drops to 38% opacity.
+- **Ghost:** near-transparent fill, hairline border, dusk-lilac text at 12px 600, padding 7px 12px. Hover turns text bone, border strong, fill a 9% lilac wash.
+- **Danger:** ghost-shaped and quiet at rest; on hover the text, border (55%) and a 10% fill turn signal red. In the top bar it sits 16px apart from Export and Import.
+- **Press:** every button scales to 0.98 on press; colour transitions run 180ms.
 
-### Chips
-- **Element filter:** 34px tall, 12px text, 8px radius, hairline border. Each holds an element-colored dot; when active, the border and fill take that element's color at 70% / 16%.
-- **Segmented filter:** three equal 34px buttons with 12px text in an `input-well` trough (All / Owned / Missing); the active one gets a cyan tint and cyan text.
+### Tabs
+- **Style:** pills 36px tall, padding 7px 12px, DM Sans 14px 600, dusk-lilac text, each with a small mono count.
+- **Active:** bone fill with ink text and icon, the same treatment as the primary button.
+- **Hover:** bone text over a 7% lilac wash.
+
+### Chips and Filters
+- **Element filter:** a row of 34px squares at 8px radius, each holding its element dot; the active one tints border (70%) and fill (16%) with its element colour.
+- **Segmented filters (Owned/Missing, modes):** a 3px-padded input well with 6px-radius segments; active is a 16% lilac fill with lilac text (modes use a solid lilac fill with ink text).
+- **Category chips:** pills on the input well, 12px 600; active is a 14% lilac fill with a 55% lilac border and bone text.
+- **Substat chips:** pills whose fill grows left to right with progress as a lilac gradient; met chips turn green.
 
 ### Cards / Containers
-- **Corner Style:** 16px for panels, 10–12px for cards inside them.
-- **Background:** `panel-solid` for panels, a 2% white wash for list cards, `panel-raised` for nested cards.
-- **Shadow Strategy:** glass highlight and resting lift on panels only; see Elevation.
-- **Border:** 1px `hairline`, `hairline-strong` on hover.
-- **Internal Padding:** 20px panels; 7–8px roster cards (aim for roomier in new work).
+- **Panel:** opaque panel tone, 16px radius, 20px padding, hairline border, top-edge highlight plus the resting shadow.
+- **Nested cards** (gear slots, team cards, kit cards, character teams): raised panel tone, 12px radius, 14 to 15px padding, hairline border.
+- **Weapon cards:** panel at 16px radius with a 2px top edge in the weapon's rarity colour.
+- **Tier groups:** a 82px rail with the tier letter in the display face, tinted 3 to 7% toward the tier colour.
 
 ### Inputs / Fields
-- **Style:** `input-well` fill, 1px hairline, 8px radius, padding 8px 10px; labels sit above in 600 at 12px `dusk-slate`.
-- **Focus:** border turns `resonance-cyan` with a 3px cyan ring at 14% opacity. Global `:focus-visible` is a 2px cyan outline offset by 2px.
-- **Custom select (IconSelect):** the same well, with the item's icon, name, stars and stat inline; the menu uses the overlay shadow.
+- **Style:** input well fill, 1px hairline, 8px radius, padding 8px 10px; search adds a leading icon and a round clear button.
+- **Hover / Focus:** hover strengthens the hairline; focus sets a lilac border and a 3px lilac halo at 14%.
+- **Custom select:** the same trigger with an item icon; its menu floats 6px below at 12px radius with the floating shadow.
 
 ### Navigation
-A pill rail of tabs in the top bar: Resonators, Character Index, Weapon Index, Teams, Banners. Each tab has an icon, an Outfit 600 label at 13px and a mono count. Inactive tabs are `dusk-slate`; hover lifts the text to `starlight`; the active tab gets a cyan-to-indigo tinted fill, a cyan border and a selection glow. A skip link appears on keyboard focus.
+- **Top bar:** brand mark (40px rounded square, lilac glyph on a soft lilac radial) beside the brand in the display face; pill tabs; header actions on the right. A hairline separates it from the main area. Below 1320px the tabs drop to their own row.
 
-### Character Hero (signature)
-The top of the character workspace: a large portrait avatar (92×104px) with an element-colored shadow, the name in Display type, stars, element, weapon type and role, plus summary stat tiles (primary weapon, Echo cost, substat goals). A soft radial aura in the character's element color sits behind it. This is the one place where element color washes a surface.
+### Portrait Panel (signature)
+A 312px opaque panel with search, element filter, owned filter and a 3-column grid of portrait tiles (portrait and name only). Beside the stage it sits at 70% panel over the 24% element wash with an element-tinted border. Once the player has marked any character owned, missing characters dim to 42% opacity with 70% greyscale. The selected tile takes a 16% element fill and a 70% element border. A round 22px Owned check sits on each tile's top-right corner with a 34px hit area.
 
-### Roster Card (signature)
-A row in the sidebar: portrait (46×50px), name with rarity stars, element dot, element and role, and an owned toggle on the right. When selected it gets an element-tinted gradient, an element border and the selection glow.
+### Character Stage and Dock (signature)
+The stage is a 16px-radius block on the raised ground, at least 500px tall, holding three layers: the element light field (a bright radial at 64%/42%, a floor glow at the base, and a vertical fade from a 10% element tint into the ground), the art, and the content grid. The full-body render stands right-aligned at 128% of stage height, masked to fade at its base. The 13 characters without a full-body render show their portrait in one designed fallback: a framed 374:512 panel with a 2px element border on a 22% element tint, set 28px from the top, 178px from the right and clear of the dock (bottom at dock height plus 44px); below 1180px it moves into the right column. Over the field on the left, in a title area capped at 60% width, sit the rarity stars, the display name and three stage tags (element, weapon type, role) as 78% ground pills; the Owned toggle sits top-right. The dock runs along the foot: four opaque dock cards with uppercase labels, an icon plus display-face value (700, 22px, uppercase), and mono metadata; the progress card shows a large numeral and a 6px element-coloured bar.
 
-### Tier Rail (signature)
-In Teams, each tier group has a left rail with the tier letter in Headline type in its tier color and a mono count, next to a grid of team cards with three avatar slots each.
+**Motion:** the art (or fallback frame) enters on character switch with one 320ms slide of 24px from the right plus a fade, eased `cubic-bezier(0.16, 1, 0.3, 1)`. The element field crossfades over 320ms. Under `prefers-reduced-motion: reduce` all transitions and animations collapse to 0.01ms and smooth scrolling is off.
+
+### Banner Heroes
+Banners tab heroes reuse the stage language: element radial field, full-body art bleeding off the right edge, display-face title (56px, 80px for the new character), gold countdown. Hero copy sits on a 94% panel (hairline border, 12px radius, 20px inset, max 58% wide); tile copy on the same panel at 8px radius along the tile foot. No gradient shades or text-shadow behind banner text.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** let game art and element color be the brightest things on screen; keep chrome in navy, slate and hairlines.
-- **Do** scope element tinting through `--el-color` and `color-mix()` instead of hard-coding element hexes in new rules.
-- **Do** use `tabular-nums` and the mono face for counts and stat values.
-- **Do** give new controls at least 32px height and 16–20px panel padding.
-- **Do** keep a visible `:focus-visible` ring (2px cyan, 2px offset) on every interactive element.
-- **Do** honor `prefers-reduced-motion`: the existing media query cuts animations and transitions to near zero.
+- **Do** give the selected character the stage: full-body art in its element light field, the name in Big Shoulders Display at clamp(64px, 14cqi, 150px), the build in the dock.
+- **Do** put every piece of text that overlaps the stage or a banner on an opaque or near-opaque dark surface (dock cards and banner copy at 94%, tags and toggles at 78% ground).
+- **Do** use one lilac accent (#c9b8ff) for focus, active and selected states, and bone fills with ink text for the single active choice (active tab, primary button, Owned on).
+- **Do** use element, rarity and tier colours only to say element, rarity and tier.
+- **Do** keep panels opaque with a 1px hairline and tone steps for depth; radii 8 / 12 / 16px and pills for toggles and tags.
+- **Do** set counts and figures in JetBrains Mono or tabular numerals.
+- **Do** keep motion to the single 320ms stage entrance and 180ms state feedback, and honour prefers-reduced-motion.
+- **Do** use the framed portrait fallback for any character without a full-body render, never a cropped half figure.
 
 ### Don't:
-- **Don't** add new frosted-glass panels; glass belongs to the top bar only.
-- **Don't** add glows to elements that are not selected or active.
-- **Don't** use element, tier or rarity colors outside their meaning.
-- **Don't** introduce a second interface accent alongside `resonance-cyan`; gold stays reserved for rarity and Convene.
-- **Don't** set running text below 12px.
-- **Don't** load fonts or assets from a CDN; everything ships in `public/` for offline use.
+- **Don't** put backdrop-filter blur or frosted glass on panels, bars or menus, and don't bring back the starfield backdrop or decorative glows.
+- **Don't** set text directly on character art.
+- **Don't** use Convene Gold (#f4c977) for anything except 5-star rarity and the Convene phase; not for tiers, badges or highlights.
+- **Don't** use a light theme; the dark ground is a user commitment.
+- **Don't** set sentences, labels or controls in the display face, or set names in it without uppercase.
+- **Don't** imitate Kuro's in-game menu chrome; keep the own type, own dock layout and standard web controls.
+- **Don't** load fonts or art from the network; everything ships self-hosted for offline use.

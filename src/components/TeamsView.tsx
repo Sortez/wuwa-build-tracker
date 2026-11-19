@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { characters, charactersById, recommendedTeams } from '../data';
-import { elementClass } from '../lib/format';
 import type { RecommendedTeam, Team, TeamMode } from '../types';
 import { useApp } from '../state';
 import CharacterAvatar from './CharacterAvatar';
@@ -47,15 +46,8 @@ function RecommendedCard({
   team: RecommendedTeam;
   ready: boolean;
 }) {
-  const lead = charactersById.get(team.characterIds[0]);
   return (
     <article className="team-card">
-      <span
-        className={
-          lead ? `team-glow ${elementClass(lead.element)}` : 'team-glow el-none'
-        }
-        aria-hidden="true"
-      />
       <header className="team-card-head">
         <div className="team-card-heading">
           <h4>{team.name}</h4>
@@ -76,15 +68,8 @@ function TeamCard({
   onRemove: () => void;
   onModeChange: (mode: TeamMode) => void;
 }) {
-  const lead = charactersById.get(team.characterIds[0]);
   return (
     <article className="team-card">
-      <span
-        className={
-          lead ? `team-glow ${elementClass(lead.element)}` : 'team-glow el-none'
-        }
-        aria-hidden="true"
-      />
       <header className="team-card-head">
         <div className="team-card-heading">
           <h4>{team.name}</h4>

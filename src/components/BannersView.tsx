@@ -80,13 +80,13 @@ function FeaturedBanner({
     >
       <BannerArt character={character} />
       <div className="banner-copy">
-        <p className="banner-name">{banner.name}</p>
         <h3 className="banner-title">{character.name}</h3>
         <p className="banner-meta">
           {banner.isNew && <span className="banner-new">New resonator</span>}
           <span className="banner-element">{character.element}</span>
           <span>{character.weaponType}</span>
         </p>
+        <p className="banner-name">{banner.name}</p>
         <div className="banner-actions">
           <button
             type="button"

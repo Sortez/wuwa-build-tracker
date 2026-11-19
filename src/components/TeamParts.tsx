@@ -30,6 +30,16 @@ export function ratingTier(rating: number): string | null {
 export function ReadyBadge() {
   return (
     <span className="ready-badge" title="You own every character in this team">
+      <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+        <path
+          d="m3.5 8.5 3 3 6-7"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
       Ready
     </span>
   );

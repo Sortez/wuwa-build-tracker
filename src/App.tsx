@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { version } from '../package.json';
 import { bannerPhase, characters, weapons } from './data';
+import { elementClass } from './lib/format';
 import { AppProvider, useApp } from './state';
 import BackupControls from './components/BackupControls';
 import BannersView from './components/BannersView';
@@ -66,12 +67,6 @@ function Shell() {
 
   return (
     <div className="app">
-      <div className="space-backdrop" aria-hidden="true">
-        <div className="space-stars" />
-        <div className="space-nebula space-nebula-1" />
-        <div className="space-nebula space-nebula-2" />
-      </div>
-
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -227,7 +222,11 @@ function Shell() {
 
       <div className="app-main">
         {tab === 'roster' && (
-          <div className="roster-layout">
+          <div
+            className={`roster-layout${
+              selected ? ` has-stage ${elementClass(selected.element)}` : ''
+            }`}
+          >
             <Roster selectedId={selected?.id ?? ''} onSelect={setSelectedId} />
             {selected && <CharacterView character={selected} />}
           </div>

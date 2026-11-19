@@ -200,18 +200,12 @@ export default function CharactersIndexView({ onOpenBuild }: Props) {
                   )}${isSelected ? ' selected' : ''}`}
                   onClick={() => setSelectedId(character.id)}
                   aria-pressed={isSelected}
+                  title={`${character.name} · ${character.element} · ${character.weaponType}`}
                 >
                   <CharacterAvatar character={character} size="xl" />
                   <span className="roster-info">
                     <span className="roster-name">
                       <span className="roster-name-text">{character.name}</span>
-                      <span
-                        className={`stars roster-stars ${rarityClass(
-                          character.rarity,
-                        )}`}
-                      >
-                        {stars(character.rarity)}
-                      </span>
                     </span>
                     <span className="roster-meta">
                       <span
@@ -220,8 +214,13 @@ export default function CharactersIndexView({ onOpenBuild }: Props) {
                         )}`}
                         aria-hidden="true"
                       />
-                      <span>
-                        {character.element} &middot; {character.weaponType}
+                      <span
+                        className={`stars roster-stars ${rarityClass(
+                          character.rarity,
+                        )}`}
+                        aria-label={`${character.rarity} stars, ${character.element}, ${character.weaponType}`}
+                      >
+                        {stars(character.rarity)}
                       </span>
                     </span>
                   </span>

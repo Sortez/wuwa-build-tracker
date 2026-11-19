@@ -1,44 +1,407 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-19T00:00:00Z",
+  "generatedAt": "2026-11-19T21:00:00.000Z",
   "title": "Design System: WuWa Build Tracker",
   "extensions": {
     "colorMeta": {
-      "void": { "role": "neutral", "displayName": "Void", "tonalRamp": ["#020409", "#050813", "#0a1022", "#121b34", "#1e2a4a", "#34446b", "#5a6a92", "#8c9bbd"] },
-      "starlight": { "role": "neutral", "displayName": "Starlight", "tonalRamp": ["#3a4256", "#5a6480", "#8c9bbd", "#aab6d2", "#c6d0e6", "#dbe3f4", "#eef3ff", "#f8faff"] },
-      "dusk-slate": { "role": "neutral", "displayName": "Dusk Slate", "tonalRamp": ["#1f2638", "#323c56", "#4a5675", "#667396", "#8c9bbd", "#a9b5d0", "#c7d0e3", "#e4e9f3"] },
-      "resonance-cyan": { "role": "primary", "displayName": "Resonance Cyan", "tonalRamp": ["#082f49", "#0c4a6e", "#075985", "#0284c7", "#38bdf8", "#7dd3fc", "#bae6fd", "#e0f2fe"] },
-      "convene-gold": { "role": "secondary", "displayName": "Convene Gold", "tonalRamp": ["#3d2a08", "#5e4210", "#86601a", "#b08429", "#d6a94b", "#f4c977", "#f8dda6", "#fcefd2"] },
-      "element-spectro": { "role": "tertiary", "displayName": "Spectro" },
-      "element-havoc": { "role": "tertiary", "displayName": "Havoc" },
-      "element-fusion": { "role": "tertiary", "displayName": "Fusion" },
-      "element-glacio": { "role": "tertiary", "displayName": "Glacio" },
-      "element-aero": { "role": "tertiary", "displayName": "Aero" },
-      "element-electro": { "role": "tertiary", "displayName": "Electro" }
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#0a0912",
+        "tonalRamp": [
+          "#040308",
+          "#0a0912",
+          "#14111f",
+          "#211c31",
+          "#352e4b",
+          "#544a6f",
+          "#8277a0",
+          "#c3bad8"
+        ]
+      },
+      "ground-raised": {
+        "role": "neutral",
+        "displayName": "Ground Raised",
+        "canonical": "#14111f",
+        "tonalRamp": [
+          "#040308",
+          "#0a0912",
+          "#14111f",
+          "#211c31",
+          "#352e4b",
+          "#544a6f",
+          "#8277a0",
+          "#c3bad8"
+        ]
+      },
+      "panel-solid": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#13101d",
+        "tonalRamp": [
+          "#040308",
+          "#0a0912",
+          "#13101d",
+          "#1e182c",
+          "#2f2742",
+          "#4a4063",
+          "#776c93",
+          "#bdb3d3"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel (translucent)",
+        "canonical": "rgba(19, 16, 29, 0.9)"
+      },
+      "panel-raised": {
+        "role": "neutral",
+        "displayName": "Panel Raised",
+        "canonical": "rgba(30, 24, 44, 0.72)"
+      },
+      "dock-panel": {
+        "role": "neutral",
+        "displayName": "Dock Panel",
+        "canonical": "rgba(19, 16, 29, 0.94)"
+      },
+      "input-well": {
+        "role": "neutral",
+        "displayName": "Input Well",
+        "canonical": "#0e0c17",
+        "tonalRamp": [
+          "#040308",
+          "#0e0c17",
+          "#1a1627",
+          "#28223a",
+          "#3d3554",
+          "#5d5379",
+          "#8c82a8",
+          "#c9c1dc"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(214, 200, 255, 0.11)"
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "rgba(214, 200, 255, 0.26)"
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "#f2eefa",
+        "tonalRamp": [
+          "#2e2a38",
+          "#4a4558",
+          "#6c667e",
+          "#9690a8",
+          "#bdb8cc",
+          "#dad6e6",
+          "#f2eefa",
+          "#fbf9fe"
+        ]
+      },
+      "dusk-lilac": {
+        "role": "neutral",
+        "displayName": "Dusk Lilac",
+        "canonical": "#a99cc0",
+        "tonalRamp": [
+          "#1c1824",
+          "#2f2a3d",
+          "#4a425e",
+          "#6a5f85",
+          "#8a7ea4",
+          "#a99cc0",
+          "#c8bfd8",
+          "#e6e1ef"
+        ]
+      },
+      "resonance-lilac": {
+        "role": "primary",
+        "displayName": "Resonance Lilac",
+        "canonical": "#c9b8ff",
+        "tonalRamp": [
+          "#1f1740",
+          "#33276a",
+          "#4c3c9a",
+          "#6a58c4",
+          "#8d7be6",
+          "#ab9af7",
+          "#c9b8ff",
+          "#ebe4ff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0a0912"
+      },
+      "convene-gold": {
+        "role": "secondary",
+        "displayName": "Convene Gold",
+        "canonical": "#f4c977",
+        "tonalRamp": [
+          "#3a2a0c",
+          "#5e4515",
+          "#86641f",
+          "#ae852d",
+          "#d4a64a",
+          "#f4c977",
+          "#f8dca4",
+          "#fcefd2"
+        ]
+      },
+      "signal-green": {
+        "role": "tertiary",
+        "displayName": "Signal Green",
+        "canonical": "#4ade80",
+        "tonalRamp": [
+          "#052010",
+          "#0b3a1d",
+          "#14592d",
+          "#1f7d40",
+          "#2fa557",
+          "#4ade80",
+          "#86efac",
+          "#dcfce7"
+        ]
+      },
+      "signal-red": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "#f87171",
+        "tonalRamp": [
+          "#3b0d0d",
+          "#5f1616",
+          "#872222",
+          "#b23232",
+          "#dc4b4b",
+          "#f87171",
+          "#fca5a5",
+          "#fee2e2"
+        ]
+      },
+      "element-spectro": {
+        "role": "tertiary",
+        "displayName": "Spectro",
+        "canonical": "#f5dc78"
+      },
+      "element-havoc": {
+        "role": "tertiary",
+        "displayName": "Havoc",
+        "canonical": "#d08cf5"
+      },
+      "element-fusion": {
+        "role": "tertiary",
+        "displayName": "Fusion",
+        "canonical": "#fb9263"
+      },
+      "element-glacio": {
+        "role": "tertiary",
+        "displayName": "Glacio",
+        "canonical": "#67d5fa"
+      },
+      "element-aero": {
+        "role": "tertiary",
+        "displayName": "Aero",
+        "canonical": "#6ee7b7"
+      },
+      "element-electro": {
+        "role": "tertiary",
+        "displayName": "Electro",
+        "canonical": "#a78bfa"
+      },
+      "element-none": {
+        "role": "tertiary",
+        "displayName": "No Element",
+        "canonical": "#8c9bbd"
+      },
+      "rarity-4": {
+        "role": "tertiary",
+        "displayName": "Rarity 4",
+        "canonical": "#c896f5"
+      },
+      "rarity-3": {
+        "role": "tertiary",
+        "displayName": "Rarity 3",
+        "canonical": "#7cc4fa"
+      },
+      "rarity-2": {
+        "role": "tertiary",
+        "displayName": "Rarity 2",
+        "canonical": "#6ee7b7"
+      },
+      "rarity-1": {
+        "role": "tertiary",
+        "displayName": "Rarity 1",
+        "canonical": "#9aa5b1"
+      },
+      "tier-z": {
+        "role": "tertiary",
+        "displayName": "Tier Z",
+        "canonical": "#fb7185"
+      },
+      "tier-s": {
+        "role": "tertiary",
+        "displayName": "Tier S",
+        "canonical": "#fb923c"
+      },
+      "tier-a": {
+        "role": "tertiary",
+        "displayName": "Tier A",
+        "canonical": "#fde047"
+      },
+      "tier-b": {
+        "role": "tertiary",
+        "displayName": "Tier B",
+        "canonical": "#a3e635"
+      },
+      "tier-c": {
+        "role": "tertiary",
+        "displayName": "Tier C",
+        "canonical": "#38bdf8"
+      },
+      "tier-d": {
+        "role": "tertiary",
+        "displayName": "Tier D",
+        "canonical": "#818cf8"
+      },
+      "tier-e": {
+        "role": "tertiary",
+        "displayName": "Tier E",
+        "canonical": "#94a3b8"
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Resonator names in the character hero and banner titles; one per view." },
-      "headline": { "displayName": "Headline", "purpose": "Tier letters in the tier rail." },
-      "title": { "displayName": "Title", "purpose": "Panel titles." },
-      "body": { "displayName": "Body", "purpose": "Descriptions, skills, weapon effects; tabular numerals." },
-      "label": { "displayName": "Label", "purpose": "Field labels, ghost buttons, roster names." },
-      "mono": { "displayName": "Mono", "purpose": "Counts, stat values, version numbers." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Selected character name on the stage, uppercase, sized to the stage inline-size container; names over 9 characters drop to clamp(52px, 9.5cqi, 108px)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Banner titles and the Character Index header name, uppercase."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Dock substat figure (28px below 1180px); tier rail letters at 900."
+      },
+      "dock-value": {
+        "displayName": "Dock Value",
+        "purpose": "Weapon and Echo set names in the dock, uppercase, 2-line clamp; 16px below 1180px."
+      },
+      "brand": {
+        "displayName": "Brand",
+        "purpose": "App name in the top bar, uppercase."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Panel titles; card headings at 14-15px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text; tabular numerals globally."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase dock card labels only."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Counts, costs, ranks and dock metadata values."
+      }
     },
     "shadows": [
-      { "name": "glass-highlight", "value": "inset 0 1px 0 rgba(255, 255, 255, 0.06)", "purpose": "1px top sheen on panels and the top bar." },
-      { "name": "resting-lift", "value": "0 2px 8px rgba(2, 5, 16, 0.45)", "purpose": "Panels and the top bar." },
-      { "name": "overlay", "value": "0 22px 48px -20px rgba(2, 6, 20, 0.85), 0 4px 14px rgba(2, 6, 20, 0.5)", "purpose": "Dropdown menus." },
-      { "name": "selection-glow", "value": "0 0 22px -10px var(--el-color)", "purpose": "Selected roster card, active tab." }
+      {
+        "name": "top-edge-highlight",
+        "value": "inset 0 1px 0 rgba(255, 255, 255, 0.05)",
+        "purpose": "Hairline catch of light on panels and nested cards."
+      },
+      {
+        "name": "resting",
+        "value": "0 2px 8px rgba(4, 2, 10, 0.45)",
+        "purpose": "Panels, roster panel, weapon cards."
+      },
+      {
+        "name": "floating",
+        "value": "0 22px 48px -20px rgba(4, 2, 10, 0.85), 0 4px 14px rgba(4, 2, 10, 0.5)",
+        "purpose": "Custom select menu."
+      },
+      {
+        "name": "primary-lift",
+        "value": "0 6px 14px -8px rgba(4, 2, 10, 0.9)",
+        "purpose": "Primary button only."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 18px 34px -22px rgba(4, 2, 10, 0.9)",
+        "purpose": "Team cards on hover, with a 2px rise."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgba(201, 184, 255, 0.14)",
+        "purpose": "Input and select focus, with a lilac border."
+      }
     ],
     "motion": [
-      { "name": "press", "value": "transform 140ms ease", "purpose": "Buttons scale to 0.98 on press." },
-      { "name": "state", "value": "180ms ease", "purpose": "Color, border and background changes." },
-      { "name": "reduced-motion", "value": "0.01ms", "purpose": "All transitions and animations under prefers-reduced-motion." }
+      {
+        "name": "stage-enter",
+        "value": "320ms cubic-bezier(0.16, 1, 0.3, 1); from translateX(24px) and opacity 0",
+        "purpose": "The one entrance: stage art or fallback frame on character switch."
+      },
+      {
+        "name": "field-crossfade",
+        "value": "background 320ms ease",
+        "purpose": "Element light field follows the selected character."
+      },
+      {
+        "name": "state",
+        "value": "180ms ease",
+        "purpose": "Colour, border and background feedback on controls."
+      },
+      {
+        "name": "press",
+        "value": "transform 140ms ease; scale(0.98)",
+        "purpose": "Every button on press."
+      },
+      {
+        "name": "progress",
+        "value": "width 240ms ease",
+        "purpose": "Dock bar and substat chip fills."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce; durations 0.01ms, scroll-behavior auto",
+        "purpose": "Honoured globally."
+      }
     ],
     "breakpoints": [
-      { "name": "narrow-web", "value": "680px" },
-      { "name": "stack", "value": "900px" },
-      { "name": "compact", "value": "1080px" }
+      {
+        "name": "top-bar-wrap",
+        "value": "1320px"
+      },
+      {
+        "name": "stage-split",
+        "value": "1180px"
+      },
+      {
+        "name": "weapon-slots",
+        "value": "1080px"
+      },
+      {
+        "name": "stack",
+        "value": "1000px"
+      },
+      {
+        "name": "banners-stack",
+        "value": "900px"
+      },
+      {
+        "name": "web-phone",
+        "value": "680px"
+      }
     ]
   },
   "components": [
@@ -46,92 +409,133 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one main action in a region, e.g. Plan build, Use recommended.",
-      "html": "<button class=\"ds-btn-primary\">Plan build</button>",
-      "css": ".ds-btn-primary { background: linear-gradient(135deg, #7dd3fc, #60a5fa); color: #041322; border: none; border-radius: 8px; padding: 9px 16px; font-family: 'Outfit', 'DM Sans', sans-serif; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px -8px rgba(2, 6, 20, 0.9); cursor: pointer; transition: filter 180ms ease, transform 140ms ease; } .ds-btn-primary:hover { filter: brightness(1.06); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+      "description": "The single primary action: bone pill with ink text.",
+      "html": "<button class=\"ds-btn-primary\">Add team</button>",
+      "css": ".ds-btn-primary{background:#f2eefa;color:#0a0912;border:none;border-radius:999px;padding:9px 18px;font-family:'DM Sans', sans-serif;font-weight:700;font-size:13px;box-shadow:0 6px 14px -8px rgba(4,2,10,.9);cursor:pointer;transition:filter 180ms ease,transform 140ms ease}.ds-btn-primary:hover{filter:brightness(1.06)}.ds-btn-primary:active{transform:scale(.98)}.ds-btn-primary:focus-visible{outline:2px solid #c9b8ff;outline-offset:2px}"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Secondary actions such as Export, Import, Reset.",
+      "description": "Secondary actions such as Export and Import.",
       "html": "<button class=\"ds-btn-ghost\">Export</button>",
-      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 8px; background: rgba(255, 255, 255, 0.025); color: #8c9bbd; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 140ms ease; } .ds-btn-ghost:hover { color: #eef3ff; border-color: rgba(148, 178, 255, 0.28); background: rgba(148, 178, 255, 0.09); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid rgba(214,200,255,.11);border-radius:8px;background:rgba(255,255,255,.025);color:#a99cc0;font-family:'DM Sans', sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease}.ds-btn-ghost:hover{color:#f2eefa;border-color:rgba(214,200,255,.26);background:rgba(214,200,255,.09)}.ds-btn-ghost:active{transform:scale(.98)}.ds-btn-ghost:focus-visible{outline:2px solid #c9b8ff;outline-offset:2px}"
     },
     {
-      "name": "Tab Rail",
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive action (Reset), quiet until hovered.",
+      "html": "<button class=\"ds-btn-danger\">Reset</button>",
+      "css": ".ds-btn-danger{padding:7px 12px;border:1px solid rgba(214,200,255,.11);border-radius:8px;background:transparent;color:#a99cc0;font-family:'DM Sans', sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease}.ds-btn-danger:hover{color:#f87171;border-color:rgba(248,113,113,.55);background:rgba(248,113,113,.1)}.ds-btn-danger:focus-visible{outline:2px solid #c9b8ff;outline-offset:2px}"
+    },
+    {
+      "name": "Pill Tabs",
       "kind": "nav",
       "refersTo": "tab",
-      "description": "Top-bar pill navigation with mono counts.",
-      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab ds-tab-active\">Resonators <span class=\"ds-tab-pill\">8/61</span></button><button class=\"ds-tab\">Teams <span class=\"ds-tab-pill\">8</span></button><button class=\"ds-tab\">Banners <span class=\"ds-tab-pill\">3.8</span></button></nav>",
-      "css": ".ds-tabs { display: inline-flex; gap: 4px; padding: 4px; background: rgba(6, 10, 22, 0.72); border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 999px; } .ds-tab { display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; background: transparent; padding: 7px 14px; border-radius: 999px; color: #8c9bbd; font-family: 'Outfit', 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, color 180ms ease; } .ds-tab:hover:not(.ds-tab-active) { color: #eef3ff; background: rgba(255, 255, 255, 0.04); } .ds-tab-active { background: linear-gradient(135deg, rgba(125, 211, 252, 0.2), rgba(129, 140, 248, 0.18)); border-color: rgba(125, 211, 252, 0.4); color: #eef3ff; box-shadow: 0 0 20px -6px rgba(125, 211, 252, 0.45); } .ds-tab-pill { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: inherit; opacity: 0.8; } .ds-tab:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+      "description": "Top-bar navigation; the active tab is a bone pill with a mono count.",
+      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab is-active\">Resonators <span class=\"ds-tab-count\">1/61</span></button><button class=\"ds-tab\">Teams <span class=\"ds-tab-count\">8</span></button><button class=\"ds-tab\">Banners <span class=\"ds-tab-count\">3.8</span></button></nav>",
+      "css": ".ds-tabs{display:inline-flex;gap:4px;background:#0a0912;padding:6px}.ds-tab{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:7px 12px;border:1px solid transparent;border-radius:999px;background:transparent;color:#a99cc0;font-family:'DM Sans', sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background-color 180ms ease,color 180ms ease}.ds-tab:hover:not(.is-active){color:#f2eefa;background:rgba(214,200,255,.07)}.ds-tab.is-active{background:#f2eefa;color:#0a0912}.ds-tab-count{font-family:'JetBrains Mono', monospace;font-size:11px;font-weight:500}.ds-tab:focus-visible{outline:2px solid #c9b8ff;outline-offset:2px}"
     },
     {
       "name": "Search Input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Text and select fields sit in a dark well with a cyan focus ring.",
-      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Search</span><input class=\"ds-input\" placeholder=\"Search name, role, weapon...\" /></label>",
-      "css": ".ds-field { display: block; } .ds-field-label { display: block; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; color: #8c9bbd; margin-bottom: 5px; } .ds-input { width: 100%; background: rgba(8, 13, 28, 0.85); border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 8px; padding: 8px 10px; color: #eef3ff; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: border-color 180ms ease, box-shadow 180ms ease; } .ds-input:hover { border-color: rgba(148, 178, 255, 0.28); } .ds-input:focus { outline: none; border-color: #7dd3fc; box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.14); }"
+      "description": "Input well with a lilac focus border and halo.",
+      "html": "<input class=\"ds-input\" placeholder=\"Search name, role, weapon\" />",
+      "css": ".ds-input{width:260px;background:#0e0c17;border:1px solid rgba(214,200,255,.11);border-radius:8px;padding:8px 10px;color:#f2eefa;font-family:'DM Sans', sans-serif;font-size:13px;transition:border-color 180ms ease,box-shadow 180ms ease}.ds-input::placeholder{color:#a99cc0}.ds-input:hover{border-color:rgba(214,200,255,.26)}.ds-input:focus{outline:none;border-color:#c9b8ff;box-shadow:0 0 0 3px rgba(201,184,255,.14)}"
     },
     {
-      "name": "Element Filter Chip",
+      "name": "Filter Chip",
       "kind": "chip",
-      "refersTo": "chip-filter",
-      "description": "Element filter with an element dot; active state takes the element color.",
-      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip-active\" style=\"--el-color:#fb9263\"><span class=\"ds-dot\"></span></button><button class=\"ds-chip\" style=\"--el-color:#67d5fa\"><span class=\"ds-dot\"></span></button><button class=\"ds-chip\" style=\"--el-color:#d08cf5\"><span class=\"ds-dot\"></span></button></div>",
-      "css": ".ds-chips { display: flex; gap: 5px; } .ds-chip { display: inline-flex; align-items: center; justify-content: center; height: 34px; min-width: 56px; padding: 0 10px; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 8px; background: rgba(255, 255, 255, 0.025); cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease; } .ds-chip:hover { border-color: rgba(148, 178, 255, 0.28); background: rgba(255, 255, 255, 0.05); } .ds-chip-active { border-color: color-mix(in srgb, var(--el-color) 70%, transparent); background: color-mix(in srgb, var(--el-color) 16%, transparent); } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--el-color); } .ds-chip:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+      "refersTo": "filter-chip-active",
+      "description": "Category and rarity filters; active is a lilac wash.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip is-active\">Sword <span>14</span></button><button class=\"ds-chip\">Rectifier <span>12</span></button></div>",
+      "css": ".ds-chips{display:flex;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid rgba(214,200,255,.11);border-radius:999px;background:#0e0c17;color:#a99cc0;font-family:'DM Sans', sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:border-color 140ms ease,background 140ms ease,color 140ms ease}.ds-chip span{font-family:'JetBrains Mono', monospace;font-size:10px}.ds-chip:hover{border-color:rgba(214,200,255,.26);color:#f2eefa}.ds-chip.is-active{border-color:rgba(201,184,255,.55);background:rgba(201,184,255,.14);color:#f2eefa}.ds-chip:focus-visible{outline:2px solid #c9b8ff;outline-offset:2px}"
     },
     {
       "name": "Panel",
       "kind": "card",
       "refersTo": "panel",
-      "description": "Content surface with a title row; new panels use a solid fill (no glass).",
-      "html": "<section class=\"ds-panel\"><div class=\"ds-panel-head\"><h3 class=\"ds-panel-title\">Weapon &amp; Echoes</h3><span class=\"ds-muted\">3 lineups</span></div><p class=\"ds-body\">Grants 12% Attribute DMG Bonus.</p></section>",
-      "css": ".ds-panel { background: #0b1122; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 16px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(2, 5, 16, 0.45); color: #eef3ff; } .ds-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; } .ds-panel-title { margin: 0; font-family: 'Outfit', 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; } .ds-muted { color: #8c9bbd; font-family: 'JetBrains Mono', monospace; font-size: 11px; } .ds-body { margin: 0; font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.5; color: #eef3ff; }"
+      "description": "Opaque reading surface used for every panel.",
+      "html": "<section class=\"ds-panel\"><h3 class=\"ds-panel-title\">Teams</h3><p class=\"ds-panel-body\">3 lineups recommended for this Resonator.</p></section>",
+      "css": ".ds-panel{background:#13101d;border:1px solid rgba(214,200,255,.11);border-radius:16px;padding:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 2px 8px rgba(4,2,10,.45);color:#f2eefa;font-family:'DM Sans', sans-serif}.ds-panel-title{margin:0 0 8px;font-size:16px;font-weight:600;letter-spacing:-.01em}.ds-panel-body{margin:0;font-size:13px;color:#a99cc0}"
     },
     {
-      "name": "Roster Card",
+      "name": "Character Stage and Dock",
       "kind": "custom",
-      "refersTo": "roster-card",
-      "description": "Sidebar row for a Resonator; selected state tints with the element color.",
-      "html": "<button class=\"ds-roster-card ds-selected\" style=\"--el-color:#fb9263\"><span class=\"ds-avatar\">DE</span><span class=\"ds-roster-info\"><span class=\"ds-roster-name\">Denia <span class=\"ds-stars\">★★★★★</span></span><span class=\"ds-roster-meta\"><span class=\"ds-dot\"></span>Fusion · Main DPS</span></span></button>",
-      "css": ".ds-roster-card { display: flex; align-items: center; gap: 11px; width: 280px; text-align: left; background: rgba(255, 255, 255, 0.02); border: 1px solid transparent; border-radius: 10px; padding: 7px 12px 7px 8px; color: #eef3ff; cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease; } .ds-roster-card:hover { background: rgba(148, 178, 255, 0.07); border-color: rgba(148, 178, 255, 0.13); } .ds-selected { background: linear-gradient(90deg, color-mix(in srgb, var(--el-color) 14%, rgba(18, 27, 52, 0.85)), rgba(18, 27, 52, 0.65)); border-color: color-mix(in srgb, var(--el-color) 55%, transparent); box-shadow: 0 0 22px -10px var(--el-color); } .ds-avatar { display: grid; place-items: center; width: 46px; height: 50px; border-radius: 8px; border: 1.5px solid color-mix(in srgb, var(--el-color) 60%, transparent); background: #0a1022; color: var(--el-color); font-family: 'Outfit', sans-serif; font-weight: 700; } .ds-roster-info { display: flex; flex-direction: column; gap: 3px; } .ds-roster-name { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13px; } .ds-stars { color: #f4c977; font-size: 11px; letter-spacing: 1px; } .ds-roster-meta { display: flex; align-items: center; gap: 6px; color: #8c9bbd; font-size: 12px; } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--el-color); } .ds-roster-card:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+      "refersTo": "dock-card",
+      "description": "Signature: element light field, poster-scale name, opaque dock cards.",
+      "html": "<div class=\"ds-stage\"><div><span class=\"ds-stars\">★★★★★</span><h2 class=\"ds-name\">Aemeath</h2><p class=\"ds-tags\"><span class=\"ds-tag ds-tag-el\">Fusion</span><span class=\"ds-tag\">Sword</span><span class=\"ds-tag\">Main DPS</span></p></div><div class=\"ds-dock\"><section class=\"ds-dock-card\"><span class=\"ds-dock-label\">Weapon</span><span class=\"ds-dock-value\">Everbright Polestar</span><span class=\"ds-dock-meta\">Lv. 90 ATK <b>588</b></span></section><section class=\"ds-dock-card\"><span class=\"ds-dock-label\">Substat goals</span><span class=\"ds-dock-figure\">3 / 5</span><span class=\"ds-bar\"><span></span></span></section></div></div>",
+      "css": ".ds-stage{--el:#fb9263;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:340px;padding:28px;border-radius:16px;color:#f2eefa;font-family:'DM Sans', sans-serif;background:radial-gradient(80% 110% at 64% 42%,color-mix(in srgb,var(--el) 72%,transparent) 0%,color-mix(in srgb,var(--el) 34%,transparent) 32%,color-mix(in srgb,var(--el) 10%,transparent) 62%,transparent 84%),linear-gradient(180deg,color-mix(in srgb,var(--el) 10%,#14111f) 0%,#0a0912 100%)}.ds-stars{color:#f4c977;font-size:14px;letter-spacing:3px}.ds-name{margin:6px 0 0;font-family:'Big Shoulders Display', 'DM Sans', sans-serif;font-size:96px;font-weight:900;line-height:.86;text-transform:uppercase}.ds-tags{display:flex;gap:8px;margin:10px 0 0}.ds-tag{display:inline-flex;align-items:center;min-height:30px;padding:4px 12px;border-radius:999px;background:rgba(10,9,18,.78);font-size:13px;font-weight:600}.ds-tag-el{color:var(--el)}.ds-dock{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ds-dock-card{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:12px;border:1px solid rgba(214,200,255,.11);background:rgba(19,16,29,.94)}.ds-dock-label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#a99cc0}.ds-dock-value{font-family:'Big Shoulders Display', 'DM Sans', sans-serif;font-size:22px;font-weight:700;line-height:1.05;text-transform:uppercase}.ds-dock-meta{font-size:13px;color:#a99cc0}.ds-dock-meta b{color:#f2eefa;font-family:'JetBrains Mono', monospace;font-weight:500}.ds-dock-figure{font-family:'Big Shoulders Display', 'DM Sans', sans-serif;font-size:34px;font-weight:800;line-height:1}.ds-bar{display:block;height:6px;border-radius:999px;background:rgba(214,200,255,.12);overflow:hidden}.ds-bar>span{display:block;width:60%;height:100%;border-radius:inherit;background:var(--el);transition:width 240ms ease}"
     }
   ],
   "narrative": {
-    "northStar": "The Resonance Console",
-    "overview": "The tracker is an instrument, not a poster. It is a precise, dark control panel that sits beside the running game and lights up in the color of whatever Resonator is in focus. The near-black navy hull keeps the game's art and the six element colors as the brightest things on screen; everything else is quiet slate text, hairline borders and dim surfaces.\n\nInformation is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. Glass is kept to the top bar, content panels are solid, and glow only marks what is selected or active.\n\nCharacter, weapon, Echo and banner art comes from the game and is the only imagery. The console frames it; it never competes with it.",
+    "northStar": "Convene Key Art",
+    "overview": "The selected Resonator is the screen. Their full-body render stands on the right of a stage lit by their element colour, the way a Convene banner splash presents a character, and the name runs down the left at poster scale. The build is read from a dock of four opaque panels along the stage's bottom edge (weapon, Echo set, substat goals, best team), so one glance answers who is selected, which element, and how far along the build is. Everything around the stage (top bar, portrait panel, index views, team grids) is quiet dark furniture that lets the art be the loudest thing on screen.\n\nThe world is dark by commitment: a near-black violet ground with bone text and one lilac interface accent. Colour beyond that carries meaning only. Element hues light the stage and mark elements; rarity, tier and success or danger colours mark exactly those states. Depth comes from light (the element field) and from panel tone, not from glass: there is no frosted blur on any reading surface and no starfield backdrop. It is a desktop app window (default 1360x900, minimum 1024x680) that sits beside the running game, offline, with self-hosted fonts and art.\n\nA condensed, heavy display face (Big Shoulders Display) owns names, the brand, dock values, tier letters and banner titles; a plain workhorse sans (DM Sans) carries everything that is read; a monospace (JetBrains Mono) carries counts and figures. Text never sits on art.",
     "keyCharacteristics": [
-      "Dark navy hull (`void`) with one cool accent (`resonance-cyan`) and gold reserved for Convene and 5-star rarity.",
-      "Element color (`--el-color`) as a scoped variable that tints borders, avatars, selection and the character hero.",
-      "Outfit for names and headings, DM Sans for everything read, JetBrains Mono for counts and numbers.",
-      "Tabular numerals everywhere: stats, counts and costs line up.",
-      "Hairline borders over shadows; depth comes from tonal steps."
+      "One stage per selected character: full-body art in an element-coloured radial light field, name at up to 150px.",
+      "An opaque four-panel dock at the stage foot holds the build summary.",
+      "Near-black violet ground (#0a0912), bone text, lilac accent; gold only for 5-star rarity and Convene.",
+      "Opaque panels everywhere text is read; no backdrop blur, no starfield.",
+      "Condensed display caps for names and figures over a quiet sans body.",
+      "One entrance motion, on character switch; everything else is short state feedback."
     ],
     "rules": [
-      { "name": "The Meaning-Only Color Rule", "body": "Element, tier and rarity colors appear only where they encode that fact. Never borrow Havoc purple or Z-tier pink to decorate an unrelated control.", "section": "colors" },
-      { "name": "The One Voice Rule", "body": "Cyan is the only interface accent. If a screen needs a second emphasis, use weight or `starlight` text, not a new hue.", "section": "colors" },
-      { "name": "The Tabular Rule", "body": "Body text sets `font-variant-numeric: tabular-nums`. Any new number display (stats, costs, counts) must keep columns aligned.", "section": "typography" },
-      { "name": "The Readable-Floor Rule", "body": "Running text never goes below 12px. 11px is reserved for mono counts and star rows; 9–10px is not used for new work.", "section": "typography" },
-      { "name": "The One Glass Rule", "body": "Only the top bar (and floating menus, which sit over moving content) is frosted. Every content panel uses the solid `panel-solid` fill.", "section": "elevation" },
-      { "name": "The Glow-Means-Selected Rule", "body": "A glow says \"this is the active or selected item\". No glow on resting cards, headings or decoration.", "section": "elevation" }
+      {
+        "name": "The Meaning-Only Colour Rule",
+        "body": "Beyond bone, lilac and the neutrals, a hue appears only when it says something: an element, a rarity, a tier, success or danger.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Is Convene Rule",
+        "body": "Convene Gold marks 5-star rarity and the Convene banner phase. It is never a general highlight, a tier colour or a badge colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Element Owns the Stage Rule",
+        "body": "The selected character's element colour is the only large colour field on screen: a radial light (80% by 110% at 64%/42%; 72% at the centre, 34% at 32%, 10% at 62%, gone by 84%) behind the figure with a 40% light pool at its feet, plus a 24% element radial at the roster layout's top-left.",
+        "section": "colors"
+      },
+      {
+        "name": "The Poster Face Rule",
+        "body": "Big Shoulders Display is for proper names, figures and tier letters, always uppercase. Sentences, labels and controls stay in DM Sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Counted in Mono Rule",
+        "body": "Every count, cost and ratio is set in JetBrains Mono or with tabular numerals, so numbers do not jitter as they change.",
+        "section": "typography"
+      },
+      {
+        "name": "The Opaque Reading Surface Rule",
+        "body": "Text never sits directly on art. Every surface that carries text over the stage or a banner is an opaque or near-opaque dark panel: dock cards and banner copy at 94% with a hairline border, stage tags and the Owned toggle at 78% ground. No gradient shades stand in for a panel.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Glass Rule",
+        "body": "No backdrop-filter anywhere, floating menus included; no frosted bars, no starfield, no decorative glows. Depth is the element light field plus tone steps.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "**Do** let game art and element color be the brightest things on screen; keep chrome in navy, slate and hairlines.",
-      "**Do** scope element tinting through `--el-color` and `color-mix()` instead of hard-coding element hexes in new rules.",
-      "**Do** use `tabular-nums` and the mono face for counts and stat values.",
-      "**Do** give new controls at least 32px height and 16–20px panel padding.",
-      "**Do** keep a visible `:focus-visible` ring (2px cyan, 2px offset) on every interactive element.",
-      "**Do** honor `prefers-reduced-motion`: the existing media query cuts animations and transitions to near zero."
+      "Do give the selected character the stage: full-body art in its element light field, the name in Big Shoulders Display at clamp(64px, 14cqi, 150px), the build in the dock.",
+      "Do put every piece of text that overlaps the stage or a banner on an opaque or near-opaque dark surface (dock cards and banner copy at 94%, tags and toggles at 78% ground).",
+      "Do use one lilac accent (#c9b8ff) for focus, active and selected states, and bone fills with ink text for the single active choice (active tab, primary button, Owned on).",
+      "Do use element, rarity and tier colours only to say element, rarity and tier.",
+      "Do keep panels opaque with a 1px hairline and tone steps for depth; radii 8 / 12 / 16px and pills for toggles and tags.",
+      "Do set counts and figures in JetBrains Mono or tabular numerals.",
+      "Do keep motion to the single 320ms stage entrance and 180ms state feedback, and honour prefers-reduced-motion.",
+      "Do use the framed portrait fallback for any character without a full-body render, never a cropped half figure."
     ],
     "donts": [
-      "**Don't** add new frosted-glass panels; glass belongs to the top bar only.",
-      "**Don't** add glows to elements that are not selected or active.",
-      "**Don't** use element, tier or rarity colors outside their meaning.",
-      "**Don't** introduce a second interface accent alongside `resonance-cyan`; gold stays reserved for rarity and Convene.",
-      "**Don't** set running text below 12px.",
-      "**Don't** load fonts or assets from a CDN; everything ships in `public/` for offline use."
+      "Don't put backdrop-filter blur or frosted glass on panels, bars or menus, and don't bring back the starfield backdrop or decorative glows.",
+      "Don't set text directly on character art.",
+      "Don't use Convene Gold (#f4c977) for anything except 5-star rarity and the Convene phase; not for tiers, badges or highlights.",
+      "Don't use a light theme; the dark ground is a user commitment.",
+      "Don't set sentences, labels or controls in the display face, or set names in it without uppercase.",
+      "Don't imitate Kuro's in-game menu chrome; keep the own type, own dock layout and standard web controls.",
+      "Don't load fonts or art from the network; everything ships self-hosted for offline use."
     ]
   }
 }

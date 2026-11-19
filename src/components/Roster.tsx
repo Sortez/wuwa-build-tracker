@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { characters } from '../data';
-import { elementClass, rarityClass, stars } from '../lib/format';
+import { elementClass } from '../lib/format';
 import { useApp } from '../state';
 import type { ElementName } from '../types';
 import CharacterAvatar from './CharacterAvatar';
@@ -162,7 +162,7 @@ export default function Roster({ selectedId, onSelect }: Props) {
         </div>
       </div>
 
-      <div className="roster-list">
+      <div className={ownedIds.size > 0 ? 'roster-list has-owned' : 'roster-list'}>
         {filtered.map((character) => {
           const isSelected = character.id === selectedId;
           return (
@@ -171,7 +171,8 @@ export default function Roster({ selectedId, onSelect }: Props) {
                 type="button"
                 className={`roster-card ${elementClass(character.element)}${
                   isSelected ? ' selected' : ''
-                }`}
+                }${ownedIds.has(character.id) ? ' is-owned' : ''}`}
+                title={`${character.name} · ${character.element} · ${character.role}`}
                 onClick={() => onSelect(character.id)}
                 aria-pressed={isSelected}
               >
@@ -179,24 +180,6 @@ export default function Roster({ selectedId, onSelect }: Props) {
                 <span className="roster-info">
                   <span className="roster-name">
                     <span className="roster-name-text">{character.name}</span>
-                    <span
-                      className={`stars roster-stars ${rarityClass(
-                        character.rarity,
-                      )}`}
-                    >
-                      {stars(character.rarity)}
-                    </span>
-                  </span>
-                  <span className="roster-meta">
-                    <span
-                      className={`element-dot ${elementClass(
-                        character.element,
-                      )}`}
-                      aria-hidden="true"
-                    />
-                    <span>
-                      {character.element} &middot; {character.role}
-                    </span>
                   </span>
                 </span>
               </button>
