@@ -4,6 +4,7 @@ import { elementClass, rarityClass, stars } from '../lib/format';
 import type { ElementName, WeaponTypeName } from '../types';
 import CharacterAvatar from './CharacterAvatar';
 import CharacterKitSection from './CharacterKitSection';
+import CharacterStage from './CharacterStage';
 
 interface Props {
   onOpenBuild: (id: string) => void;
@@ -63,7 +64,11 @@ export default function CharactersIndexView({ onOpenBuild }: Props) {
     characters[0];
 
   return (
-    <div className="roster-layout characters-index-layout">
+    <div
+      className={`roster-layout characters-index-layout${
+        selected ? ` has-stage ${elementClass(selected.element)}` : ''
+      }`}
+    >
       <aside className="roster">
         <div className="roster-head">
           <h2 className="panel-title">
@@ -238,43 +243,26 @@ export default function CharactersIndexView({ onOpenBuild }: Props) {
 
       {selected && (
         <main className="character-view" id="main">
-          <header
-            className={`character-header ${elementClass(selected.element)}`}
-          >
-            <div className="character-aura" aria-hidden="true" />
-            <div className="character-title">
-              <CharacterAvatar character={selected} size="lg" />
-              <div>
-                <div className="character-name-row">
-                  <h2>{selected.name}</h2>
-                  <span className={`stars ${rarityClass(selected.rarity)}`}>
-                    {stars(selected.rarity)}
+          <CharacterStage
+            character={selected}
+            actions={
+              <>
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={() => onOpenBuild(selected.id)}
+                >
+                  Plan build &rarr;
+                </button>
+                {selected.kit && (
+                  <span className="stage-kit-count">
+                    {selected.kit.skills.length} skills &middot;{' '}
+                    {selected.kit.sequences.length} Resonance Chain nodes
                   </span>
-                </div>
-                <p className="character-tags">
-                  <span className="tag-element">
-                    <span
-                      className={`element-dot ${elementClass(selected.element)}`}
-                      aria-hidden="true"
-                    />
-                    {selected.element}
-                  </span>
-                  <span>{selected.weaponType}</span>
-                  <span>{selected.role}</span>
-                </p>
-              </div>
-            </div>
-
-            <div className="character-header-right">
-              <button
-                type="button"
-                className="primary-button"
-                onClick={() => onOpenBuild(selected.id)}
-              >
-                Plan Build &rarr;
-              </button>
-            </div>
-          </header>
+                )}
+              </>
+            }
+          />
 
           <CharacterKitSection key={selected.id} kit={selected.kit} />
         </main>

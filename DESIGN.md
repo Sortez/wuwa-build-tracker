@@ -199,7 +199,7 @@ A near-black violet ground with bone text and a single cool lilac accent; every 
 
 ### Element, Rarity and Tier Hues
 - **Element hues** (`element-spectro`, `element-havoc`, `element-fusion`, `element-glacio`, `element-aero`, `element-electro`, `element-none`): set per character as `--el-color`. They light the stage field, colour the element tag and dot, tint the selected roster tile and its border, fill the dock progress bar, and frame the portrait fallback.
-- **Rarity hues** (`rarity-4` to `rarity-1`, with gold for 5): star colour and the weapon card top edge.
+- **Rarity hues** (`rarity-4` to `rarity-1`, with gold for 5): star colour and the light behind each weapon on its card.
 - **Tier hues** (`tier-z` to `tier-e`): tier letters, tier rails and tier-group borders on the Teams view. Tier A is a lemon yellow (#fde047), kept clear of Convene Gold.
 
 ### Neutral
@@ -305,8 +305,8 @@ Gently rounded, never sharp and never blobby: 8px for controls and inputs, 12px 
 ### Cards / Containers
 - **Panel:** opaque panel tone, 16px radius, 20px padding, hairline border, top-edge highlight plus the resting shadow.
 - **Nested cards** (gear slots, team cards, kit cards, character teams): raised panel tone, 12px radius, 14 to 15px padding, hairline border.
-- **Weapon cards:** panel at 16px radius with a 2px top edge in the weapon's rarity colour.
-- **Tier groups:** a 82px rail with the tier letter in the display face, tinted 3 to 7% toward the tier colour.
+- **Weapon cards:** panel at 16px radius, no one-sided edge. The head is an art plate on the raised ground: the weapon art at 96px in a radial of its rarity colour (38%), the name beside it in the display face (800, 26px, uppercase) over the weapon type and stars. Stats, passive and users follow at 16px inset. Hover strengthens the border toward the rarity colour and grows the art 6%.
+- **Tier bands:** each tier group is a band with a 34% tier-coloured border on a 5% tier wash. Its 112px rail is lit by a tier radial from the top over a 10% tier tint and carries the tier letter at 72px (900) and the team count in mono. Team names inside use the display face (800, 22px, uppercase).
 
 ### Inputs / Fields
 - **Style:** input well fill, 1px hairline, 8px radius, padding 8px 10px; search adds a leading icon and a round clear button.
@@ -321,6 +321,8 @@ A 312px opaque panel with search, element filter, owned filter and a 3-column gr
 
 ### Character Stage and Dock (signature)
 The stage is a 16px-radius block on the raised ground, at least 500px tall, holding three layers: the element light field (a bright radial at 64%/42%, a floor glow at the base, and a vertical fade from a 10% element tint into the ground), the art, and the content grid. The full-body render stands right-aligned at 128% of stage height, masked to fade at its base. The 13 characters without a full-body render show their portrait in one designed fallback: a framed 374:512 panel with a 2px element border on a 22% element tint, set 28px from the top, 178px from the right and clear of the dock (bottom at dock height plus 44px); below 1180px it moves into the right column. Over the field on the left, in a title area capped at 60% width, sit the rarity stars, the display name and three stage tags (element, weapon type, role) as 78% ground pills; the Owned toggle sits top-right. The dock runs along the foot: four opaque dock cards with uppercase labels, an icon plus display-face value (700, 22px, uppercase), and mono metadata; the progress card shows a large numeral and a 6px element-coloured bar.
+
+**Compact stage (Character Index):** the same stage without the dock, at least 440px tall: the dock row holds the Plan build primary button and a skill-count pill instead, and the fallback frame keeps its full height (dock height 44px).
 
 **Motion:** the art (or fallback frame) enters on character switch with one 320ms slide of 24px from the right plus a fade, eased `cubic-bezier(0.16, 1, 0.3, 1)`. The element field crossfades over 320ms. Under `prefers-reduced-motion: reduce` all transitions and animations collapse to 0.01ms and smooth scrolling is off.
 

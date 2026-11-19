@@ -190,7 +190,9 @@ export default function WeaponsView({ onSelectCharacter }: Props) {
                 className={`weapon-card weapon-rarity-${weapon.rarity}`}
               >
                 <header className="weapon-card-head">
-                  <WeaponIcon weapon={weapon} size="md" />
+                  <span className="weapon-plate">
+                    <WeaponIcon weapon={weapon} size="lg" />
+                  </span>
                   <div className="weapon-card-title">
                     <div className="weapon-card-name-row">
                       <h3>{weapon.name}</h3>

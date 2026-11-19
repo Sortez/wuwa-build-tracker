@@ -1131,6 +1131,30 @@ button:active:not(:disabled) {
   color: var(--accent-ink);
 }
 
+.character-stage.is-compact {
+  --dock-h: 44px;
+  min-height: 440px;
+}
+
+.stage-actions {
+  grid-area: dock;
+  align-self: end;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 24px;
+}
+
+.stage-kit-count {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(10, 9, 18, 0.78);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .stage-dock {
   grid-area: dock;
   display: grid;
@@ -1232,106 +1256,6 @@ button:active:not(:disabled) {
   font-family: var(--font-hero);
   font-size: 16px;
 }
-
-/* Character Index detail header (compact; the Resonators tab uses the stage). */
-.character-header {
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 22px 24px;
-  background: var(--panel-solid);
-  border: 1px solid color-mix(in srgb, var(--el-color, var(--accent)) 28%, var(--border));
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-highlight), var(--shadow-sm);
-}
-
-.character-aura {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      420px 240px at 8% 35%,
-      color-mix(in srgb, var(--el-color, var(--accent)) 22%, transparent),
-      transparent 72%
-    );
-}
-
-.character-title {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  min-width: 0;
-}
-
-.character-title .avatar-lg {
-  width: 92px;
-  height: 104px;
-  box-shadow: 0 12px 28px -12px color-mix(in srgb, var(--el-color, var(--accent)) 65%, transparent);
-}
-
-.character-name-row {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.character-title h2 {
-  margin: 0;
-  font-family: var(--font-hero);
-  font-size: clamp(40px, 4vw, 56px);
-  font-weight: 900;
-  letter-spacing: 0.01em;
-  line-height: 0.92;
-  text-transform: uppercase;
-}
-
-.character-name-row .stars {
-  font-size: 13px;
-  letter-spacing: 2px;
-}
-
-.character-tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin: 10px 0 0;
-}
-
-.character-tags > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.character-tags .tag-element {
-  color: var(--el-color, var(--text));
-}
-
-.character-tags .element-dot {
-  width: 7px;
-  height: 7px;
-}
-
-.character-header-right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 14px;
-}
-
 
 /* ============================================================
    Gear Panel & Custom IconSelect
@@ -1943,21 +1867,27 @@ button:active:not(:disabled) {
 
 .tier-group {
   display: grid;
-  grid-template-columns: 82px minmax(0, 1fr);
+  grid-template-columns: 112px minmax(0, 1fr);
   margin-top: 14px;
-  border: 1px solid color-mix(in srgb, var(--tier) 26%, var(--border));
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tier) 34%, var(--border));
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--tier) 3%, rgba(9, 7, 16, 0.45));
+  background: color-mix(in srgb, var(--tier) 5%, var(--bg));
 }
 
 .tier-group:first-of-type {
   margin-top: 4px;
 }
 
+/* Each tier is a band lit in its own colour. */
 .tier-rail {
-  border-right: 1px solid color-mix(in srgb, var(--tier) 25%, var(--border));
-  border-radius: var(--radius) 0 0 var(--radius);
-  background: color-mix(in srgb, var(--tier) 7%, rgba(19, 16, 29, 0.72));
+  background:
+    radial-gradient(
+      120% 70% at 50% 0%,
+      color-mix(in srgb, var(--tier) 34%, transparent),
+      transparent 100%
+    ),
+    color-mix(in srgb, var(--tier) 10%, var(--panel-solid));
 }
 
 .tier-rail-inner {
@@ -1973,16 +1903,16 @@ button:active:not(:disabled) {
 .tier-rail-label {
   color: var(--tier);
   font-family: var(--font-hero);
-  font-size: 34px;
+  font-size: 72px;
   font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1;
+  letter-spacing: 0;
+  line-height: 0.85;
 }
 
 .tier-rail-count {
-  color: var(--muted);
+  color: var(--text);
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11px;
   white-space: nowrap;
 }
 
@@ -2037,11 +1967,12 @@ button:active:not(:disabled) {
 
 .team-card-head h4 {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+  font-family: var(--font-hero);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 
@@ -2519,23 +2450,26 @@ button:active:not(:disabled) {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 11px;
-  padding: 15px 16px;
+  gap: 12px;
+  padding: 0 0 16px;
+  overflow: hidden;
   border: 1px solid var(--border);
-  border-top: 2px solid var(--weapon-rarity-accent, var(--border));
   border-radius: var(--radius-lg);
   background: var(--panel-solid);
   box-shadow: var(--glass-highlight), var(--shadow-sm);
-  transition: border-color 150ms ease, background 150ms ease;
+  transition: border-color 180ms ease;
+}
+
+.weapon-card > :not(.weapon-card-head) {
+  margin-inline: 16px;
 }
 
 .weapon-card:hover {
-  border-color: color-mix(in srgb, var(--weapon-rarity-accent, var(--accent)) 45%, var(--border));
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--weapon-rarity-accent, var(--accent)) 7%, rgba(26, 21, 38, 0.84)),
-    var(--panel) 48%
-  );
+  border-color: color-mix(in srgb, var(--weapon-rarity-accent, var(--accent)) 55%, var(--border));
+}
+
+.weapon-card:hover .weapon-plate .item-icon {
+  transform: scale(1.06);
 }
 
 .weapon-rarity-5 {
@@ -2561,7 +2495,36 @@ button:active:not(:disabled) {
 .weapon-card-head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(
+      110px 90px at 64px 50%,
+      color-mix(in srgb, var(--weapon-rarity-accent, var(--accent)) 38%, transparent),
+      transparent 100%
+    ),
+    var(--bg-elev);
+}
+
+.weapon-plate {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+}
+
+.weapon-plate .item-icon {
+  width: 96px;
+  height: 96px;
+  border: 0;
+  background: transparent;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.weapon-plate .item-icon img {
+  object-fit: contain;
 }
 
 .weapon-card-title {
@@ -2574,18 +2537,20 @@ button:active:not(:disabled) {
 
 .weapon-card-name-row {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .weapon-card-name-row h3 {
   margin: 0;
   min-width: 0;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.25;
+  font-family: var(--font-hero);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--text);
 }
 
@@ -3271,15 +3236,6 @@ button.banner-four-star:hover {
   .header-actions {
     width: 100%;
     justify-content: flex-start;
-  }
-
-  .character-header {
-    padding: 18px;
-  }
-
-  .character-header-right {
-    width: 100%;
-    align-items: flex-start;
   }
 
   .roster-list {

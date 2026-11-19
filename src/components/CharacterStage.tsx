@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { builds, echoSetsById, recommendedTeams, weaponsById } from '../data';
 import {
   MAX_ECHO_COST,
@@ -15,7 +15,9 @@ import WeaponIcon from './WeaponIcon';
 
 interface Props {
   character: Character;
-  progress: CharacterProgress;
+  /** With progress the stage shows the build dock; without it, `actions`. */
+  progress?: CharacterProgress;
+  actions?: ReactNode;
 }
 
 /**
@@ -48,7 +50,13 @@ function StageArt({ character }: { character: Character }) {
   );
 }
 
-export default function CharacterStage({ character, progress }: Props) {
+function StageDock({
+  character,
+  progress,
+}: {
+  character: Character;
+  progress: CharacterProgress;
+}) {
   const build = builds[character.id];
 
   const weaponId = progress.recommendedWeaponIds[0];
@@ -73,28 +81,6 @@ export default function CharacterStage({ character, progress }: Props) {
   const bestTier = bestTeam ? ratingTier(bestTeam.ratings.tower) : null;
 
   return (
-    <header className={`character-stage ${elementClass(character.element)}`}>
-      <div className="stage-field" aria-hidden="true" />
-      <StageArt key={character.id} character={character} />
-
-      <div className="stage-title">
-        <span className={`stars stage-stars ${rarityClass(character.rarity)}`}>
-          {stars(character.rarity)}
-        </span>
-        <h2 data-long={character.name.length > 9 || undefined}>
-          {character.name}
-        </h2>
-        <p className="stage-tags">
-          <span className="stage-tag stage-tag-element">{character.element}</span>
-          <span className="stage-tag">{character.weaponType}</span>
-          <span className="stage-tag">{character.role}</span>
-        </p>
-      </div>
-
-      <div className="stage-owned">
-        <OwnedToggle character={character} />
-      </div>
-
       <div className="stage-dock">
         <section className="dock-card" aria-label="Primary weapon">
           <span className="dock-label">Weapon</span>
@@ -170,6 +156,42 @@ export default function CharacterStage({ character, progress }: Props) {
           )}
         </section>
       </div>
+  );
+}
+
+export default function CharacterStage({ character, progress, actions }: Props) {
+  return (
+    <header
+      className={`character-stage ${elementClass(character.element)}${
+        progress ? '' : ' is-compact'
+      }`}
+    >
+      <div className="stage-field" aria-hidden="true" />
+      <StageArt key={character.id} character={character} />
+
+      <div className="stage-title">
+        <span className={`stars stage-stars ${rarityClass(character.rarity)}`}>
+          {stars(character.rarity)}
+        </span>
+        <h2 data-long={character.name.length > 9 || undefined}>
+          {character.name}
+        </h2>
+        <p className="stage-tags">
+          <span className="stage-tag stage-tag-element">{character.element}</span>
+          <span className="stage-tag">{character.weaponType}</span>
+          <span className="stage-tag">{character.role}</span>
+        </p>
+      </div>
+
+      <div className="stage-owned">
+        <OwnedToggle character={character} />
+      </div>
+
+      {progress ? (
+        <StageDock character={character} progress={progress} />
+      ) : (
+        actions && <div className="stage-actions">{actions}</div>
+      )}
     </header>
   );
 }
