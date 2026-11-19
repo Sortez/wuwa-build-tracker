@@ -7,7 +7,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp'];
+const EXTENSIONS = ['webp', 'png', 'jpg', 'jpeg'];
 
 function initials(name: string): string {
   return name

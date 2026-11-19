@@ -119,7 +119,7 @@ components:
     backgroundColor: "rgba(255, 255, 255, 0.025)"
     textColor: "{colors.dusk-slate}"
     rounded: "{rounded.sm}"
-    height: "30px"
+    height: "34px"
     padding: "0 10px"
   chip-filter-active:
     backgroundColor: "rgba(125, 211, 252, 0.14)"
@@ -246,8 +246,8 @@ Soft, clear and easy to hit.
 - **Direction:** new controls should be at least 32px tall.
 
 ### Chips
-- **Element filter:** 30px tall, 8px radius, hairline border. Each holds an element-colored dot; when active, the border and fill take that element's color at 70% / 16%.
-- **Segmented filter:** three equal buttons in an `input-well` trough (All / Owned / Missing); the active one gets a cyan tint and cyan text.
+- **Element filter:** 34px tall, 12px text, 8px radius, hairline border. Each holds an element-colored dot; when active, the border and fill take that element's color at 70% / 16%.
+- **Segmented filter:** three equal 34px buttons with 12px text in an `input-well` trough (All / Owned / Missing); the active one gets a cyan tint and cyan text.
 
 ### Cards / Containers
 - **Corner Style:** 16px for panels, 10–12px for cards inside them.

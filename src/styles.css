@@ -257,7 +257,7 @@ button:active:not(:disabled) {
 .subtitle {
   margin: 2px 0 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.02em;
 }
 
@@ -349,7 +349,7 @@ button:active:not(:disabled) {
 }
 
 .tiny {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .mono {
@@ -700,13 +700,13 @@ button:active:not(:disabled) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 30px;
+  height: 34px;
   padding: 0 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.025);
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -744,10 +744,10 @@ button:active:not(:disabled) {
 .seg-btn {
   border: none;
   border-radius: 6px;
-  padding: 5px 8px;
+  padding: 8px 10px;
   background: transparent;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -833,7 +833,7 @@ button:active:not(:disabled) {
 
 .roster-stars {
   flex: none;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.5px;
 }
 
@@ -887,6 +887,14 @@ button:active:not(:disabled) {
   padding: 0;
   border-radius: 50%;
   transform: translateY(-50%);
+}
+
+/* Enlarges the click target to 34px without growing the visible circle. */
+.owned-compact::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
 }
 
 .owned-compact:active:not(:disabled) {
