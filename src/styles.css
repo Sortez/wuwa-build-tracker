@@ -2,6 +2,7 @@
   --bg: #050813;
   --bg-elev: #0a1022;
   --panel: rgba(12, 18, 36, 0.72);
+  --panel-solid: #0b1122;
   --panel-2: rgba(18, 27, 52, 0.72);
   --surface-input: rgba(8, 13, 28, 0.85);
   --border: rgba(148, 178, 255, 0.13);
@@ -237,7 +238,6 @@ button:active:not(:disabled) {
   color: var(--accent);
   background: radial-gradient(circle at 30% 25%, rgba(125, 211, 252, 0.22), rgba(56, 189, 248, 0.05));
   border: 1px solid rgba(125, 211, 252, 0.28);
-  box-shadow: 0 0 22px -6px rgba(125, 211, 252, 0.45);
 }
 
 .brand-text h1 {
@@ -357,11 +357,10 @@ button:active:not(:disabled) {
 }
 
 .panel {
-  background: var(--panel);
+  background: var(--panel-solid);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 20px;
-  backdrop-filter: blur(16px) saturate(135%);
   box-shadow: var(--glass-highlight), var(--shadow-sm);
 }
 
@@ -429,7 +428,7 @@ button:active:not(:disabled) {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
-  box-shadow: 0 8px 20px -8px rgba(125, 211, 252, 0.6);
+  box-shadow: 0 6px 14px -8px rgba(2, 6, 20, 0.9);
 }
 
 .primary-button:hover:not(:disabled) {
@@ -601,11 +600,10 @@ button:active:not(:disabled) {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--panel);
+  background: var(--panel-solid);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 16px;
-  backdrop-filter: blur(16px) saturate(135%);
   box-shadow: var(--glass-highlight), var(--shadow-sm);
 }
 
@@ -877,7 +875,6 @@ button:active:not(:disabled) {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--accent-ink);
-  box-shadow: 0 0 14px -4px rgba(125, 211, 252, 0.7);
 }
 
 .owned-compact {
@@ -941,10 +938,9 @@ button:active:not(:disabled) {
   gap: 20px;
   flex-wrap: wrap;
   padding: 22px 24px;
-  background: var(--panel);
+  background: var(--panel-solid);
   border: 1px solid color-mix(in srgb, var(--el-color, var(--accent)) 28%, var(--border));
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(18px) saturate(140%);
   box-shadow: var(--glass-highlight), var(--shadow-sm);
 }
 
@@ -1883,7 +1879,7 @@ button:active:not(:disabled) {
 }
 
 .team-slot-highlight .avatar {
-  box-shadow: 0 0 0 2px var(--accent), 0 0 18px -4px var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
 .team-slot-missing .avatar {
@@ -2138,8 +2134,9 @@ button:active:not(:disabled) {
   padding: 10px 16px;
   border: 1px solid rgba(125, 211, 252, 0.42);
   border-radius: var(--radius);
-  background: linear-gradient(90deg, rgba(125, 211, 252, 0.14), rgba(129, 140, 248, 0.12));
-  backdrop-filter: blur(14px);
+  background:
+    linear-gradient(90deg, rgba(125, 211, 252, 0.14), rgba(129, 140, 248, 0.12)),
+    var(--panel-solid);
 }
 
 .update-actions {
@@ -2288,8 +2285,7 @@ button:active:not(:disabled) {
   border: 1px solid var(--border);
   border-top: 2px solid var(--weapon-rarity-accent, var(--border));
   border-radius: var(--radius-lg);
-  background: var(--panel);
-  backdrop-filter: blur(16px) saturate(135%);
+  background: var(--panel-solid);
   box-shadow: var(--glass-highlight), var(--shadow-sm);
   transition: border-color 150ms ease, background 150ms ease;
 }
@@ -2777,8 +2773,7 @@ button:active:not(:disabled) {
   padding: 8px 14px 8px 8px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
-  background: rgba(4, 7, 16, 0.55);
-  backdrop-filter: blur(8px);
+  background: rgba(4, 7, 16, 0.78);
 }
 
 .banner-weapon > span {

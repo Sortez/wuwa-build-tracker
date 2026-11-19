@@ -48,7 +48,7 @@
       "refersTo": "button-primary",
       "description": "The one main action in a region, e.g. Plan build, Use recommended.",
       "html": "<button class=\"ds-btn-primary\">Plan build</button>",
-      "css": ".ds-btn-primary { background: linear-gradient(135deg, #7dd3fc, #60a5fa); color: #041322; border: none; border-radius: 8px; padding: 9px 16px; font-family: 'Outfit', 'DM Sans', sans-serif; font-weight: 700; font-size: 13px; box-shadow: 0 8px 20px -8px rgba(125, 211, 252, 0.6); cursor: pointer; transition: filter 180ms ease, transform 140ms ease; } .ds-btn-primary:hover { filter: brightness(1.06); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+      "css": ".ds-btn-primary { background: linear-gradient(135deg, #7dd3fc, #60a5fa); color: #041322; border: none; border-radius: 8px; padding: 9px 16px; font-family: 'Outfit', 'DM Sans', sans-serif; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px -8px rgba(2, 6, 20, 0.9); cursor: pointer; transition: filter 180ms ease, transform 140ms ease; } .ds-btn-primary:hover { filter: brightness(1.06); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
     },
     {
       "name": "Ghost Button",
@@ -88,7 +88,7 @@
       "refersTo": "panel",
       "description": "Content surface with a title row; new panels use a solid fill (no glass).",
       "html": "<section class=\"ds-panel\"><div class=\"ds-panel-head\"><h3 class=\"ds-panel-title\">Weapon &amp; Echoes</h3><span class=\"ds-muted\">3 lineups</span></div><p class=\"ds-body\">Grants 12% Attribute DMG Bonus.</p></section>",
-      "css": ".ds-panel { background: #0c1224; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 16px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(2, 5, 16, 0.45); color: #eef3ff; } .ds-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; } .ds-panel-title { margin: 0; font-family: 'Outfit', 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; } .ds-muted { color: #8c9bbd; font-family: 'JetBrains Mono', monospace; font-size: 11px; } .ds-body { margin: 0; font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.5; color: #eef3ff; }"
+      "css": ".ds-panel { background: #0b1122; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 16px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(2, 5, 16, 0.45); color: #eef3ff; } .ds-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; } .ds-panel-title { margin: 0; font-family: 'Outfit', 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; } .ds-muted { color: #8c9bbd; font-family: 'JetBrains Mono', monospace; font-size: 11px; } .ds-body { margin: 0; font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.5; color: #eef3ff; }"
     },
     {
       "name": "Roster Card",
@@ -101,7 +101,7 @@
   ],
   "narrative": {
     "northStar": "The Resonance Console",
-    "overview": "The tracker is an instrument, not a poster. It is a precise, dark control panel that sits beside the running game and lights up in the color of whatever Resonator is in focus. The near-black navy hull keeps the game's art and the six element colors as the brightest things on screen; everything else is quiet slate text, hairline borders and dim surfaces.\n\nInformation is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. The current implementation leans on frosted glass, nebula backdrops and glows; the agreed direction is to pull that back. Glass stays on the top bar, content panels move toward solid surfaces, and glow only marks what is selected or active.\n\nCharacter, weapon, Echo and banner art comes from the game and is the only imagery. The console frames it; it never competes with it.",
+    "overview": "The tracker is an instrument, not a poster. It is a precise, dark control panel that sits beside the running game and lights up in the color of whatever Resonator is in focus. The near-black navy hull keeps the game's art and the six element colors as the brightest things on screen; everything else is quiet slate text, hairline borders and dim surfaces.\n\nInformation is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. Glass is kept to the top bar, content panels are solid, and glow only marks what is selected or active.\n\nCharacter, weapon, Echo and banner art comes from the game and is the only imagery. The console frames it; it never competes with it.",
     "keyCharacteristics": [
       "Dark navy hull (`void`) with one cool accent (`resonance-cyan`) and gold reserved for Convene and 5-star rarity.",
       "Element color (`--el-color`) as a scoped variable that tints borders, avatars, selection and the character hero.",
@@ -114,7 +114,7 @@
       { "name": "The One Voice Rule", "body": "Cyan is the only interface accent. If a screen needs a second emphasis, use weight or `starlight` text, not a new hue.", "section": "colors" },
       { "name": "The Tabular Rule", "body": "Body text sets `font-variant-numeric: tabular-nums`. Any new number display (stats, costs, counts) must keep columns aligned.", "section": "typography" },
       { "name": "The Readable-Floor Rule", "body": "Running text never goes below 12px. 11px is reserved for mono counts and star rows; 9–10px is not used for new work.", "section": "typography" },
-      { "name": "The One Glass Rule", "body": "Only the top bar (and floating menus, which sit over moving content) is frosted. New panels use a solid `panel` fill, and existing panels move to solid fills when they are touched.", "section": "elevation" },
+      { "name": "The One Glass Rule", "body": "Only the top bar (and floating menus, which sit over moving content) is frosted. Every content panel uses the solid `panel-solid` fill.", "section": "elevation" },
       { "name": "The Glow-Means-Selected Rule", "body": "A glow says \"this is the active or selected item\". No glow on resting cards, headings or decoration.", "section": "elevation" }
     ],
     "dos": [

@@ -5,6 +5,7 @@ colors:
   void: "#050813"
   deep-hull: "#0a1022"
   panel: "rgba(12, 18, 36, 0.72)"
+  panel-solid: "#0b1122"
   panel-raised: "rgba(18, 27, 52, 0.72)"
   input-well: "rgba(8, 13, 28, 0.85)"
   hairline: "rgba(148, 178, 255, 0.13)"
@@ -110,7 +111,7 @@ components:
     rounded: "{rounded.sm}"
     padding: "8px 10px"
   panel:
-    backgroundColor: "{colors.panel}"
+    backgroundColor: "{colors.panel-solid}"
     textColor: "{colors.starlight}"
     rounded: "{rounded.lg}"
     padding: "20px"
@@ -138,7 +139,7 @@ components:
 
 The tracker is an instrument, not a poster. It is a precise, dark control panel that sits beside the running game and lights up in the color of whatever Resonator is in focus. The near-black navy hull keeps the game's art and the six element colors as the brightest things on screen; everything else is quiet slate text, hairline borders and dim surfaces.
 
-Information is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. The current implementation leans on frosted glass, nebula backdrops and glows; the agreed direction is to pull that back. Glass stays on the top bar, content panels move toward solid surfaces, and glow only marks what is selected or active.
+Information is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. Glass is kept to the top bar, content panels are solid, and glow only marks what is selected or active.
 
 Character, weapon, Echo and banner art comes from the game and is the only imagery. The console frames it; it never competes with it.
 
@@ -167,7 +168,8 @@ A cold night-console palette: navy neutrals, one cyan voice, and a fixed vocabul
 ### Neutral
 - **Void** (`void`): the page background, with a slight top-down navy gradient.
 - **Deep Hull** (`deep-hull`): avatar wells and solid fills behind art.
-- **Panel / Panel Raised** (`panel`, `panel-raised`): content surfaces and selected or nested surfaces.
+- **Panel Solid** (`panel-solid`): the opaque fill for every content panel (sidebar, character hero, panels, weapon cards).
+- **Panel / Panel Raised** (`panel`, `panel-raised`): the translucent fill behind the frosted top bar, and selected or nested surfaces.
 - **Input Well** (`input-well`): inputs, selects and segmented controls, a step darker than the panel.
 - **Hairline / Hairline Strong** (`hairline`, `hairline-strong`): resting and hover borders.
 - **Starlight** (`starlight`): primary text.
@@ -214,7 +216,7 @@ Spacing is currently ad hoc (2–24px). New work should snap to the `spacing` sc
 
 ## Elevation & Depth
 
-Depth is mostly tonal: `void` → `panel` → `panel-raised`, separated by hairline borders. The current build also layers frosted glass (`backdrop-filter: blur(16–18px) saturate(135–140%)`) on the top bar, panels and hero, over a starfield and two blurred nebulas. The direction is to keep the backdrop subtle, keep glass on the top bar only, and give content panels solid fills so text over them reads cleanly.
+Depth is mostly tonal: `void` → `panel` → `panel-raised`, separated by hairline borders. Behind everything sits a subtle starfield with two blurred nebulas. Only the top bar (`backdrop-filter: blur(18px) saturate(140%)`) and floating dropdown menus are frosted; content panels use the solid `panel-solid` fill so text over them reads cleanly.
 
 ### Shadow Vocabulary
 - **Glass highlight** (`box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06)`): a 1px top sheen on panels and the top bar.
@@ -223,7 +225,7 @@ Depth is mostly tonal: `void` → `panel` → `panel-raised`, separated by hairl
 - **Selection glow** (`box-shadow: 0 0 22px -10px var(--el-color)`): the selected roster card, active tab and element-tinted selection.
 
 ### Named Rules
-**The One Glass Rule.** Only the top bar (and floating menus, which sit over moving content) is frosted. New panels use a solid `panel` fill, and existing panels move to solid fills when they are touched.
+**The One Glass Rule.** Only the top bar (and floating menus, which sit over moving content) is frosted. Every content panel uses the solid `panel-solid` fill.
 
 **The Glow-Means-Selected Rule.** A glow says "this is the active or selected item". No glow on resting cards, headings or decoration.
 
@@ -236,7 +238,7 @@ Gently rounded, never sharp, never bubbly. Controls and inputs use 8px (`sm`), c
 ### Buttons
 Soft, clear and easy to hit.
 - **Shape:** gently rounded (8px).
-- **Primary:** a cyan gradient (`resonance-cyan` to `resonance-cyan-deep`, 135°) with `abyss-ink` text, Outfit 700 at 13px, padding 9px 16px. One per region ("Plan build", "Use recommended").
+- **Primary:** a cyan gradient (`resonance-cyan` to `resonance-cyan-deep`, 135°) with `abyss-ink` text, Outfit 700 at 13px, padding 9px 16px, and a dark drop shadow (`0 6px 14px -8px rgba(2, 6, 20, 0.9)`), not a cyan glow. One per region ("Plan build", "Use recommended").
 - **Ghost:** almost transparent fill, hairline border, `dusk-slate` text, 600 at 12px; on hover the text turns `starlight`, the border strengthens and the fill tints blue. Used for Export, Import, Reset and secondary actions.
 - **Danger:** looks like ghost at rest; on hover it turns `signal-red` with a 10% red tint.
 - **Icon button:** 28px square, transparent; hover shows the danger treatment (it is used for remove actions).
@@ -249,7 +251,7 @@ Soft, clear and easy to hit.
 
 ### Cards / Containers
 - **Corner Style:** 16px for panels, 10–12px for cards inside them.
-- **Background:** `panel` for panels, a 2% white wash for list cards, `panel-raised` for nested cards.
+- **Background:** `panel-solid` for panels, a 2% white wash for list cards, `panel-raised` for nested cards.
 - **Shadow Strategy:** glass highlight and resting lift on panels only; see Elevation.
 - **Border:** 1px `hairline`, `hairline-strong` on hover.
 - **Internal Padding:** 20px panels; 7–8px roster cards (aim for roomier in new work).
