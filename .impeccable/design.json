@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T00:00:00Z",
+  "title": "Design System: WuWa Build Tracker",
+  "extensions": {
+    "colorMeta": {
+      "void": { "role": "neutral", "displayName": "Void", "tonalRamp": ["#020409", "#050813", "#0a1022", "#121b34", "#1e2a4a", "#34446b", "#5a6a92", "#8c9bbd"] },
+      "starlight": { "role": "neutral", "displayName": "Starlight", "tonalRamp": ["#3a4256", "#5a6480", "#8c9bbd", "#aab6d2", "#c6d0e6", "#dbe3f4", "#eef3ff", "#f8faff"] },
+      "dusk-slate": { "role": "neutral", "displayName": "Dusk Slate", "tonalRamp": ["#1f2638", "#323c56", "#4a5675", "#667396", "#8c9bbd", "#a9b5d0", "#c7d0e3", "#e4e9f3"] },
+      "resonance-cyan": { "role": "primary", "displayName": "Resonance Cyan", "tonalRamp": ["#082f49", "#0c4a6e", "#075985", "#0284c7", "#38bdf8", "#7dd3fc", "#bae6fd", "#e0f2fe"] },
+      "convene-gold": { "role": "secondary", "displayName": "Convene Gold", "tonalRamp": ["#3d2a08", "#5e4210", "#86601a", "#b08429", "#d6a94b", "#f4c977", "#f8dda6", "#fcefd2"] },
+      "element-spectro": { "role": "tertiary", "displayName": "Spectro" },
+      "element-havoc": { "role": "tertiary", "displayName": "Havoc" },
+      "element-fusion": { "role": "tertiary", "displayName": "Fusion" },
+      "element-glacio": { "role": "tertiary", "displayName": "Glacio" },
+      "element-aero": { "role": "tertiary", "displayName": "Aero" },
+      "element-electro": { "role": "tertiary", "displayName": "Electro" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Resonator names in the character hero and banner titles; one per view." },
+      "headline": { "displayName": "Headline", "purpose": "Tier letters in the tier rail." },
+      "title": { "displayName": "Title", "purpose": "Panel titles." },
+      "body": { "displayName": "Body", "purpose": "Descriptions, skills, weapon effects; tabular numerals." },
+      "label": { "displayName": "Label", "purpose": "Field labels, ghost buttons, roster names." },
+      "mono": { "displayName": "Mono", "purpose": "Counts, stat values, version numbers." }
+    },
+    "shadows": [
+      { "name": "glass-highlight", "value": "inset 0 1px 0 rgba(255, 255, 255, 0.06)", "purpose": "1px top sheen on panels and the top bar." },
+      { "name": "resting-lift", "value": "0 2px 8px rgba(2, 5, 16, 0.45)", "purpose": "Panels and the top bar." },
+      { "name": "overlay", "value": "0 22px 48px -20px rgba(2, 6, 20, 0.85), 0 4px 14px rgba(2, 6, 20, 0.5)", "purpose": "Dropdown menus." },
+      { "name": "selection-glow", "value": "0 0 22px -10px var(--el-color)", "purpose": "Selected roster card, active tab." }
+    ],
+    "motion": [
+      { "name": "press", "value": "transform 140ms ease", "purpose": "Buttons scale to 0.98 on press." },
+      { "name": "state", "value": "180ms ease", "purpose": "Color, border and background changes." },
+      { "name": "reduced-motion", "value": "0.01ms", "purpose": "All transitions and animations under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "narrow-web", "value": "680px" },
+      { "name": "stack", "value": "900px" },
+      { "name": "compact", "value": "1080px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one main action in a region, e.g. Plan build, Use recommended.",
+      "html": "<button class=\"ds-btn-primary\">Plan build</button>",
+      "css": ".ds-btn-primary { background: linear-gradient(135deg, #7dd3fc, #60a5fa); color: #041322; border: none; border-radius: 8px; padding: 9px 16px; font-family: 'Outfit', 'DM Sans', sans-serif; font-weight: 700; font-size: 13px; box-shadow: 0 8px 20px -8px rgba(125, 211, 252, 0.6); cursor: pointer; transition: filter 180ms ease, transform 140ms ease; } .ds-btn-primary:hover { filter: brightness(1.06); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary actions such as Export, Import, Reset.",
+      "html": "<button class=\"ds-btn-ghost\">Export</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 8px; background: rgba(255, 255, 255, 0.025); color: #8c9bbd; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 140ms ease; } .ds-btn-ghost:hover { color: #eef3ff; border-color: rgba(148, 178, 255, 0.28); background: rgba(148, 178, 255, 0.09); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tab Rail",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "Top-bar pill navigation with mono counts.",
+      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab ds-tab-active\">Resonators <span class=\"ds-tab-pill\">8/61</span></button><button class=\"ds-tab\">Teams <span class=\"ds-tab-pill\">8</span></button><button class=\"ds-tab\">Banners <span class=\"ds-tab-pill\">3.8</span></button></nav>",
+      "css": ".ds-tabs { display: inline-flex; gap: 4px; padding: 4px; background: rgba(6, 10, 22, 0.72); border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 999px; } .ds-tab { display: inline-flex; align-items: center; gap: 8px; border: 1px solid transparent; background: transparent; padding: 7px 14px; border-radius: 999px; color: #8c9bbd; font-family: 'Outfit', 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, color 180ms ease; } .ds-tab:hover:not(.ds-tab-active) { color: #eef3ff; background: rgba(255, 255, 255, 0.04); } .ds-tab-active { background: linear-gradient(135deg, rgba(125, 211, 252, 0.2), rgba(129, 140, 248, 0.18)); border-color: rgba(125, 211, 252, 0.4); color: #eef3ff; box-shadow: 0 0 20px -6px rgba(125, 211, 252, 0.45); } .ds-tab-pill { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: inherit; opacity: 0.8; } .ds-tab:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Text and select fields sit in a dark well with a cyan focus ring.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Search</span><input class=\"ds-input\" placeholder=\"Search name, role, weapon...\" /></label>",
+      "css": ".ds-field { display: block; } .ds-field-label { display: block; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; color: #8c9bbd; margin-bottom: 5px; } .ds-input { width: 100%; background: rgba(8, 13, 28, 0.85); border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 8px; padding: 8px 10px; color: #eef3ff; font-family: 'DM Sans', sans-serif; font-size: 14px; transition: border-color 180ms ease, box-shadow 180ms ease; } .ds-input:hover { border-color: rgba(148, 178, 255, 0.28); } .ds-input:focus { outline: none; border-color: #7dd3fc; box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.14); }"
+    },
+    {
+      "name": "Element Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Element filter with an element dot; active state takes the element color.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip-active\" style=\"--el-color:#fb9263\"><span class=\"ds-dot\"></span></button><button class=\"ds-chip\" style=\"--el-color:#67d5fa\"><span class=\"ds-dot\"></span></button><button class=\"ds-chip\" style=\"--el-color:#d08cf5\"><span class=\"ds-dot\"></span></button></div>",
+      "css": ".ds-chips { display: flex; gap: 5px; } .ds-chip { display: inline-flex; align-items: center; justify-content: center; height: 30px; min-width: 56px; padding: 0 10px; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 8px; background: rgba(255, 255, 255, 0.025); cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease; } .ds-chip:hover { border-color: rgba(148, 178, 255, 0.28); background: rgba(255, 255, 255, 0.05); } .ds-chip-active { border-color: color-mix(in srgb, var(--el-color) 70%, transparent); background: color-mix(in srgb, var(--el-color) 16%, transparent); } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--el-color); } .ds-chip:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Content surface with a title row; new panels use a solid fill (no glass).",
+      "html": "<section class=\"ds-panel\"><div class=\"ds-panel-head\"><h3 class=\"ds-panel-title\">Weapon &amp; Echoes</h3><span class=\"ds-muted\">3 lineups</span></div><p class=\"ds-body\">Grants 12% Attribute DMG Bonus.</p></section>",
+      "css": ".ds-panel { background: #0c1224; border: 1px solid rgba(148, 178, 255, 0.13); border-radius: 16px; padding: 20px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(2, 5, 16, 0.45); color: #eef3ff; } .ds-panel-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; } .ds-panel-title { margin: 0; font-family: 'Outfit', 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; } .ds-muted { color: #8c9bbd; font-family: 'JetBrains Mono', monospace; font-size: 11px; } .ds-body { margin: 0; font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.5; color: #eef3ff; }"
+    },
+    {
+      "name": "Roster Card",
+      "kind": "custom",
+      "refersTo": "roster-card",
+      "description": "Sidebar row for a Resonator; selected state tints with the element color.",
+      "html": "<button class=\"ds-roster-card ds-selected\" style=\"--el-color:#fb9263\"><span class=\"ds-avatar\">DE</span><span class=\"ds-roster-info\"><span class=\"ds-roster-name\">Denia <span class=\"ds-stars\">★★★★★</span></span><span class=\"ds-roster-meta\"><span class=\"ds-dot\"></span>Fusion · Main DPS</span></span></button>",
+      "css": ".ds-roster-card { display: flex; align-items: center; gap: 11px; width: 280px; text-align: left; background: rgba(255, 255, 255, 0.02); border: 1px solid transparent; border-radius: 10px; padding: 7px 12px 7px 8px; color: #eef3ff; cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease; } .ds-roster-card:hover { background: rgba(148, 178, 255, 0.07); border-color: rgba(148, 178, 255, 0.13); } .ds-selected { background: linear-gradient(90deg, color-mix(in srgb, var(--el-color) 14%, rgba(18, 27, 52, 0.85)), rgba(18, 27, 52, 0.65)); border-color: color-mix(in srgb, var(--el-color) 55%, transparent); box-shadow: 0 0 22px -10px var(--el-color); } .ds-avatar { display: grid; place-items: center; width: 46px; height: 50px; border-radius: 8px; border: 1.5px solid color-mix(in srgb, var(--el-color) 60%, transparent); background: #0a1022; color: var(--el-color); font-family: 'Outfit', sans-serif; font-weight: 700; } .ds-roster-info { display: flex; flex-direction: column; gap: 3px; } .ds-roster-name { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 13px; } .ds-stars { color: #f4c977; font-size: 11px; letter-spacing: 1px; } .ds-roster-meta { display: flex; align-items: center; gap: 6px; color: #8c9bbd; font-size: 12px; } .ds-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--el-color); } .ds-roster-card:focus-visible { outline: 2px solid #7dd3fc; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Resonance Console",
+    "overview": "The tracker is an instrument, not a poster. It is a precise, dark control panel that sits beside the running game and lights up in the color of whatever Resonator is in focus. The near-black navy hull keeps the game's art and the six element colors as the brightest things on screen; everything else is quiet slate text, hairline borders and dim surfaces.\n\nInformation is dense because the window is often small and out of focus, but controls should feel soft and easy to hit rather than cramped. The current implementation leans on frosted glass, nebula backdrops and glows; the agreed direction is to pull that back. Glass stays on the top bar, content panels move toward solid surfaces, and glow only marks what is selected or active.\n\nCharacter, weapon, Echo and banner art comes from the game and is the only imagery. The console frames it; it never competes with it.",
+    "keyCharacteristics": [
+      "Dark navy hull (`void`) with one cool accent (`resonance-cyan`) and gold reserved for Convene and 5-star rarity.",
+      "Element color (`--el-color`) as a scoped variable that tints borders, avatars, selection and the character hero.",
+      "Outfit for names and headings, DM Sans for everything read, JetBrains Mono for counts and numbers.",
+      "Tabular numerals everywhere: stats, counts and costs line up.",
+      "Hairline borders over shadows; depth comes from tonal steps."
+    ],
+    "rules": [
+      { "name": "The Meaning-Only Color Rule", "body": "Element, tier and rarity colors appear only where they encode that fact. Never borrow Havoc purple or Z-tier pink to decorate an unrelated control.", "section": "colors" },
+      { "name": "The One Voice Rule", "body": "Cyan is the only interface accent. If a screen needs a second emphasis, use weight or `starlight` text, not a new hue.", "section": "colors" },
+      { "name": "The Tabular Rule", "body": "Body text sets `font-variant-numeric: tabular-nums`. Any new number display (stats, costs, counts) must keep columns aligned.", "section": "typography" },
+      { "name": "The Readable-Floor Rule", "body": "Running text never goes below 12px. 11px is reserved for mono counts and star rows; 9–10px is not used for new work.", "section": "typography" },
+      { "name": "The One Glass Rule", "body": "Only the top bar (and floating menus, which sit over moving content) is frosted. New panels use a solid `panel` fill, and existing panels move to solid fills when they are touched.", "section": "elevation" },
+      { "name": "The Glow-Means-Selected Rule", "body": "A glow says \"this is the active or selected item\". No glow on resting cards, headings or decoration.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** let game art and element color be the brightest things on screen; keep chrome in navy, slate and hairlines.",
+      "**Do** scope element tinting through `--el-color` and `color-mix()` instead of hard-coding element hexes in new rules.",
+      "**Do** use `tabular-nums` and the mono face for counts and stat values.",
+      "**Do** give new controls at least 32px height and 16–20px panel padding.",
+      "**Do** keep a visible `:focus-visible` ring (2px cyan, 2px offset) on every interactive element.",
+      "**Do** honor `prefers-reduced-motion`: the existing media query cuts animations and transitions to near zero."
+    ],
+    "donts": [
+      "**Don't** add new frosted-glass panels; glass belongs to the top bar only.",
+      "**Don't** add glows to elements that are not selected or active.",
+      "**Don't** use element, tier or rarity colors outside their meaning.",
+      "**Don't** introduce a second interface accent alongside `resonance-cyan`; gold stays reserved for rarity and Convene.",
+      "**Don't** set running text below 12px.",
+      "**Don't** load fonts or assets from a CDN; everything ships in `public/` for offline use."
+    ]
+  }
+}
