@@ -567,19 +567,10 @@ button:active:not(:disabled) {
   align-items: stretch;
 }
 
-.roster-layout.has-stage {
-  background: radial-gradient(
-    60% 70% at 24% 20%,
-    color-mix(in srgb, var(--el-color, var(--accent)) 24%, transparent),
-    transparent 72%
-  );
-  transition: background 320ms ease;
-}
-
 .roster-layout.has-stage .roster {
-  background: color-mix(in srgb, var(--panel-solid) 70%, transparent);
-  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 26%, var(--border));
-  transition: border-color 320ms ease;
+  background: var(--panel-solid);
+  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 24%, var(--border));
+  transition: border-color 280ms ease;
 }
 
 .roster {
@@ -956,8 +947,8 @@ button:active:not(:disabled) {
 }
 
 /* The selected Resonator's stage: full-body art in an element-coloured
-   light field, the name at poster scale, and the build in a dock of opaque
-   panels so text never sits on the art. */
+   light field with orbital resonance geometry, the name at poster scale,
+   and the build in a dock of opaque panels so text never sits on the art. */
 .character-stage {
   position: relative;
   overflow: hidden;
@@ -970,67 +961,168 @@ button:active:not(:disabled) {
     '. .'
     'dock dock';
   --dock-h: 136px;
+  --stage-px: 0;
+  --stage-py: 0;
   container-type: inline-size;
   min-height: 500px;
   padding: 28px 28px 20px;
   border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--el-color, var(--accent)) 28%, var(--border));
   background: var(--bg-elev);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--el-color, var(--accent)) 36%, rgba(255, 255, 255, 0.08)),
+    0 20px 44px -26px rgba(4, 2, 10, 0.9);
   isolation: isolate;
+  transition: border-color 280ms ease;
 }
 
 .stage-field {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: -3;
   pointer-events: none;
   background:
     radial-gradient(
-      34% 12% at 70% 96%,
-      color-mix(in srgb, var(--el-color, var(--accent)) 40%, transparent) 0%,
-      transparent 100%
+      rgba(214, 200, 255, 0.085) 1px,
+      transparent 1px
     ),
-    radial-gradient(
-      80% 110% at 64% 42%,
-      color-mix(in srgb, var(--el-color, var(--accent)) 72%, transparent) 0%,
-      color-mix(in srgb, var(--el-color, var(--accent)) 34%, transparent) 32%,
-      color-mix(in srgb, var(--el-color, var(--accent)) 10%, transparent) 62%,
-      transparent 84%
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--el-color, var(--accent)) 10%, var(--bg-elev)) 0%,
-      var(--bg) 100%
-    );
+    linear-gradient(155deg, #161325 0%, #0f0d1a 56%, #0a0912 100%);
+  background-size: 24px 24px, 100% 100%;
+}
+
+.stage-geometry {
+  position: absolute;
+  inset: -4% -3%;
+  width: 106%;
+  height: 108%;
+  z-index: -2;
+  pointer-events: none;
+  color: var(--el-color, var(--accent));
+  transform: translate3d(calc(var(--stage-px) * -12px), calc(var(--stage-py) * -8px), 0);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: stage-motif-enter 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stage-slash-plane {
+  fill: color-mix(in srgb, var(--el-color, var(--accent)) 11%, #131020);
+}
+
+.stage-slash-band {
+  fill: color-mix(in srgb, var(--el-color, var(--accent)) 18%, transparent);
+}
+
+.stage-slash-edge {
+  stroke: color-mix(in srgb, var(--el-color, var(--accent)) 72%, transparent);
+}
+
+.stage-slash-edge-sub {
+  stroke: color-mix(in srgb, var(--el-color, var(--accent)) 28%, transparent);
+}
+
+.stage-motif-rings {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: stage-orbit-drift 18s ease-in-out infinite alternate;
+}
+
+.stage-watermark {
+  position: absolute;
+  left: 24px;
+  bottom: 122px;
+  z-index: -2;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-hero);
+  font-size: clamp(120px, 22cqi, 224px);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--el-color, var(--accent)) 18%, transparent);
+  transform: translate3d(calc(var(--stage-px) * -6px), calc(var(--stage-py) * -4px), 0);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: stage-title-enter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes stage-motif-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(18px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(calc(var(--stage-px) * -12px), calc(var(--stage-py) * -8px), 0);
+  }
+}
+
+@keyframes stage-orbit-drift {
+  from {
+    transform: rotate(-1.6deg) scale(1);
+  }
+  to {
+    transform: rotate(1.6deg) scale(1.025);
+  }
 }
 
 @keyframes stage-enter {
   from {
     opacity: 0;
-    transform: translateX(24px);
+    transform: translate3d(28px, 6px, 0) scale(1.03);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
-.stage-art,
-.stage-art-frame {
-  animation: stage-enter 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+@keyframes stage-title-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes stage-dock-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.stage-art-wrap {
+  position: absolute;
+  z-index: -1;
+  right: 3%;
+  top: 2%;
+  height: 112%;
+  pointer-events: none;
+  user-select: none;
+  transform: translate3d(calc(var(--stage-px) * 10px), calc(var(--stage-py) * 6px), 0);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .stage-art {
-  position: absolute;
-  z-index: -1;
-  right: 2%;
-  top: -12%;
-  height: 128%;
+  height: 100%;
   width: auto;
   max-width: none;
-  pointer-events: none;
-  user-select: none;
-  -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 86%);
-  mask-image: linear-gradient(180deg, #000 62%, transparent 86%);
+  display: block;
+  filter: drop-shadow(0 18px 28px rgba(4, 2, 10, 0.78));
+  -webkit-mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
+  mask-image: linear-gradient(180deg, #000 66%, transparent 90%);
+  animation: stage-enter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stage-art-frame {
+  animation: stage-enter 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Characters without a full-body render: their portrait, framed. */
@@ -1043,8 +1135,9 @@ button:active:not(:disabled) {
   aspect-ratio: 374 / 512;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 2px solid var(--el-color, var(--accent));
+  border: 2px solid color-mix(in srgb, var(--el-color, var(--accent)) 80%, transparent);
   background: color-mix(in srgb, var(--el-color, var(--accent)) 22%, var(--bg-elev));
+  box-shadow: 0 22px 44px -18px rgba(4, 2, 10, 0.85);
 }
 
 /* Only where the frame sits above a 4-column dock; narrower windows keep
@@ -1070,6 +1163,7 @@ button:active:not(:disabled) {
   align-items: flex-start;
   gap: 6px;
   max-width: 60%;
+  animation: stage-title-enter 360ms cubic-bezier(0.16, 1, 0.3, 1) 40ms both;
 }
 
 .stage-stars {
@@ -1086,6 +1180,7 @@ button:active:not(:disabled) {
   letter-spacing: 0.005em;
   text-transform: uppercase;
   overflow-wrap: break-word;
+  text-shadow: 0 12px 30px rgba(4, 2, 10, 0.55);
 }
 
 .stage-title h2[data-long] {
@@ -1102,10 +1197,12 @@ button:active:not(:disabled) {
 .stage-tag {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   min-height: 30px;
   padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(10, 9, 18, 0.78);
+  border: 1px solid rgba(214, 200, 255, 0.14);
+  background: rgba(10, 9, 18, 0.82);
   color: var(--text);
   font-size: 13px;
   font-weight: 600;
@@ -1113,6 +1210,7 @@ button:active:not(:disabled) {
 
 .stage-tag-element {
   color: var(--el-color, var(--text));
+  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 44%, transparent);
 }
 
 .stage-owned {
@@ -1122,7 +1220,7 @@ button:active:not(:disabled) {
 
 .stage-owned .owned-full {
   min-height: 36px;
-  background: rgba(10, 9, 18, 0.78);
+  background: rgba(10, 9, 18, 0.82);
   color: var(--text);
 }
 
@@ -1149,7 +1247,8 @@ button:active:not(:disabled) {
 .stage-kit-count {
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(10, 9, 18, 0.78);
+  border: 1px solid rgba(214, 200, 255, 0.14);
+  background: rgba(10, 9, 18, 0.82);
   color: var(--text);
   font-size: 13px;
   font-weight: 600;
@@ -1170,8 +1269,46 @@ button:active:not(:disabled) {
   min-width: 0;
   padding: 14px 16px;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--el-color, var(--accent)) 14%, var(--border));
   background: rgba(19, 16, 29, 0.94);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 20px -14px rgba(4, 2, 10, 0.85);
+  transition:
+    border-color 200ms ease,
+    box-shadow 220ms ease,
+    background-color 200ms ease;
+  animation: stage-dock-enter 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.dock-card:nth-child(2) {
+  animation-delay: 35ms;
+}
+
+.dock-card:nth-child(3) {
+  animation-delay: 70ms;
+}
+
+.dock-card:nth-child(4) {
+  animation-delay: 105ms;
+}
+
+.dock-card:hover {
+  border-color: color-mix(in srgb, var(--el-color, var(--accent)) 46%, var(--border-strong));
+  background: rgba(23, 19, 36, 0.96);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--el-color, var(--accent)) 28%, rgba(255, 255, 255, 0.08)),
+    0 14px 28px -18px rgba(4, 2, 10, 0.92);
+}
+
+.dock-card .weapon-icon,
+.dock-card .echo-icon {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-card:hover .weapon-icon,
+.dock-card:hover .echo-icon {
+  transform: scale(1.06);
 }
 
 .dock-label {
@@ -1183,6 +1320,19 @@ button:active:not(:disabled) {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+
+.dock-pct {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.dock-pct.is-met {
+  color: var(--success);
 }
 
 .dock-item {
@@ -1236,7 +1386,7 @@ button:active:not(:disabled) {
   display: block;
   height: 6px;
   border-radius: 999px;
-  background: rgba(214, 200, 255, 0.12);
+  background: rgba(214, 200, 255, 0.14);
   overflow: hidden;
 }
 
@@ -1244,8 +1394,16 @@ button:active:not(:disabled) {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--el-color, var(--accent));
-  transition: width 240ms ease;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--el-color, var(--accent)) 82%, #ffffff) 0%,
+    var(--el-color, var(--accent)) 100%
+  );
+  transition: width 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-bar.is-met > span {
+  background: var(--success);
 }
 
 .dock-card-team .team-roster {
@@ -3325,8 +3483,13 @@ button.banner-four-star:hover {
     max-width: 100%;
   }
 
-  .stage-art {
+  .stage-art-wrap {
     right: -14%;
+  }
+
+  .stage-watermark {
+    bottom: 24px;
+    opacity: 0.7;
   }
 
   .stage-art-frame {
